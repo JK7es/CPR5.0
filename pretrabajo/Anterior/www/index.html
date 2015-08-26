@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Cantabria Padel Rank v3</title>
+        <link rel="shortcut icon" href="favicon.ico">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <link rel="stylesheet" href="css/general.css">
+        
+        <link rel="stylesheet" href="css/JK7.min.css">
+        <link rel="stylesheet" href="css/jquery.mobile.icons.min.css">
+        <link rel="stylesheet" href="css/jquery.mobile.structure-1.4.5.min.css">        
+        
+        <script src="js/jquery-1.11.2.min.js"></script>
+        <script src="js/jquery.mobile-1.4.5.min.js"></script>
+		<script src="js/generales.js"></script>
+
+    </head>
+    <body>
+		<!-- INICIO PAGINA -->
+        <div data-role="page" class="ui-responsive-panel" data-add-back-btn="true">
+            <!-- INICIO CABECERA -->    
+            <div data-role="header" data-theme="a">
+                <a href="#nav-panel" data-icon="bars" data-iconpos="notext">Menu</a>                
+                <h1><a href="https://play.google.com/store/apps/details?id=com.jk7.CantabriaPdlRank2&hl=es" class="titulo">C.P.R.</a></h1>
+                <a href="#" data-icon="back" data-iconpos="notext" data-rel="back">Atras</a>                
+            </div>
+            <!-- FIN CABECERA -->
+			<!-- INICIO CONTENIDO -->
+            <div data-role="content">
+                <h2>Cantabria Padel Rank</h2>    
+                <p>Mi nombre es Jose Luis Fernández Saiz y juego en Body Factory "C" </p>
+                <p>Esta es la tercera versión de Cantabria Pádel Rank. Al principio fue sólo un calculador de puntos, pero con el tiempo se han ido añadiendo funcionalidades.</p>
+                <p>La APP es gratuita y espero que de ayuda. De momento sólo es para Android, ya que el coste de publicar la app para IOS es de 300€ (si alguien quiere subvencionar la publicación, escucho ofertas ;) )</p>
+                <p>Quiero dar las gracias a toda la gente que me ha ayudado y me ayuda con la app: Canales, Benito, Jonny, Clara, Hector, Somo... y a todos los capitanes que me estáis pasando información y fotos de los jugadores.</p>
+                <p>Estoy abierto a sugerencias, criticas, ayuda... todo se puede hablar. Si queréis contactar conmigo, no dudéis en hacerlo, en persona o a través de twitter (<a href='https://twitter.com/jk7es'>@jk7es</a>)</p>
+                <p>Nos vemos por las pistas</p>
+            </div>
+            <!-- FIN CONTENIDO -->
+            <!-- INICIO PIE -->
+            <div >
+                <a href="http://tunein.com/radio/Radio-Meruelo-1071-s114032/">
+                	<img src='http://topera.esy.es/img/radio_meruelo.png' class="footer">
+                </a>
+            </div>
+            <!-- FIN PIE -->
+                
+			<style>
+                .nav-search .ui-btn-up-a {
+                    background-image:none;
+                    background-color:#333333;
+                }
+                .nav-search .ui-btn-inner {
+                    border-top: 1px solid #888;
+                    border-color: rgba(255, 255, 255, .1);
+                }
+            </style>
+
+			<!-- INICIO MENU -->    
+            <div data-role="panel" data-position="left" data-position-fixed="false" data-display="reveal" id="nav-panel" data-theme="a">
+                <ul data-role="listview" data-theme="a" data-divider-theme="a" style="margin-top:-16px;" class="nav-search">
+                    <li data-filtertext="wai-aria voiceover accessibility screen reader">
+                        <a href="index.html" data-ajax="false">Inicio</a>
+                    </li>
+                    <li data-filtertext="wai-aria voiceover accessibility screen reader">
+                        <a href="jugadores.html" data-ajax="false">Jugadores</a>
+                    </li>
+                    <li data-filtertext="accordions collapsible set collapsible-set collapsed">
+                        <a href="equipos.html" data-ajax="false">Equipos</a>
+                    </li>
+                    <li data-filtertext="accordions collapsible set collapsible-set collapsed">
+                        <a href="categorias.html" data-ajax="false">Categorias</a>
+                    </li>
+                    <li data-filtertext="ajax navigation model">
+                        <a href="mapa.html">Mapa</a>
+                    </li>
+                    <li data-filtertext="ajax navigation model">
+                        <a href="twitter.html">Twitter</a>
+                    </li>
+                </ul>               
+            </div>
+            <!-- FIN MENU -->
+		</div>
+        <!-- FIN PAGINA -->
+    </body>
+</html>

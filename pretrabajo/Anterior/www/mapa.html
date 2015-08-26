@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Cantabria Padel Rank v3</title>
+        <link rel="shortcut icon" href="favicon.ico">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <link rel="stylesheet" href="css/general.css">
+        <style>
+			#map-page, #map-canvas {
+				width: 100%;
+				height: 90%;
+				padding: 0;
+			}			
+		</style>
+        <link rel="stylesheet" href="css/JK7.min.css">
+        <link rel="stylesheet" href="css/jquery.mobile.icons.min.css">
+        <link rel="stylesheet" href="css/jquery.mobile.structure-1.4.5.min.css">
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
+                
+        <script src="js/jquery-1.11.2.min.js"></script>
+        <script src="js/jquery.mobile-1.4.5.min.js"></script>
+		<script src="http://maps.google.com/maps/api/js?sensor=false"></script>
+		<script>
+			/*
+			 * Google Maps documentation: http://code.google.com/apis/maps/documentation/javascript/basics.html
+			 * Geolocation documentation: http://dev.w3.org/geo/api/spec-source.html
+			 */
+		
+			$( document ).on( "pagecreate", "#map-page", function() {
+				var defaultLatLng = new google.maps.LatLng(34.0983425, -118.3267434);  // Default to Hollywood, CA when no geolocation support
+		
+				if ( navigator.geolocation ) {
+					function success(pos) {
+						// Location found, show map with these coordinates
+						drawMap(new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude));
+					}
+		
+					function fail(error) {
+						drawMap(defaultLatLng);  // Failed to find location, show default map
+					}
+		
+					// Find the users current position.  Cache the location for 5 minutes, timeout after 6 seconds
+					navigator.geolocation.getCurrentPosition(success, fail, {maximumAge: 500000, enableHighAccuracy:true, timeout: 6000});
+				} else {
+					drawMap(defaultLatLng);  // No geolocation support, show default map
+				}
+		
+				function drawMap(latlng) {
+					
+					var myOptions = {
+						zoom: 10,
+						center: latlng,
+						mapTypeId: google.maps.MapTypeId.ROADMAP
+					};
+		
+					var map = new google.maps.Map(document.getElementById("map-canvas"), myOptions);
+					
+					var puntos = [];
+					
+					$.ajax({
+						url: PATH + "ws_resp_clubes.php",
+						type: 'GET',
+						dataType: 'json',
+						async: false,
+						crossDomain: true,
+						timeout: 5000,
+						data: {
+							
+						},
+						success: function(data){
+/*							
+{ 
+	position:{
+		lat : data[i].latitud,
+		lng : data[i].longitud
+	},
+		contenido: "<div id=\"content\">"+
+            			"<h2>" + data[i].club + "</h2>"+
+						"<div id=\"bodyContent\">" +
+							"<p>P.T.:" +  + "</p>" +
+							"<p>" +  + "</p>"+
+						"</div>"+
+					"</div>"
+}
+*/						
+							
+							
+							for (var i = 0; i < data.length; i++){
+								if (i == 1){
+								
+								}
+								else{
+									
+								}								
+							}							
+						}
+					});
+				}
+			});
+		</script>
+    </head>
+    <body>
+		<!-- INICIO PAGINA -->
+        <div data-role="page" id="map-page" data-add-back-btn="true" class="ui-responsive-panel">
+            <!-- INICIO CABECERA -->
+            <div data-role="header" data-theme="a">
+                <a href="index.html" data-icon="home" data-iconpos="notext">Inicio</a>                
+                <h1><a href="https://play.google.com/store/apps/details?id=com.jk7.CantabriaPdlRank2&hl=es" class="titulo">C.P.R.</a></h1>
+                <a href="#" data-icon="back" data-iconpos="notext" data-rel="back">Atras</a>                
+            </div>            
+            <!-- FIN CABECERA -->
+           
+			<!-- INICIO CONTENIDO -->
+            <div role="main" class="ui-content" id="map-canvas">
+                <!-- map loads here... -->
+            </div>            
+            <!-- FIN CONTENIDO -->
+            <!-- INICIO PIE -->
+            <div >
+                <a href="http://tunein.com/radio/Radio-Meruelo-1071-s114032/">
+                	<img src='http://topera.esy.es/img/radio_meruelo.png' class="footer">
+                </a>
+            </div>
+            <!-- FIN PIE -->
+            
+		</div>
+        <!-- FIN PAGINA -->
+	</body>
+</html>

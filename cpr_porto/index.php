@@ -113,26 +113,10 @@
 			</header>
 
 			<div role="main" class="main">
-
-				<section class="page-header">
-					<div class="container">
-						<div class="row">
-							<div class="col-md-12">
-								<ul class="breadcrumb">
-									<li><a href="#">Home</a></li>									
-								</ul>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-md-12">
-								<h1>Noticias</h1>
-							</div>
-						</div>
-					</div>
-				</section>
-				<div id="include">
-					
-				</div>
+				
+                <!-- InstanceBeginEditable name="body" -->        
+				<div id="include"></div>
+                <!-- InstanceEndEditable -->		
                     
 			</div>
 

@@ -68,7 +68,25 @@ alert("llamada ajax");
 }
 
 function cabecera_noticia(){
-	var noticias = 	'				<div class="container">';
+
+	var noticias = 	'				<section class="page-header">';
+		noticias += '					<div class="container">';
+		noticias += '						<div class="row">';
+		noticias += '							<div class="col-md-12">';
+		noticias += '								<ul class="breadcrumb">';
+		noticias += '									<li><a href="#">Home</a></li>';
+		noticias += '								</ul>';
+		noticias += '							</div>';
+		noticias += '						</div>';
+		noticias += '						<div class="row">';
+		noticias += '							<div class="col-md-12">';
+		noticias += '								<h1>Noticias</h1>';
+		noticias += '							</div>';
+		noticias += '						</div>';
+		noticias += '					</div>';
+		noticias += '				</section>';
+
+		noticias += '				<div class="container">';
 		noticias += '					<div class="row">';
 		noticias += '						<div class="col-md-12">';
 		noticias += '							<div class="blog-posts">';

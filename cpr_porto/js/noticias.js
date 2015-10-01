@@ -4,67 +4,61 @@ carga_noticias ();
 
 function carga_noticias (){
 
-alert("carga_noticias");
+console.log("carga_noticias");
 
-						$.ajax({
-							url: "http://cantabriapadelrank.com/ws/ws_resp_agenda.php",
-							type: 'GET',
-							dataType: 'json',
-							async: true,
-							crossDomain: true,
-							timeout: 5000,
+	$.ajax({
+		url: "http://cantabriapadelrank.com/ws/ws_resp_agenda.php",
+		type: 'GET',
+		dataType: 'json',
+		async: true,
+		crossDomain: true,
+		timeout: 5000,
 //							data: {
 //								nom: $input.val().toUpperCase(),
 //								sexo: sexo
 //							},
-							success: function(data){
-								
-								var noticias = "";
-								var mes 	 = "";
-								var show_mes = "";
-								var posicion = 0; // 0 Izquierda, 1 Derecha
-								
-								noticias += cabecera_noticia();								
+		success: function(data){
+			
+			var noticias = "";
+			var mes 	 = "";
+			var show_mes = "";
+			var posicion = 0; // 0 Izquierda, 1 Derecha
+			
+			noticias += cabecera_noticia();								
 
-								for (var i = 0; i < data.length; i++){
-									
-									if (mes != data[i].mes){
-										mes = data[i].mes;
-										show_mes = mes;
-									}else{
-										show_mes = "";
-									}
+			for (var i = 0; i < data.length; i++){
+				
+				if (mes != data[i].mes){
+					mes = data[i].mes;
+					show_mes = mes;
+				}else{
+					show_mes = "";
+				}
 
-									posicion = i % 2;	
+				console.log("For-indice->" + i);
 
-									noticias += datos_noticias (posicion, show_mes, data[i].titular, data[i].imagen, data[i].imagen2, data[i].noticia, data[i].autor, data[i].fecha);
+				posicion = i % 2;	
 
-									alert(i);
-									
-								};
-								
-								noticias += pie_noticia();								
+				noticias += datos_noticias (posicion, show_mes, data[i].titular, data[i].imagen, data[i].imagen2, data[i].noticia, data[i].autor, data[i].fecha);
+				
+			};
+			
+			noticias += pie_noticia();								
 
-								$("#include").html(noticias);
-							}, 
-							error: function(){
-								alert ("No se puede conectar con el servidor");
-							}
-						})
-						.then( function ( response ) {
-											
-							alert ("response");
+			$("#include").html(noticias);
+		}, 
+		error: function(){
+			alert ("No se puede conectar con el servidor");
+		}
+	})
+	.then( function ( response ) {
+		
+		console.log("function (response)");
 //							$ul.html( html );
 //							$ul.listview( "refresh" );
 //							$ul.trigger( "updatelayout");
-	
-						});
 
-alert("llamada ajax");
-
-
-
-	
+	});
 }
 
 function cabecera_noticia(){

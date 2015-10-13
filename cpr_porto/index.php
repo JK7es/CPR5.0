@@ -113,7 +113,9 @@
 			</header>
 
 			<div role="main" class="main">
-				
+
+
+				<?php include("includes/calculadora.html"); ?>
                 <!-- InstanceBeginEditable name="body" -->        
 				<div id="include"></div>
                 <!-- InstanceEndEditable -->		

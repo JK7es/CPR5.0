@@ -1,1 +1,40 @@
 /* Add here all your CSS customizations */
+.box{
+
+}
+.field{
+	background: transparent url("../img/field.png") no-repeat scroll center bottom;
+	border: 0px none;
+	height: 500px;
+	padding: 0px;
+	position: relative;
+	text-align: center;
+	width: 500px;
+	margin: auto;
+}	
+
+.pic{
+	width: 75px;
+	height: 75px;
+	background-size: 75px auto;
+	margin: auto;
+	position: relative;
+}
+
+.field table{
+	width: 100%;
+	border-spacing: 100px 110px; 
+	border-collapse: separate;
+}
+
+.field top{
+	position: absolute;
+	margin-top: 50px;
+	z-index: 1;
+}
+
+.field bottom{
+	position: absolute;
+	margin-top: 10px;
+	z-index: 1;
+}

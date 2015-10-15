@@ -41,34 +41,37 @@
 									</form>
 								</div>
 								<div class="row">
-									<div class="col-md-7" style="z-index: 999; position: relative;" loader="loadingPromise">
-										<lineup lineup="user.lineup" ng-model="lineupElm" players="user.players" writable="true" show-points="false" show-status="true" check-positions="true" class="ng-pristine ng-untouched ng-valid">
+									<div class="col-md-7" style="z-index: 99; position: relative;" loader="loadingPromise">
+										<lineup lineup="user.lineup" players="user.players" writable="true" show-points="false" show-status="true" check-positions="true" class="ng-pristine ng-untouched ng-valid">
 											<div class="lineup animate-zoom-in">
 												<div class="field football" style="background-image:url(img/court.png)">
-													<div ng-repeat="line in ::[4,3,2,1]">
-														<a ng-repeat="playerI in lines[line]" class="player pos-4" ng-class="::'pos-' + line" href="liga-bbva/players/sergi-enrich" ng-click="playerClicked($event, playerI, line, lineup.players[playerI])">
-															<div class="star ng-hide" ng-show="lineup.players[playerI].star"></div>
-															<img class="player-icon" src="https://i.imgur.com/kyB7Q03.png" ng-src="https://i.imgur.com/kyB7Q03.png">
-															<div class="info" ng-show="lineup.players[playerI]">Sergi Enrich</div>
+													<div >
+														<a  class="player pos-4"  href="liga-bbva/players/sergi-enrich" >
+															<div class="star ng-hide" ></div>
+															<img class="player-icon" src="https://i.imgur.com/kyB7Q03.png" >
+															<div class="info" >Sergi Enrich</div>
 														</a>
-														<a ng-repeat="playerI in lines[line]" class="player pos-4" ng-class="::'pos-' + line" href="liga-bbva/players/sergi-enrich" ng-click="playerClicked($event, playerI, line, lineup.players[playerI])">
-															<div class="star ng-hide" ng-show="lineup.players[playerI].star"></div>
-															<img class="player-icon" src="https://i.imgur.com/kyB7Q03.png" ng-src="https://i.imgur.com/kyB7Q03.png">
-															<div class="info" ng-show="lineup.players[playerI]">Sergi Enrich</div>
+														<a  class="player pos-4" href="liga-bbva/players/sergi-enrich" >
+															<div class="star ng-hide" ></div>
+															<img class="player-icon" src="https://i.imgur.com/kyB7Q03.png" >
+															<div class="info" >Sergi Enrich</div>
 														</a>
 													</div>
-													<div ng-repeat="line in ::[4,3,2,1]">
+													<div >
 													</div>
-													<div ng-repeat="line in ::[4,3,2,1]">
-														<a ng-repeat="playerI in lines[line]" class="player pos-4" ng-class="::'pos-' + line" href="liga-bbva/players/sergi-enrich" ng-click="playerClicked($event, playerI, line, lineup.players[playerI])">
-															<div class="star ng-hide" ng-show="lineup.players[playerI].star"></div>
-															<img class="player-icon" src="https://i.imgur.com/kyB7Q03.png" ng-src="https://i.imgur.com/kyB7Q03.png">
-															<div class="info" ng-show="lineup.players[playerI]">Sergi Enrich</div>
+													<div >
+														<a  class="player pos-4"  href="liga-bbva/players/sergi-enrich" >
+															<div class="star ng-hide" ></div>
+															<img class="player-icon" src="https://i.imgur.com/kyB7Q03.png" >
+															<div class="info" >Sergi Enrich</div>
 														</a>
-														<a ng-repeat="playerI in lines[line]" class="player pos-4" ng-class="::'pos-' + line" href="liga-bbva/players/sergi-enrich" ng-click="playerClicked($event, playerI, line, lineup.players[playerI])">
-															<div class="star ng-hide" ng-show="lineup.players[playerI].star"></div>
-															<img class="player-icon" src="https://i.imgur.com/kyB7Q03.png" ng-src="https://i.imgur.com/kyB7Q03.png">
-															<div class="info" ng-show="lineup.players[playerI]">Sergi Enrich</div>
+														<a class="player pos-4" href="liga-bbva/players/sergi-enrich">
+															<div class="star ng-hide"></div>
+															<img class="player-icon" src="https://i.imgur.com/kyB7Q03.png" >
+															<div class="info" >Sergi Enrich
+																<span class="points bg points-best">10
+																</span>
+															</div>
 														</a>
 													</div>
 												</div>

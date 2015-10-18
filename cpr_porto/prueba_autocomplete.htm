@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>jQuery UI Autocomplete - Remote JSONP datasource</title>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+  <link rel="stylesheet" href="http://jqueryui.com/resources/demos/style.css">
+  <style>
+    .ui-autocomplete-loading {
+      background: white url("img/ui-anim_basic_16x16.gif") right center no-repeat;
+    }
+    #city { width: 25em; }
+  </style>
+  <script>
+  $(function() {
+    console.log("empieza");
+    $( "#city" ).autocomplete({
+      source: function( request, response ) {
+        $.ajax({
+          url:      "http://topera.esy.es/ws_resp_jugadores.php",
+          dataType: "json",          
+          data: {
+              nom:  $( "#city" ).val().toUpperCase(),
+              sexo: "M"
+          }, 
+          success: function(data) {
+            
+            response($.map(data, function(item) {              
+              
+              console.log("Retorno success");
+
+              return {
+                label:      item.jugador,
+                value:      item.jugador,
+                rank:       item.rank,
+                id_jugador: item.id_jugador
+              };
+            }));
+          },
+          error: function(xhr, textStatus, error) {
+            console.log("error: " + error);
+            
+          }
+        });
+      },
+      minLength: 3,
+      select: function(event, ui) {
+        console.log("selecciona");
+        $('#rank').val(ui.item.rank);
+        $('#id_jugador').val(ui.item.value);
+      }
+    });
+  });
+  </script>
+</head>
+<body>
+ 
+<div class="ui-widget">
+  <label for="city">Your city: </label>
+  <input id="city">  
+  <input id="rank">
+  <input id="id_jugador">
+</div>
+
+ 
+</body>
+</html>

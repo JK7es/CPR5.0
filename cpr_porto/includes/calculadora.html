@@ -1,17 +1,19 @@
 
+
+
 				<section class="page-header">
 					<div class="container">
 						<div class="row">
 							<div class="col-md-12">
 								<ul class="breadcrumb">
-									<li><a href="#">Home</a></li>
-									<li class="active">Features</li>
+									<li><a href="#">Inicio</a></li>
+									<li class="active">Calculadora</li>
 								</ul>
 							</div>
 						</div>
 						<div class="row">
 							<div class="col-md-12">
-								<h1>Forms Basic</h1>
+								<h1>Calculadora</h1>
 							</div>
 						</div>
 					</div>
@@ -23,8 +25,22 @@
 							<section class="panel">
 								<div class="panel-body">
 									<form class="form-horizontal form-bordered" method="get">
+
 										<div class="form-group">
-											<label class="col-md-3 control-label">Jugador 1 Pareja 1</label>
+											<label class="col-md-3 control-label">Sexo</label>
+											<div class="col-md-6">
+																						
+												<input id="radiomas" name="radiosexo" type="radio" checked="checked">
+												<label for="radiomas">Masculino</label>																			
+												
+												<input id="radiofem" name="radiosexo" type="radio" >
+												<label for="radiofem">Femenino</label>
+												
+											</div>
+										</div>
+
+										<div class="form-group">
+											<label class="col-md-3 control-label">Pareja 1</label>
 											<div class="col-md-6">
 
 												<i class="fa fa-circle-o-notch fa-spin"></i>
@@ -34,7 +50,39 @@
 														<i class="fa fa-user"></i>
 													</span>
 												
-													<input type="text" class="form-control" placeholder="Username">
+													<input type="text" id="txtp1j1" class="form-control" placeholder="Selecciona Jugador">
+													<input type="hidden" id="idp1j1">
+													<input type="hidden" id="ptsp1j1">
+													<input type="text" id="txtp1j2" class="form-control" placeholder="Selecciona Jugador">
+													<input type="hidden" id="idp1j2">
+													<input type="hidden" id="ptsp1j2">													
+												
+													<span class="input-group-btn">
+														
+															<i class="fa fa-search"></i>
+														
+													</span>
+
+												</div>
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-md-3 control-label">Pareja 2</label>
+											<div class="col-md-6">
+
+												<i class="fa fa-circle-o-notch fa-spin"></i>
+												
+												<div class="input-group mb-md">
+													<span class="input-group-addon">
+														<i class="fa fa-user"></i>
+													</span>
+												
+													<input type="text" id="txtp2j1" class="form-control" placeholder="Selecciona Jugador">
+													<input type="hidden" id="idp2j1">
+													<input type="hidden" id="ptsp2j1">
+													<input type="text" id="txtp2j2" class="form-control" placeholder="Selecciona Jugador">
+													<input type="hidden" id="idp2j2">
+													<input type="hidden" id="ptsp2j2">
 												
 													<span class="input-group-btn">
 														

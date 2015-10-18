@@ -23,13 +23,13 @@
 		<!-- Web Fonts  -->
 		<link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800%7CShadows+Into+Light" rel="stylesheet" type="text/css">
 
-		<!-- Vendor CSS -->
-		<link rel="stylesheet" href="vendor/bootstrap/bootstrap.css">
+		<!-- Vendor CSS -->		
 		<link rel="stylesheet" href="vendor/fontawesome/css/font-awesome.css">
 		<link rel="stylesheet" href="vendor/simple-line-icons/css/simple-line-icons.css">
 		<link rel="stylesheet" href="vendor/owlcarousel/owl.carousel.min.css">
 		<link rel="stylesheet" href="vendor/owlcarousel/owl.theme.default.min.css">
 		<link rel="stylesheet" href="vendor/magnific-popup/magnific-popup.css">
+		<link rel="stylesheet" href="vendor/bootstrap/bootstrap.css">
 
 		<!-- Theme CSS -->
 		<link rel="stylesheet" href="css/theme.css">
@@ -37,6 +37,7 @@
 		<link rel="stylesheet" href="css/theme-blog.css">
 		<link rel="stylesheet" href="css/theme-shop.css">
 		<link rel="stylesheet" href="css/theme-animate.css">
+		<link rel="stylesheet" href="css/theme-admin-extension.css">
         
         <!-- Current Page CSS -->
 		<link rel="stylesheet" href="vendor/rs-plugin/css/settings.css" media="screen">
@@ -224,6 +225,11 @@
 		<script src="vendor/magnific-popup/jquery.magnific-popup.js"></script>
 		<script src="vendor/vide/vide.js"></script>
 		
+		<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+  		<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  		<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
+
 		<!-- Theme Base, Components and Settings -->
 		<script src="js/theme.js"></script>
 		

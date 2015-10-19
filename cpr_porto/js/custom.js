@@ -5,12 +5,13 @@ $(function() {
 	console.log("empieza");
 	$( "#txtp1j1" ).autocomplete({
 		source: function( request, response ) {
+
 			$.ajax({
 				url:		"http://topera.esy.es/ws_resp_jugadores.php",
 				dataType:	"json",	
 				data: {
 					nom:	$( "#txtp1j1" ).val().toUpperCase(),
-					sexo:	"M"
+					sexo:	$('input[name="radiosexo"]:checked').val()
 				}, 
 				success: function(data) {
 					response($.map(data, function(item) {	
@@ -35,6 +36,11 @@ $(function() {
 			$('#ptsp1j1').val(ui.item.puntos);
 			console.log("ID: " + $('#idp1j1').val());
 			console.log("PUNTOS: " + $('#ptsp1j1').val());
+
+			$('#imgp1j1').attr("src","http://topera.esy.es/img/players/x_" + ui.item.id_jugador + ".jpg");
+			$('#imgp1j1').attr("alt", ui.item.value);
+			$('#nomp1j1').html(ui.item.value);
+
 		},
 		open: function() {
 			$( this ).removeClass( "ui-corner-all" ).addClass( "ui-corner-top" );
@@ -52,7 +58,7 @@ $(function() {
 				dataType: 	"json",
 				data: {
 					nom:	$( "#txtp1j2" ).val().toUpperCase(),
-					sexo:	"M"
+					sexo:	$('input[name="radiosexo"]:checked').val()
 				},
 				success: function(data) {
 					response($.map(data, function(item) {
@@ -77,6 +83,10 @@ $(function() {
 			$('#ptsp1j2').val(ui.item.puntos);
 			console.log("ID: " + $('#idp1j2').val());
 			console.log("PUNTOS: " + $('#ptsp1j2').val());
+
+			$('#imgp1j2').attr("src","http://topera.esy.es/img/players/x_" + ui.item.id_jugador + ".jpg");
+			$('#imgp1j2').attr("alt", ui.item.value);
+			$('#nomp1j2').html(ui.item.value);
 		},
 		open: function() {
 			$( this ).removeClass( "ui-corner-all" ).addClass( "ui-corner-top" );
@@ -93,7 +103,7 @@ $(function() {
 				dataType: 	"json",
 				data: {
 					nom:	$( "#txtp2j1" ).val().toUpperCase(),
-					sexo:	"M"
+					sexo:	$('input[name="radiosexo"]:checked').val()
 				},
 				success: function(data) {
 					response($.map(data, function(item) {
@@ -118,6 +128,10 @@ $(function() {
 			$('#ptsp2j1').val(ui.item.puntos);
 			console.log("ID: " + $('#idp2j1').val());
 			console.log("PUNTOS: " + $('#ptsp2j1').val());
+
+			$('#imgp2j1').attr("src","http://topera.esy.es/img/players/x_" + ui.item.id_jugador + ".jpg");
+			$('#imgp2j1').attr("alt", ui.item.value);
+			$('#nomp2j1').html(ui.item.value);
 		},
 		open: function() {
 			$( this ).removeClass( "ui-corner-all" ).addClass( "ui-corner-top" );
@@ -134,7 +148,7 @@ $(function() {
 				dataType: 	"json",
 				data: {
 					nom:	$( "#txtp2j2" ).val().toUpperCase(),
-					sexo:	"M"
+					sexo:	$('input[name="radiosexo"]:checked').val()
 				},
 				success: function(data) {
 					response($.map(data, function(item) {
@@ -159,6 +173,10 @@ $(function() {
 			$('#ptsp2j2').val(ui.item.puntos);
 			console.log("ID: " + $('#idp2j2').val());
 			console.log("PUNTOS: " + $('#ptsp2j2').val());
+
+			$('#imgp2j2').attr("src","http://topera.esy.es/img/players/x_" + ui.item.id_jugador + ".jpg");
+			$('#imgp2j2').attr("alt", ui.item.value);
+			$('#nomp2j2').html(ui.item.value);
 		},
 		open: function() {
 			$( this ).removeClass( "ui-corner-all" ).addClass( "ui-corner-top" );
@@ -167,10 +185,7 @@ $(function() {
 			$( this ).removeClass( "ui-corner-top" ).addClass( "ui-corner-all" );
 		}
 	});
-
-
-
-  });
+});
 
 
 

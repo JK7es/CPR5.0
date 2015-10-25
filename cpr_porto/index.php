@@ -48,6 +48,9 @@
 
 		<!-- Theme Custom CSS -->
 		<link rel="stylesheet" href="css/custom.css">
+
+		<!-- Theme JQPlot CSS -->
+		<link rel="stylesheet" type="text/css" href="vendor/jqplot/jquery.jqplot.min.css" />
         
         <!-- Head Libs -->
 		<script src="vendor/modernizr/modernizr.js"></script>
@@ -245,6 +248,15 @@
 		
 		<!-- Theme Initialization Files -->
 		<script src="js/theme.init.js"></script>
+
+		<!-- JQplot libreria -->
+		<script type="text/javascript" src="vendor/jqplot/jquery.jqplot.min.js"></script>
+		<script type="text/javascript" src="vendor/jqplot/plugins/jqplot.pieRenderer.js"></script>
+		
+		
+
+
+
 
 		<!-- Google Analytics: Change UA-XXXXX-X to be your site's ID. Go to http://www.google.com/analytics/ for more information.
 		<script type="text/javascript">

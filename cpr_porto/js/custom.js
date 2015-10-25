@@ -41,6 +41,9 @@ $(function() {
 			$('#imgp1j1').attr("alt", ui.item.value);
 			$('#nomp1j1').html(ui.item.value);
 
+
+			dibujaPieChart();
+
 		},
 		open: function() {
 			$( this ).removeClass( "ui-corner-all" ).addClass( "ui-corner-top" );
@@ -188,11 +191,6 @@ $(function() {
 });
 
 
-
-
-
-
-
 function getTextoMes(mes){
 	switch (mes) {
 		case 1:
@@ -233,4 +231,29 @@ function getTextoMes(mes){
 			break;	
 	}
 	return txtMes;
+}
+
+
+
+function calcula(){
+
+}
+
+function dibujaPieChart(){
+	plot2 = jQuery.jqplot('chart2', 
+						  [[['Pareja 1', 75],
+						    ['Pareja 2', 25]]], 
+						    {
+					    		title: 'Relación de Victorias', 
+					    		seriesDefaults: {
+					    			shadow: false, 
+					    			renderer: jQuery.jqplot.PieRenderer, 
+					    			rendererOptions: { 
+										startAngle: 180, 
+										sliceMargin: 4, 
+										showDataLabels: true }
+								}, 
+      							legend: { show:true, location: 'w' }
+							}
+  						);
 }

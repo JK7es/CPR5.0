@@ -26,24 +26,36 @@
 								<div class="panel-body">
 									<form class="form-horizontal form-bordered" method="get">
 
-										<div class="form-group">
-											<label class="col-md-3 control-label">Sexo</label>
-											<div class="col-md-6">
-																						
-												<input id="radiomas" name="radiosexo" type="radio" value="M" checked="checked">
-												<label for="radiomas">Masculino</label>																			
-												
-												<input id="radiofem" name="radiosexo" type="radio" value="F">
-												<label for="radiofem">Femenino</label>
-												
+
+										<div style="text-align: left;margin:auto">
+											<div style="float:left;">
+												<label class="col-md-3 control-label">Sexo</label>
+												<div class="radio-custom radio-primary">
+													<input type="radio" id="radiomas" name="radiosexo" value="M" checked="checked">
+													<label for="radiomas">Masculino</label>
+												</div>	
+												<div class="radio-custom radio-primary">	
+													<input type="radio" id="radiofem" name="radiosexo" value="F">
+													<label for="radiofem">Femenino</label>
+												</div>
 											</div>
+
+											<div style="background-color: #FFFFFF; margin-left:190px; ">
+												<label class="col-md-3 control-label">Competición</label>
+												<div class="radio-custom radio-primary">
+													<input type="radio" id="radioLiga" name="radiocomp" value="L" checked="checked">
+													<label for="radioLiga">Liga</label>
+												</div>	
+												<div class="radio-custom radio-primary">	
+													<input type="radio" id="radioCopa" name="radiocomp" value="C">
+													<label for="radioCopa">Copa</label>
+												</div>
+											</div>	
 										</div>
 
 										<div class="form-group">
 											<label class="col-md-3 control-label">Pareja 1</label>
 											<div class="col-md-6">
-
-												<i class="fa fa-circle-o-notch fa-spin"></i>
 												
 												<div class="input-group mb-md">
 													<span class="input-group-addon">
@@ -55,23 +67,15 @@
 													<input type="hidden" id="ptsp1j1">
 													<input type="text" id="txtp1j2" class="form-control" placeholder="Selecciona Jugador">
 													<input type="hidden" id="idp1j2">
-													<input type="hidden" id="ptsp1j2">
-												
-													<span class="input-group-btn">
-														
-															<i class="fa fa-search"></i>
-														
-													</span>
-
+													<input type="hidden" id="ptsp1j2">												
+													
 												</div>
 											</div>
-										</div>
-										<div class="form-group">
+										
+										
 											<label class="col-md-3 control-label">Pareja 2</label>
 											<div class="col-md-6">
 
-												<i class="fa fa-circle-o-notch fa-spin"></i>
-												
 												<div class="input-group mb-md">
 													<span class="input-group-addon">
 														<i class="fa fa-user"></i>
@@ -83,16 +87,12 @@
 													<input type="text" id="txtp2j2" class="form-control" placeholder="Selecciona Jugador">
 													<input type="hidden" id="idp2j2">
 													<input type="hidden" id="ptsp2j2">
-												
-													<span class="input-group-btn">
-														
-															<i class="fa fa-search"></i>
-														
-													</span>
 
 												</div>
 											</div>
 										</div>
+										<button type="button" class="btn btn-primary mr-xs mb-sm">Limpiar</button>
+										<button type="button" class="btn btn-primary mr-xs mb-sm">Calcular</button>
 									</form>
 								</div>
 								<div class="row">
@@ -134,88 +134,11 @@
 											</div>
 										</lineup>
 									</div>
-									<div>Parte de la derecha <a href="http://jqplot.com" target="_blank">jqplot</a>
+									<div>
+										<div id="chart2" style="margin-top:20px; margin-left:20px; width:460px; height:300px;"></div>
 									</div>
-								</div>	
-
-
-
-
-
-								<div class="box">
-									<div class="field">
-										<div class="alert alert-success top">
-											<strong>Well done!</strong> You are using a awesome template! <a href="" class="alert-link">Say Hi to Porto </a>.
-										</div>
-										<table>
-											<tbody>
-												<tr>													
-													<td>
-														<div class="pic" style="background-image: url(http://topera.esy.es/img/players/x_1339.jpg)"></div>
-													</td>
-													<td>
-														<div class="pic" style="background-image: url(http://topera.esy.es/img/players/x_252.jpg)"></div>
-													</td>
-												</tr>
-												<tr>
-													<td>
-														<div class="pic" style="background-image: url(http://topera.esy.es/img/players/x_2313.jpg)"></div>
-													</td>
-													<td>
-														<div class="pic" style="background-image: url(http://topera.esy.es/img/players/x_183.jpg)"></div>
-													</td>
-												</tr>
-											</tbody>
-										</table>
-										<div class="alert alert-success bottom">
-											<strong>Well done!</strong> You are using a awesome template! <a href="" class="alert-link">Say Hi to Porto </a>.
-										</div>
-									</div>									
-								</div>	
-							</section>
-					
-							<section class="panel">
-								<header class="panel-heading">
-									<div class="panel-actions">
-										<a href="#" class="panel-action panel-action-toggle" data-panel-toggle></a>
-										<a href="#" class="panel-action panel-action-dismiss" data-panel-dismiss></a>
-									</div>
-					
-									<h2 class="panel-title">Controls sizing</h2>
-								</header>
-								<div class="panel-body">
-									<form class="form-horizontal form-bordered" method="get">										
-					
-										<div class="form-group">
-											<label class="col-md-3 control-label" for="inputSuccess">Select sizing</label>
-											<div class="col-md-6">												
-												<select class="form-control mb-md">
-													<option>Fernando Belastegin</option>
-													<option>Option 2</option>
-													<option>Option 3</option>
-												</select>
-												
-											</div>
-										</div>
-										<div class="form-group">
-											<label class="col-md-3 control-label" for="inputSuccess">Select sizing</label>
-											<div class="col-md-6">
-												<div class="input-group input-group-icon">
-													<span class="input-group-addon">
-														<span class="icon"><i class="fa fa-user"></i></span>
-													</span>												
-													<select class="form-control mb-md">
-														<option>Option 1</option>
-														<option>Option 2</option>
-														<option>Option 3</option>
-													</select>
-												</div>
-											</div>
-										</div>
-									</form>
 								</div>
-							</section>							
+							</section>
 						</div>
 					</div>					
-					
 				</div>

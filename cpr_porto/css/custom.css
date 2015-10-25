@@ -1,8 +1,5 @@
 /* Add here all your CSS customizations */
-.field.football>div {
-    height: 100px;
-    white-space: nowrap;
-}
+
 .field.football {
     width: 500px;
     height: 450px;
@@ -12,7 +9,7 @@
 
 .field.football>div {
     height: 100px;
-    white-space: nowrap;
+/*    white-space: nowrap;*/
     text-align: center;
 }
 
@@ -26,6 +23,7 @@
     color: #fff;
     font-weight: 700;
     padding: 0 23px 0 3px;
+    overflow-wrap: normal;
 }
 .field.football .player>* {
     position: relative;
@@ -35,8 +33,9 @@
     display: inline-table;
     position: relative;
     color: #fff;
-    margin: 0 35px;
+    margin: 0 10px;
     min-width: 60px;
+	width: 150px;
 }
 .field.football .player .points {
     position: absolute;
@@ -50,10 +49,15 @@
     border: 1px solid rgba(0,0,0,.25);
 }
 
+.ui-autocomplete-loading {
+	background: white url("../img/indicator.gif") right center no-repeat;
+}
+
 @media(min-width:768px){
 	.field.football .player .player-icon {
-	    width: 50px;
-	    height: 50px;
+	    width: 75px;
+	    height: 75px;
+	    border-radius: 50%;
 	}
 	.field.football .player>* {
     	position: relative;

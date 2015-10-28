@@ -27,34 +27,58 @@
 									<form class="form-horizontal form-bordered" method="get">
 
 
-										<div style="text-align: left;margin:auto">
-											<div style="float:left;">
-												<label class="col-md-3 control-label">Sexo</label>
-												<div class="radio-custom radio-primary">
-													<input type="radio" id="radiomas" name="radiosexo" value="M" checked="checked">
-													<label for="radiomas">Masculino</label>
-												</div>	
-												<div class="radio-custom radio-primary">	
-													<input type="radio" id="radiofem" name="radiosexo" value="F">
-													<label for="radiofem">Femenino</label>
+										<div id="wrapper">											
+											<div id="main">
+												<div id="column1">
+													<label class="col-md-3 control-label">Sexo</label>
+													<div class="radio-custom radio-primary">
+														<input type="radio" id="radiomas" name="radiosexo" value="M" checked="checked">
+														<label for="radiomas">Masculino</label>
+													</div>	
+													<div class="radio-custom radio-primary">	
+														<input type="radio" id="radiofem" name="radiosexo" value="F">
+														<label for="radiofem">Femenino</label>
+													</div>
+												</div>
+												<div id="column2">
+													<label class="col-md-3 control-label">Competición</label>
+													<div class="radio-custom radio-primary">
+														<input type="radio" id="radioLiga" name="radiocomp" value="L" checked="checked">
+														<label for="radioLiga">Liga</label>
+													</div>	
+													<div class="radio-custom radio-primary">	
+														<input type="radio" id="radioCopa" name="radiocomp" value="C">
+														<label for="radioCopa">Copa</label>
+													</div>
+												</div>
+												<div id="column3">
+													<label class="col-md-3 control-label">Ganador</label>
+													<div class="radio-custom radio-primary">
+														<input type="radio" id="radioWinp1" name="radioganador" value="1" checked="checked">
+														<label for="radioWinp1">Pareja 1</label>
+													</div>	
+													<div class="radio-custom radio-primary">	
+														<input type="radio" id="radioWinp2" name="radioganador" value="2">
+														<label for="radioWinp2">Pareja 2</label>
+													</div>
+												</div>
+												<div id="column4">
+													<label class="col-md-3 control-label">Categoría</label>
+													<select id="catLiga" >
+														<option value="1">1º Cat</option>
+														<option value="2">2ª Cat</option>
+														<option value="3">3ª Cat</option>
+														<option value="4">4ª Cat</option>				
+													</select>
+													
 												</div>
 											</div>
 
-											<div style="background-color: #FFFFFF; margin-left:190px; ">
-												<label class="col-md-3 control-label">Competición</label>
-												<div class="radio-custom radio-primary">
-													<input type="radio" id="radioLiga" name="radiocomp" value="L" checked="checked">
-													<label for="radioLiga">Liga</label>
-												</div>	
-												<div class="radio-custom radio-primary">	
-													<input type="radio" id="radioCopa" name="radiocomp" value="C">
-													<label for="radioCopa">Copa</label>
-												</div>
-											</div>	
+																						
 										</div>
 
 										<div class="form-group">
-											<label class="col-md-3 control-label">Pareja 1</label>
+											<label class="col-md-3 control-label">Pareja 1</label>											
 											<div class="col-md-6">
 												
 												<div class="input-group mb-md">
@@ -91,8 +115,11 @@
 												</div>
 											</div>
 										</div>
-										<button type="button" class="btn btn-primary mr-xs mb-sm">Limpiar</button>
-										<button type="button" class="btn btn-primary mr-xs mb-sm">Calcular</button>
+										
+										<div>
+											<button type="button" id="btnLimp" class="btn btn-primary mr-xs mb-sm">Limpiar</button>
+											<button type="button" id="btnCalc" class="btn btn-primary mr-xs mb-sm">Calcular</button>
+										</div>	
 									</form>
 								</div>
 								<div class="row">

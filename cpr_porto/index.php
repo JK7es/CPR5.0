@@ -245,7 +245,8 @@
 		<!-- Theme Custom -->
 		<script src="js/custom.js"></script>
    		<script src="js/noticias.js"></script>
-		
+		<script src="js/calculadora.js"></script>
+
 		<!-- Theme Initialization Files -->
 		<script src="js/theme.init.js"></script>
 

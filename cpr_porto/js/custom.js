@@ -188,6 +188,37 @@ $(function() {
 			$( this ).removeClass( "ui-corner-top" ).addClass( "ui-corner-all" );
 		}
 	});
+
+	$("#btnCalc").click(function(){
+	    
+		console.log("sexo: " + $('input[name="radiosexo"]:checked').val());
+		console.log("competicion: " + $('input[name="radiocomp"]:checked').val());
+		console.log("ganador: " + $('input[name="radioganador"]:checked').val());
+
+		var pareja1 =  Number($('#ptsp1j1').val()) + Number($('#ptsp1j2').val());
+		console.log("Jugador1-1: " + $('#ptsp1j1').val());
+		console.log("Jugador1-2: " + $('#ptsp1j2').val());
+		console.log("Pareja1: " + pareja1);
+
+		var pareja2 =  Number($('#ptsp2j1').val()) + Number($('#ptsp2j2').val());
+		console.log("Jugador2-1: " + $('#ptsp2j1').val());
+		console.log("Jugador2-2: " + $('#ptsp2j2').val());
+		console.log("Pareja2: " + pareja2);
+
+		console.log("Categoria: " + $('#catLiga').val());
+		console.log("Categoria: " + $('#catLiga option:selected' ).text());
+		 
+
+		var resultado = calcula ($('#ptsp1j1').val(), $('#ptsp1j2').val(), 
+			                     $('#ptsp2j1').val(), $('#ptsp2j2').val(), 
+			                     $('input[name="radiocomp"]:checked').val(), 
+			                     $('#catLiga').val(), 
+			                     $('input[name="radioganador"]:checked').val());
+
+	});
+	$("#btnLimp").click(function(){
+	    alert("Boton Limpia presionado");
+	});
 });
 
 
@@ -233,11 +264,6 @@ function getTextoMes(mes){
 	return txtMes;
 }
 
-
-
-function calcula(){
-
-}
 
 function dibujaPieChart(){
 	plot2 = jQuery.jqplot('chart2', 

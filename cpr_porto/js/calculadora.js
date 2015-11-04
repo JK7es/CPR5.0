@@ -5,7 +5,7 @@
 */
 
 
-function calcula (pts_p1j1, pts_p1j2, pts_p2j1, pts_p2j2, torneo, categoria, ganador){
+function calcula (ptsP1, ptsP2, torneo, categoria, ganador){
 
  	var const_K
  	var const_K_winner;
@@ -21,18 +21,17 @@ function calcula (pts_p1j1, pts_p1j2, pts_p2j1, pts_p2j2, torneo, categoria, gan
  	var pts_perdidos;
 
  	// Se suman los puntos de cada pareja
- 	pts_p1 	= pts_p1j1 + pts_p1j2;
- 	pts_p2 	= pts_p2j1 + pts_p2j2;
+ 	pts_p1 	= ptsP1;
+ 	pts_p2 	= ptsP2;
 
+ 	console.log("Calculo de la constante D: calcula_const_D(" + pts_p1 + ", " + pts_p2 + ");");
  	const_D = calcula_const_D(pts_p1, pts_p2);
 
+ 	console.log("Calculo de la constante K: calcula_const_K(" + torneo + ", " + categoria + ");");
  	const_K = calcula_const_K(torneo, categoria);
 
- 	console.log("const_K.winner: " + const_K.winner);
- 	console.log("const_K.loser: " + const_K.loser);
-
- 	const_K_winner 	= const_K.winner
-	const_K_loser 	= const_K.loser
+ 	const_K_winner 	= const_K.winner;
+	const_K_loser 	= const_K.loser;
 
  	console.log("const_K_winner: " + const_K_winner);
  	console.log("const_K_loser: " + const_K_loser);
@@ -95,26 +94,28 @@ function calcula_const_K(torneo, categoria){
  		
  		case "L": 	// LIGA
 
- 			switch (categoria){
+ 			switch (Number(categoria)){
 
  				case 1: // 1º Categoria
 console.log("CASE 1");
  					const_K_winner 	= 1.25;
  					const_K_loser	= 0.75;
-console.log("F-CASE 1");
  					break;
  				
  				case 2: // 2º Categoria
+console.log("CASE 2");
  					const_K_winner 	= 1;
  					const_K_loser	= 1;
  					break;
 
  				case 3: // 3º Categoria
+console.log("CASE 3");
  					const_K_winner 	= 0.75;
  					const_K_loser	= 1.25;
  					break;
 
  				case 4: // 4º Categoria
+console.log("CASE 4");
  					const_K_winner 	= 0.5;
  					const_K_loser	= 1.5;
  					break;		
@@ -126,11 +127,13 @@ console.log("F-CASE 1");
  			switch (categoria){
 
  				case 1: // 1º Categoria
+console.log("CASE 1");
  					const_K_winner 	= 1.25;
  					const_K_loser	= 0.75;
  					break;
  				
  				case 2: // 2º Categoria
+console.log("CASE 2");
  					const_K_winner 	= 0.75;
  					const_K_loser	= 1.25;
  					break;

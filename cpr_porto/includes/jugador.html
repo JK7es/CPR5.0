@@ -33,16 +33,16 @@
 									<div class="panel entity-info">
 										<div class="body">
 											<h1 id="lbName" class="ng-hide"></h1>
-											<table>
+											<table style="width:100%">
 												<tbody>
 													<tr>
 														<td>
-															<a class="team" title="Villarreal" team-modal="player.team" href="/liga-bbva/teams/villarreal">
-																<img id="imgEq" src="https://lh3.googleusercontent.com/_YkLZewRsw1fQLgJYsjQ1mzhsGuoxEvOCoImtIfeEbg8awHJBb2uNyhRMtHtGFHZSXw5OQIhiOPTlDJ9suM2Kw6BCuOICdc">
+															<a id="lnkEq" class="team" title="Equipo" href="http://topera.esy.es/img/teams/">
+																<img id="imgEq" src="http://topera.esy.es/img/teams/eq_3989.png">
 															</a>
 														</td>
 														<td>
-															<img id="imgJg" class="player-icon ok" src="http://topera.esy.es/img/players/x_252.jpg">
+															<img id="imgJg" class="player-icon ok" src="http://topera.esy.es/img/players/player.png">
 														</td>														
 													</tr>
 												</tbody>
@@ -62,24 +62,24 @@
 														<h5>Puntos</h5>
 													</div>
 													<div class="stat col-xs-6">
-														<span id="lbCategoria">7.640.000&nbsp;€</span>
+														<span id="lbCategoria">-ª Cat</span>
+														<h5>Categoría Liga</h5>
+													</div>
+												</div>
+												<div class="row">
+													<div class="stat col-xs-6">
+														<span id="lbCircuito">-ª Cat</span>
+														<h5>Categoría Circuito</h5>
+													</div>
+													<div class="stat col-xs-6">
+														<span id="lbVictorias">45%</span>
+														<h5>% Victorias</h5>
+													</div>
+												</div>
+												<div class="row">
+													<div class="stat col-xs-12">
+														<span id="lbEquipo"></span>
 														<h5>Equipo</h5>
-													</div>
-												</div>
-												<div class="row">
-													<div class="stat col-xs-6">
-														<span id="lbCircuito">4,8</span>
-														<h5>Media de puntos</h5>
-													</div>
-													<div class="stat col-xs-6">
-														<span id="lbCircuito">10</span>
-														<h5>Partidos jugados</h5>
-													</div>
-												</div>
-												<div class="row">
-													<div class="stat col-xs-6">
-														<span id="lbEquipo">1</span>
-														<h5>Goles</h5>
 													</div>													
 												</div>
 											</div>
@@ -90,17 +90,8 @@
 								<div class="col-md-8">
 									<div class="panel">
 										<div class="body" loader="seasonPromise || loadingPromise" style="position: relative;">
-											<i class="icon icon-chart panel-icon"></i>
-											<h4>Valor de mercado 
-												<small>
-													<span class="mv-increment ng-hide" style="display:inline" title="Diferencia del Valor de Mercado entre ayer y hoy">
-														<i class="icon icon-increment"></i>0&nbsp;€
-														<i class="fa fa-line-chart"></i>
-													</span> 
-													<span class="mv-decrement ng-hide" style="display:inline" title="Diferencia del Valor de Mercado entre ayer y hoy">
-														<i class="icon icon-decrement"></i>0&nbsp;€
-													</span>
-												</small>
+											<i class="fa fa-line-chart"></i>
+											<h4>Valor de mercado
 											</h4>
 											<div id="chart_div"></div>											
 <!-- ngIf: player.statuses -->
@@ -203,18 +194,18 @@
 									
 									<div class="panel" loader="seasonPromise || loadingPromise" style="position: relative;">
 										<div class="body">
-											<i class="icon icon-stats panel-icon"></i>
+											<i class="fa fa-bar-chart"></i>
 											<h4>Puntos
-												<select class="ng-pristine ng-untouched ng-valid">
+												<select  class="form-control input-sm mb-md selTemporada">
+												<!--<select class="ng-pristine ng-untouched ng-valid">-->
 													<option label="Temporada 2015 - 2016" value="number:2015" selected="selected">Temporada 2015 - 2016</option>
 													<option label="Temporada 2014 - 2015" value="number:2014">Temporada 2014 - 2015</option>
 												</select>
-											</h4>
-											<p class="clear text-muted text-center ng-hide">¡Todavía no ha participado en ninguna jornada!</p>
-											<table class="table points-list">
+											</h4>											
+											<table id="matchlist" class="table points-list">
 												<tbody>
-													<!-- ngRepeat: day in matchDays -->
-													<tr ng-repeat="day in matchDays">
+													
+													<tr>
 														<!--nº Partido-->
 														<td class="narrow day">1</td>
 														<!--Foto Compañero-->
@@ -252,144 +243,7 @@
 															<!-- end ngRepeat: event in ::day.report.events -->
 														</td>
 													</tr>
-													<!-- end ngRepeat: day in matchDays -->
-													<tr ng-repeat="day in matchDays">
-														<td class="narrow day"><a href="/day/?day=2015002">2</a></td>
-														<td class="match no-border" ng-show="::day.report"><a class="team" title="Villarreal" team-modal="day.match.local" href="/liga-bbva/teams/villarreal"><img ng-src="https://lh3.googleusercontent.com/_YkLZewRsw1fQLgJYsjQ1mzhsGuoxEvOCoImtIfeEbg8awHJBb2uNyhRMtHtGFHZSXw5OQIhiOPTlDJ9suM2Kw6BCuOICdc" src="https://lh3.googleusercontent.com/_YkLZewRsw1fQLgJYsjQ1mzhsGuoxEvOCoImtIfeEbg8awHJBb2uNyhRMtHtGFHZSXw5OQIhiOPTlDJ9suM2Kw6BCuOICdc"></a></td>
-														<td class="match no-border" ng-show="::day.report"><a href="/liga-bbva/match/villarreal-espanyol-11317">3</a></td>
-														<td class="match separator no-border" ng-show="::day.report"><a href="/liga-bbva/match/villarreal-espanyol-11317">‐</a></td>
-														<td class="match no-border" ng-show="::day.report"><a href="/liga-bbva/match/villarreal-espanyol-11317">1</a></td>
-														<td class="match" ng-show="::day.report"><a class="team" title="Espanyol" team-modal="day.match.visitor" href="/liga-bbva/teams/espanyol"><img ng-src="https://lh3.googleusercontent.com/5sJQxmdrKARWfJ2zOb1Uxbdxn_tD6rkBp-LskOWHzXJEKojCoFI417SHCFoIxWZU3z6JIw9X2edTRn5WLCu2eyJ0sXPo4TWT" src="https://lh3.googleusercontent.com/5sJQxmdrKARWfJ2zOb1Uxbdxn_tD6rkBp-LskOWHzXJEKojCoFI417SHCFoIxWZU3z6JIw9X2edTRn5WLCu2eyJ0sXPo4TWT"></a></td>
-														<td class="neg"><a href="/liga-bbva/match/villarreal-espanyol-11317" ng-show="::day.points<0" class="bar ng-hide" ng-class="{'negative': day.count===0 || day.count===false}" ng-style="{width: (day.points * -1 * factor)+'px'}" title="Villarreal 3 - 1 Espanyol"></a></td>
-														<td ng-class="::{'no-border': day.report}" class="no-border"><a href="/liga-bbva/match/villarreal-espanyol-11317" ng-show="::day.points>0" class="bar ng-hide" ng-class="{'negative': day.count===0 || day.count===false}" ng-style="{width: (day.points * factor)+'px'}" title="Villarreal 3 - 1 Espanyol"></a> <span ng-show="::day.points === undefined &amp;&amp; day.report.status.status!=&quot;ok&quot;"><span class="label danger player-status with-label ng-hide" ng-show="::day.report.status.status == &quot;injured&quot;" title="Lesionado. Roja directa. Baja las jornadas 2 y 3."><i class="icon icon-injured"></i> Lesionado</span> <span class="label danger player-status with-label" ng-show="::day.report.status.status == &quot;sanctioned&quot;" title="Sancionado. Roja directa. Baja las jornadas 2 y 3."><i class="icon icon-sanctioned"></i> Sancionado</span> <span class="label warning player-status with-label ng-hide" ng-show="::day.report.status.status == &quot;discomfort&quot;" title="Molestias. Roja directa. Baja las jornadas 2 y 3."><i class="icon icon-discomfort"></i> Molestias</span> <span class="label warning player-status with-label ng-hide" ng-show="::day.report.status.status == &quot;discarded&quot;" title="No convocado. Roja directa. Baja las jornadas 2 y 3."><i class="icon icon-discarded"></i> No convocado</span> <span class="label success player-status with-label ng-hide" ng-show="::day.report.status.status == &quot;ok&quot;" title="En forma. Roja directa. Baja las jornadas 2 y 3."><i class="icon icon-ok"></i> En forma</span></span></td>
-														<td class="events" ng-show="::day.report">
-															<!-- ngRepeat: event in ::day.report.events -->
-														</td>
-													</tr>
-													<!-- end ngRepeat: day in matchDays -->
-													<tr ng-repeat="day in matchDays">
-														<td class="narrow day"><a href="/day/?day=2015003">3</a></td>
-														<td class="match no-border" ng-show="::day.report"><a class="team" title="Granada" team-modal="day.match.local" href="/liga-bbva/teams/granada"><img ng-src="https://lh3.googleusercontent.com/MPZAawiulAylURL70EBBdwqH48R5LZ9ZoKnzSTHEiTilIBycAbqbdlxXsRBIcp9C1O7hlh7Qf5HWTzEM-j72_fQaITgzAFA" src="https://lh3.googleusercontent.com/MPZAawiulAylURL70EBBdwqH48R5LZ9ZoKnzSTHEiTilIBycAbqbdlxXsRBIcp9C1O7hlh7Qf5HWTzEM-j72_fQaITgzAFA"></a></td>
-														<td class="match no-border" ng-show="::day.report"><a href="/liga-bbva/match/granada-villarreal-22208">1</a></td>
-														<td class="match separator no-border" ng-show="::day.report"><a href="/liga-bbva/match/granada-villarreal-22208">‐</a></td>
-														<td class="match no-border" ng-show="::day.report"><a href="/liga-bbva/match/granada-villarreal-22208">3</a></td>
-														<td class="match" ng-show="::day.report"><a class="team" title="Villarreal" team-modal="day.match.visitor" href="/liga-bbva/teams/villarreal"><img ng-src="https://lh3.googleusercontent.com/_YkLZewRsw1fQLgJYsjQ1mzhsGuoxEvOCoImtIfeEbg8awHJBb2uNyhRMtHtGFHZSXw5OQIhiOPTlDJ9suM2Kw6BCuOICdc" src="https://lh3.googleusercontent.com/_YkLZewRsw1fQLgJYsjQ1mzhsGuoxEvOCoImtIfeEbg8awHJBb2uNyhRMtHtGFHZSXw5OQIhiOPTlDJ9suM2Kw6BCuOICdc"></a></td>
-														<td class="neg"><a href="/liga-bbva/match/granada-villarreal-22208" ng-show="::day.points<0" class="bar ng-hide" ng-class="{'negative': day.count===0 || day.count===false}" ng-style="{width: (day.points * -1 * factor)+'px'}" title="Granada 1 - 3 Villarreal"></a></td>
-														<td ng-class="::{'no-border': day.report}" class="no-border"><a href="/liga-bbva/match/granada-villarreal-22208" ng-show="::day.points>0" class="bar ng-hide" ng-class="{'negative': day.count===0 || day.count===false}" ng-style="{width: (day.points * factor)+'px'}" title="Granada 1 - 3 Villarreal"></a> <span ng-show="::day.points === undefined &amp;&amp; day.report.status.status!=&quot;ok&quot;"><span class="label danger player-status with-label ng-hide" ng-show="::day.report.status.status == &quot;injured&quot;" title="Lesionado. Roja directa. Baja las jornadas 2 y 3."><i class="icon icon-injured"></i> Lesionado</span> <span class="label danger player-status with-label" ng-show="::day.report.status.status == &quot;sanctioned&quot;" title="Sancionado. Roja directa. Baja las jornadas 2 y 3."><i class="icon icon-sanctioned"></i> Sancionado</span> <span class="label warning player-status with-label ng-hide" ng-show="::day.report.status.status == &quot;discomfort&quot;" title="Molestias. Roja directa. Baja las jornadas 2 y 3."><i class="icon icon-discomfort"></i> Molestias</span> <span class="label warning player-status with-label ng-hide" ng-show="::day.report.status.status == &quot;discarded&quot;" title="No convocado. Roja directa. Baja las jornadas 2 y 3."><i class="icon icon-discarded"></i> No convocado</span> <span class="label success player-status with-label ng-hide" ng-show="::day.report.status.status == &quot;ok&quot;" title="En forma. Roja directa. Baja las jornadas 2 y 3."><i class="icon icon-ok"></i> En forma</span></span></td>
-														<td class="events" ng-show="::day.report">
-															<!-- ngRepeat: event in ::day.report.events -->
-														</td>
-													</tr>
-													<!-- end ngRepeat: day in matchDays -->
-													<tr ng-repeat="day in matchDays">
-														<td class="narrow day"><a href="/day/?day=2015004">4</a></td>
-														<td class="match no-border" ng-show="::day.report"><a class="team" title="Villarreal" team-modal="day.match.local" href="/liga-bbva/teams/villarreal"><img ng-src="https://lh3.googleusercontent.com/_YkLZewRsw1fQLgJYsjQ1mzhsGuoxEvOCoImtIfeEbg8awHJBb2uNyhRMtHtGFHZSXw5OQIhiOPTlDJ9suM2Kw6BCuOICdc" src="https://lh3.googleusercontent.com/_YkLZewRsw1fQLgJYsjQ1mzhsGuoxEvOCoImtIfeEbg8awHJBb2uNyhRMtHtGFHZSXw5OQIhiOPTlDJ9suM2Kw6BCuOICdc"></a></td>
-														<td class="match no-border" ng-show="::day.report"><a href="/liga-bbva/match/villarreal-athletic-27717">3</a></td>
-														<td class="match separator no-border" ng-show="::day.report"><a href="/liga-bbva/match/villarreal-athletic-27717">‐</a></td>
-														<td class="match no-border" ng-show="::day.report"><a href="/liga-bbva/match/villarreal-athletic-27717">1</a></td>
-														<td class="match" ng-show="::day.report"><a class="team" title="Athletic" team-modal="day.match.visitor" href="/liga-bbva/teams/athletic"><img ng-src="https://lh3.googleusercontent.com/id6XKhu0CIlCUvXZiBamiNOQEaAUrdOcGfeIVnfFiFXLj0-h1MlGCmIxyieoj4WwNVr8th-6PjUi1MiD0gAU_J1d78MQHSE" src="https://lh3.googleusercontent.com/id6XKhu0CIlCUvXZiBamiNOQEaAUrdOcGfeIVnfFiFXLj0-h1MlGCmIxyieoj4WwNVr8th-6PjUi1MiD0gAU_J1d78MQHSE"></a></td>
-														<td class="neg"><a href="/liga-bbva/match/villarreal-athletic-27717" ng-show="::day.points<0" class="bar ng-hide" ng-class="{'negative': day.count===0 || day.count===false}" ng-style="{width: (day.points * -1 * factor)+'px'}" title="Villarreal 3 - 1 Athletic">9</a></td>
-														<td ng-class="::{'no-border': day.report}" class="no-border"><a href="/liga-bbva/match/villarreal-athletic-27717" ng-show="::day.points>0" class="bar" ng-class="{'negative': day.count===0 || day.count===false}" ng-style="{width: (day.points * factor)+'px'}" title="Villarreal 3 - 1 Athletic" style="width: 354px;">9</a> <span ng-show="::day.points === undefined &amp;&amp; day.report.status.status!=&quot;ok&quot;" class="ng-hide"><span class="label danger player-status with-label ng-hide" ng-show="::day.report.status.status == &quot;injured&quot;" title="Lesionado. "><i class="icon icon-injured"></i> Lesionado</span> <span class="label danger player-status with-label ng-hide" ng-show="::day.report.status.status == &quot;sanctioned&quot;" title="Sancionado. "><i class="icon icon-sanctioned"></i> Sancionado</span> <span class="label warning player-status with-label ng-hide" ng-show="::day.report.status.status == &quot;discomfort&quot;" title="Molestias. "><i class="icon icon-discomfort"></i> Molestias</span> <span class="label warning player-status with-label ng-hide" ng-show="::day.report.status.status == &quot;discarded&quot;" title="No convocado. "><i class="icon icon-discarded"></i> No convocado</span> <span class="label success player-status with-label" ng-show="::day.report.status.status == &quot;ok&quot;" title="En forma. "><i class="icon icon-ok"></i> En forma</span></span></td>
-														<td class="events" ng-show="::day.report">
-															<!-- ngRepeat: event in ::day.report.events -->
-															<span ng-repeat="event in ::day.report.events" ng-switch="::event.type">
-																<!-- ngSwitchWhen: 1 --> <!-- ngSwitchWhen: 2 --> <!-- ngSwitchWhen: 3 --> <!-- ngSwitchWhen: 9 --> <!-- ngSwitchWhen: 4 --> <!-- ngSwitchWhen: 5 --> <!-- ngSwitchWhen: 6 --><i ng-switch-when="6" style="color:#ffd800" title="Tarjeta amarilla en el minuto 24" class="icon icon-card"></i><!-- end ngSwitchWhen: --> <!-- ngSwitchWhen: 7 --> <!-- ngSwitchWhen: 8 -->
-															</span>
-															<!-- end ngRepeat: event in ::day.report.events -->
-															<span ng-repeat="event in ::day.report.events" ng-switch="::event.type">
-																<!-- ngSwitchWhen: 1 --> <!-- ngSwitchWhen: 2 --><i ng-switch-when="2" style="color:#10af00" title="Gol de penalti en el minuto 43" class="icon icon-penalty"></i><!-- end ngSwitchWhen: --> <!-- ngSwitchWhen: 3 --> <!-- ngSwitchWhen: 9 --> <!-- ngSwitchWhen: 4 --> <!-- ngSwitchWhen: 5 --> <!-- ngSwitchWhen: 6 --> <!-- ngSwitchWhen: 7 --> <!-- ngSwitchWhen: 8 -->
-															</span>
-															<!-- end ngRepeat: event in ::day.report.events -->
-														</td>
-													</tr>
-													<!-- end ngRepeat: day in matchDays -->
-													<tr ng-repeat="day in matchDays">
-														<td class="narrow day"><a href="/day/?day=2015005">5</a></td>
-														<td class="match no-border" ng-show="::day.report"><a class="team" title="Málaga" team-modal="day.match.local" href="/liga-bbva/teams/malaga"><img ng-src="https://lh3.googleusercontent.com/vFxmkgqhtz1B1pgXHlXM6M2A_K0r9pqK_i-MqsDuGf-nfmzo3_fOZFNu74oamwMaHxNbgNhB9HefTxyvHwvTS1X_VPVMPA" src="https://lh3.googleusercontent.com/vFxmkgqhtz1B1pgXHlXM6M2A_K0r9pqK_i-MqsDuGf-nfmzo3_fOZFNu74oamwMaHxNbgNhB9HefTxyvHwvTS1X_VPVMPA"></a></td>
-														<td class="match no-border" ng-show="::day.report"><a href="/liga-bbva/match/malaga-villarreal-1185">0</a></td>
-														<td class="match separator no-border" ng-show="::day.report"><a href="/liga-bbva/match/malaga-villarreal-1185">‐</a></td>
-														<td class="match no-border" ng-show="::day.report"><a href="/liga-bbva/match/malaga-villarreal-1185">1</a></td>
-														<td class="match" ng-show="::day.report"><a class="team" title="Villarreal" team-modal="day.match.visitor" href="/liga-bbva/teams/villarreal"><img ng-src="https://lh3.googleusercontent.com/_YkLZewRsw1fQLgJYsjQ1mzhsGuoxEvOCoImtIfeEbg8awHJBb2uNyhRMtHtGFHZSXw5OQIhiOPTlDJ9suM2Kw6BCuOICdc" src="https://lh3.googleusercontent.com/_YkLZewRsw1fQLgJYsjQ1mzhsGuoxEvOCoImtIfeEbg8awHJBb2uNyhRMtHtGFHZSXw5OQIhiOPTlDJ9suM2Kw6BCuOICdc"></a></td>
-														<td class="neg"><a href="/liga-bbva/match/malaga-villarreal-1185" ng-show="::day.points<0" class="bar ng-hide" ng-class="{'negative': day.count===0 || day.count===false}" ng-style="{width: (day.points * -1 * factor)+'px'}" title="Málaga 0 - 1 Villarreal">2</a></td>
-														<td ng-class="::{'no-border': day.report}" class="no-border"><a href="/liga-bbva/match/malaga-villarreal-1185" ng-show="::day.points>0" class="bar" ng-class="{'negative': day.count===0 || day.count===false}" ng-style="{width: (day.points * factor)+'px'}" title="Málaga 0 - 1 Villarreal" style="width: 78.6667px;">2</a> <span ng-show="::day.points === undefined &amp;&amp; day.report.status.status!=&quot;ok&quot;" class="ng-hide"><span class="label danger player-status with-label ng-hide" ng-show="::day.report.status.status == &quot;injured&quot;" title="Lesionado. "><i class="icon icon-injured"></i> Lesionado</span> <span class="label danger player-status with-label ng-hide" ng-show="::day.report.status.status == &quot;sanctioned&quot;" title="Sancionado. "><i class="icon icon-sanctioned"></i> Sancionado</span> <span class="label warning player-status with-label ng-hide" ng-show="::day.report.status.status == &quot;discomfort&quot;" title="Molestias. "><i class="icon icon-discomfort"></i> Molestias</span> <span class="label warning player-status with-label ng-hide" ng-show="::day.report.status.status == &quot;discarded&quot;" title="No convocado. "><i class="icon icon-discarded"></i> No convocado</span> <span class="label success player-status with-label" ng-show="::day.report.status.status == &quot;ok&quot;" title="En forma. "><i class="icon icon-ok"></i> En forma</span></span></td>
-														<td class="events" ng-show="::day.report">
-															<!-- ngRepeat: event in ::day.report.events -->
-															<span ng-repeat="event in ::day.report.events" ng-switch="::event.type">
-																<!-- ngSwitchWhen: 1 --> <!-- ngSwitchWhen: 2 --> <!-- ngSwitchWhen: 3 --> <!-- ngSwitchWhen: 9 --> <!-- ngSwitchWhen: 4 --> <!-- ngSwitchWhen: 5 --><i ng-switch-when="5" style="color:#10af00" title="Entró en el minuto 62" class="icon icon-incoming"></i><!-- end ngSwitchWhen: --> <!-- ngSwitchWhen: 6 --> <!-- ngSwitchWhen: 7 --> <!-- ngSwitchWhen: 8 -->
-															</span>
-															<!-- end ngRepeat: event in ::day.report.events -->
-														</td>
-													</tr>
-													<!-- end ngRepeat: day in matchDays -->
-													<tr ng-repeat="day in matchDays">
-														<td class="narrow day"><a href="/day/?day=2015006">6</a></td>
-														<td class="match no-border" ng-show="::day.report"><a class="team" title="Villarreal" team-modal="day.match.local" href="/liga-bbva/teams/villarreal"><img ng-src="https://lh3.googleusercontent.com/_YkLZewRsw1fQLgJYsjQ1mzhsGuoxEvOCoImtIfeEbg8awHJBb2uNyhRMtHtGFHZSXw5OQIhiOPTlDJ9suM2Kw6BCuOICdc" src="https://lh3.googleusercontent.com/_YkLZewRsw1fQLgJYsjQ1mzhsGuoxEvOCoImtIfeEbg8awHJBb2uNyhRMtHtGFHZSXw5OQIhiOPTlDJ9suM2Kw6BCuOICdc"></a></td>
-														<td class="match no-border" ng-show="::day.report"><a href="/liga-bbva/match/villarreal-atletico-1195">1</a></td>
-														<td class="match separator no-border" ng-show="::day.report"><a href="/liga-bbva/match/villarreal-atletico-1195">‐</a></td>
-														<td class="match no-border" ng-show="::day.report"><a href="/liga-bbva/match/villarreal-atletico-1195">0</a></td>
-														<td class="match" ng-show="::day.report"><a class="team" title="Atlético" team-modal="day.match.visitor" href="/liga-bbva/teams/atletico"><img ng-src="https://lh3.googleusercontent.com/35H2suTMiA2A1VF5lNBBSTVRURzsvSsDJBvoPTn5_IeD14VUTYaacYyE6aFh8yens178hIK3SL1TL_a_wa-us0BmeNr1tg" src="https://lh3.googleusercontent.com/35H2suTMiA2A1VF5lNBBSTVRURzsvSsDJBvoPTn5_IeD14VUTYaacYyE6aFh8yens178hIK3SL1TL_a_wa-us0BmeNr1tg"></a></td>
-														<td class="neg"><a href="/liga-bbva/match/villarreal-atletico-1195" ng-show="::day.points<0" class="bar ng-hide" ng-class="{'negative': day.count===0 || day.count===false}" ng-style="{width: (day.points * -1 * factor)+'px'}" title="Villarreal 1 - 0 Atlético">6</a></td>
-														<td ng-class="::{'no-border': day.report}" class="no-border"><a href="/liga-bbva/match/villarreal-atletico-1195" ng-show="::day.points>0" class="bar" ng-class="{'negative': day.count===0 || day.count===false}" ng-style="{width: (day.points * factor)+'px'}" title="Villarreal 1 - 0 Atlético" style="width: 236px;">6</a> <span ng-show="::day.points === undefined &amp;&amp; day.report.status.status!=&quot;ok&quot;" class="ng-hide"><span class="label danger player-status with-label ng-hide" ng-show="::day.report.status.status == &quot;injured&quot;" title="Lesionado. "><i class="icon icon-injured"></i> Lesionado</span> <span class="label danger player-status with-label ng-hide" ng-show="::day.report.status.status == &quot;sanctioned&quot;" title="Sancionado. "><i class="icon icon-sanctioned"></i> Sancionado</span> <span class="label warning player-status with-label ng-hide" ng-show="::day.report.status.status == &quot;discomfort&quot;" title="Molestias. "><i class="icon icon-discomfort"></i> Molestias</span> <span class="label warning player-status with-label ng-hide" ng-show="::day.report.status.status == &quot;discarded&quot;" title="No convocado. "><i class="icon icon-discarded"></i> No convocado</span> <span class="label success player-status with-label" ng-show="::day.report.status.status == &quot;ok&quot;" title="En forma. "><i class="icon icon-ok"></i> En forma</span></span></td>
-														<td class="events" ng-show="::day.report">
-															<!-- ngRepeat: event in ::day.report.events -->
-														</td>
-													</tr>
-													<!-- end ngRepeat: day in matchDays -->
-													<tr ng-repeat="day in matchDays">
-														<td class="narrow day"><a href="/day/?day=2015007">7</a></td>
-														<td class="match no-border" ng-show="::day.report"><a class="team" title="Levante" team-modal="day.match.local" href="/liga-bbva/teams/levante"><img ng-src="https://lh3.googleusercontent.com/85cQQcynRwZIAC-lDfTiG5eZDtuZKA5ZIKoG7BaclDU-QlGY8S8IPq7gopxx9pk0zlc7n0-c7rRkGAyvQbexXq7_D3CkSBM" src="https://lh3.googleusercontent.com/85cQQcynRwZIAC-lDfTiG5eZDtuZKA5ZIKoG7BaclDU-QlGY8S8IPq7gopxx9pk0zlc7n0-c7rRkGAyvQbexXq7_D3CkSBM"></a></td>
-														<td class="match no-border" ng-show="::day.report"><a href="/liga-bbva/match/levante-villarreal-1204">1</a></td>
-														<td class="match separator no-border" ng-show="::day.report"><a href="/liga-bbva/match/levante-villarreal-1204">‐</a></td>
-														<td class="match no-border" ng-show="::day.report"><a href="/liga-bbva/match/levante-villarreal-1204">0</a></td>
-														<td class="match" ng-show="::day.report"><a class="team" title="Villarreal" team-modal="day.match.visitor" href="/liga-bbva/teams/villarreal"><img ng-src="https://lh3.googleusercontent.com/_YkLZewRsw1fQLgJYsjQ1mzhsGuoxEvOCoImtIfeEbg8awHJBb2uNyhRMtHtGFHZSXw5OQIhiOPTlDJ9suM2Kw6BCuOICdc" src="https://lh3.googleusercontent.com/_YkLZewRsw1fQLgJYsjQ1mzhsGuoxEvOCoImtIfeEbg8awHJBb2uNyhRMtHtGFHZSXw5OQIhiOPTlDJ9suM2Kw6BCuOICdc"></a></td>
-														<td class="neg"><a href="/liga-bbva/match/levante-villarreal-1204" ng-show="::day.points<0" class="bar ng-hide" ng-class="{'negative': day.count===0 || day.count===false}" ng-style="{width: (day.points * -1 * factor)+'px'}" title="Levante 1 - 0 Villarreal"></a></td>
-														<td ng-class="::{'no-border': day.report}" class="no-border"><a href="/liga-bbva/match/levante-villarreal-1204" ng-show="::day.points>0" class="bar ng-hide" ng-class="{'negative': day.count===0 || day.count===false}" ng-style="{width: (day.points * factor)+'px'}" title="Levante 1 - 0 Villarreal"></a> <span ng-show="::day.points === undefined &amp;&amp; day.report.status.status!=&quot;ok&quot;" class="ng-hide"><span class="label danger player-status with-label ng-hide" ng-show="::day.report.status.status == &quot;injured&quot;" title="Lesionado. "><i class="icon icon-injured"></i> Lesionado</span> <span class="label danger player-status with-label ng-hide" ng-show="::day.report.status.status == &quot;sanctioned&quot;" title="Sancionado. "><i class="icon icon-sanctioned"></i> Sancionado</span> <span class="label warning player-status with-label ng-hide" ng-show="::day.report.status.status == &quot;discomfort&quot;" title="Molestias. "><i class="icon icon-discomfort"></i> Molestias</span> <span class="label warning player-status with-label ng-hide" ng-show="::day.report.status.status == &quot;discarded&quot;" title="No convocado. "><i class="icon icon-discarded"></i> No convocado</span> <span class="label success player-status with-label" ng-show="::day.report.status.status == &quot;ok&quot;" title="En forma. "><i class="icon icon-ok"></i> En forma</span></span></td>
-														<td class="events" ng-show="::day.report">
-															<!-- ngRepeat: event in ::day.report.events -->
-														</td>
-													</tr>
-													<!-- end ngRepeat: day in matchDays -->
-													<tr ng-repeat="day in matchDays">
-														<td class="narrow day"><a href="/day/?day=2015008">8</a></td>
-														<td class="match no-border" ng-show="::day.report"><a class="team" title="Villarreal" team-modal="day.match.local" href="/liga-bbva/teams/villarreal"><img ng-src="https://lh3.googleusercontent.com/_YkLZewRsw1fQLgJYsjQ1mzhsGuoxEvOCoImtIfeEbg8awHJBb2uNyhRMtHtGFHZSXw5OQIhiOPTlDJ9suM2Kw6BCuOICdc" src="https://lh3.googleusercontent.com/_YkLZewRsw1fQLgJYsjQ1mzhsGuoxEvOCoImtIfeEbg8awHJBb2uNyhRMtHtGFHZSXw5OQIhiOPTlDJ9suM2Kw6BCuOICdc"></a></td>
-														<td class="match no-border" ng-show="::day.report"><a href="/liga-bbva/match/villarreal-celta-1214">1</a></td>
-														<td class="match separator no-border" ng-show="::day.report"><a href="/liga-bbva/match/villarreal-celta-1214">‐</a></td>
-														<td class="match no-border" ng-show="::day.report"><a href="/liga-bbva/match/villarreal-celta-1214">2</a></td>
-														<td class="match" ng-show="::day.report"><a class="team" title="Celta" team-modal="day.match.visitor" href="/liga-bbva/teams/celta"><img ng-src="https://lh3.googleusercontent.com/dQW_uycwILjf-DIgrTG3AIRLksXtZfCaSgKSLNeLkSFxkhIpkYE7wfR9VI-tePmA_uAED3TBuzlV6pgB6znOcHV-E-Pwiw" src="https://lh3.googleusercontent.com/dQW_uycwILjf-DIgrTG3AIRLksXtZfCaSgKSLNeLkSFxkhIpkYE7wfR9VI-tePmA_uAED3TBuzlV6pgB6znOcHV-E-Pwiw"></a></td>
-														<td class="neg"><a href="/liga-bbva/match/villarreal-celta-1214" ng-show="::day.points<0" class="bar ng-hide" ng-class="{'negative': day.count===0 || day.count===false}" ng-style="{width: (day.points * -1 * factor)+'px'}" title="Villarreal 1 - 2 Celta"></a></td>
-														<td ng-class="::{'no-border': day.report}" class="no-border"><a href="/liga-bbva/match/villarreal-celta-1214" ng-show="::day.points>0" class="bar ng-hide" ng-class="{'negative': day.count===0 || day.count===false}" ng-style="{width: (day.points * factor)+'px'}" title="Villarreal 1 - 2 Celta"></a> <span ng-show="::day.points === undefined &amp;&amp; day.report.status.status!=&quot;ok&quot;"><span class="label danger player-status with-label ng-hide" ng-show="::day.report.status.status == &quot;injured&quot;" title="Lesionado. "><i class="icon icon-injured"></i> Lesionado</span> <span class="label danger player-status with-label ng-hide" ng-show="::day.report.status.status == &quot;sanctioned&quot;" title="Sancionado. "><i class="icon icon-sanctioned"></i> Sancionado</span> <span class="label warning player-status with-label ng-hide" ng-show="::day.report.status.status == &quot;discomfort&quot;" title="Molestias. "><i class="icon icon-discomfort"></i> Molestias</span> <span class="label warning player-status with-label" ng-show="::day.report.status.status == &quot;discarded&quot;" title="No convocado. "><i class="icon icon-discarded"></i> No convocado</span> <span class="label success player-status with-label ng-hide" ng-show="::day.report.status.status == &quot;ok&quot;" title="En forma. "><i class="icon icon-ok"></i> En forma</span></span></td>
-														<td class="events" ng-show="::day.report">
-															<!-- ngRepeat: event in ::day.report.events -->
-														</td>
-													</tr>
-													<!-- end ngRepeat: day in matchDays -->
-													<tr ng-repeat="day in matchDays">
-														<td class="narrow day"><a href="/day/?day=2015009">9</a></td>
-														<td class="match no-border" ng-show="::day.report"><a class="team" title="Las Palmas" team-modal="day.match.local" href="/liga-bbva/teams/las-palmas"><img ng-src="https://lh3.googleusercontent.com/MO1yTG2rvtzseyUBjo3bfBtOs43Q7K3FOwUTtVvcTiyB1a8evqek8QvNZoLGKyH5qXL-zJrSxrNAvEMaL8qFbxBA5_mfcA" src="https://lh3.googleusercontent.com/MO1yTG2rvtzseyUBjo3bfBtOs43Q7K3FOwUTtVvcTiyB1a8evqek8QvNZoLGKyH5qXL-zJrSxrNAvEMaL8qFbxBA5_mfcA"></a></td>
-														<td class="match no-border" ng-show="::day.report"><a href="/liga-bbva/match/las-palmas-villarreal-1223">0</a></td>
-														<td class="match separator no-border" ng-show="::day.report"><a href="/liga-bbva/match/las-palmas-villarreal-1223">‐</a></td>
-														<td class="match no-border" ng-show="::day.report"><a href="/liga-bbva/match/las-palmas-villarreal-1223">0</a></td>
-														<td class="match" ng-show="::day.report"><a class="team" title="Villarreal" team-modal="day.match.visitor" href="/liga-bbva/teams/villarreal"><img ng-src="https://lh3.googleusercontent.com/_YkLZewRsw1fQLgJYsjQ1mzhsGuoxEvOCoImtIfeEbg8awHJBb2uNyhRMtHtGFHZSXw5OQIhiOPTlDJ9suM2Kw6BCuOICdc" src="https://lh3.googleusercontent.com/_YkLZewRsw1fQLgJYsjQ1mzhsGuoxEvOCoImtIfeEbg8awHJBb2uNyhRMtHtGFHZSXw5OQIhiOPTlDJ9suM2Kw6BCuOICdc"></a></td>
-														<td class="neg"><a href="/liga-bbva/match/las-palmas-villarreal-1223" ng-show="::day.points<0" class="bar ng-hide" ng-class="{'negative': day.count===0 || day.count===false}" ng-style="{width: (day.points * -1 * factor)+'px'}" title="Las Palmas 0 - 0 Villarreal">6</a></td>
-														<td ng-class="::{'no-border': day.report}" class="no-border"><a href="/liga-bbva/match/las-palmas-villarreal-1223" ng-show="::day.points>0" class="bar" ng-class="{'negative': day.count===0 || day.count===false}" ng-style="{width: (day.points * factor)+'px'}" title="Las Palmas 0 - 0 Villarreal" style="width: 236px;">6</a> <span ng-show="::day.points === undefined &amp;&amp; day.report.status.status!=&quot;ok&quot;" class="ng-hide"><span class="label danger player-status with-label ng-hide" ng-show="::day.report.status.status == &quot;injured&quot;" title="Lesionado. "><i class="icon icon-injured"></i> Lesionado</span> <span class="label danger player-status with-label ng-hide" ng-show="::day.report.status.status == &quot;sanctioned&quot;" title="Sancionado. "><i class="icon icon-sanctioned"></i> Sancionado</span> <span class="label warning player-status with-label ng-hide" ng-show="::day.report.status.status == &quot;discomfort&quot;" title="Molestias. "><i class="icon icon-discomfort"></i> Molestias</span> <span class="label warning player-status with-label ng-hide" ng-show="::day.report.status.status == &quot;discarded&quot;" title="No convocado. "><i class="icon icon-discarded"></i> No convocado</span> <span class="label success player-status with-label" ng-show="::day.report.status.status == &quot;ok&quot;" title="En forma. "><i class="icon icon-ok"></i> En forma</span></span></td>
-														<td class="events" ng-show="::day.report">
-															<!-- ngRepeat: event in ::day.report.events -->
-														</td>
-													</tr>
-													<!-- end ngRepeat: day in matchDays -->
-													<tr ng-repeat="day in matchDays">
-														<td class="narrow day"><a href="/day/?day=2015010">10</a></td>
-														<td class="match no-border" ng-show="::day.report"><a class="team" title="Villarreal" team-modal="day.match.local" href="/liga-bbva/teams/villarreal"><img ng-src="https://lh3.googleusercontent.com/_YkLZewRsw1fQLgJYsjQ1mzhsGuoxEvOCoImtIfeEbg8awHJBb2uNyhRMtHtGFHZSXw5OQIhiOPTlDJ9suM2Kw6BCuOICdc" src="https://lh3.googleusercontent.com/_YkLZewRsw1fQLgJYsjQ1mzhsGuoxEvOCoImtIfeEbg8awHJBb2uNyhRMtHtGFHZSXw5OQIhiOPTlDJ9suM2Kw6BCuOICdc"></a></td>
-														<td class="match no-border" ng-show="::day.report"><a href="/liga-bbva/match/villarreal-sevilla-1233">2</a></td>
-														<td class="match separator no-border" ng-show="::day.report"><a href="/liga-bbva/match/villarreal-sevilla-1233">‐</a></td>
-														<td class="match no-border" ng-show="::day.report"><a href="/liga-bbva/match/villarreal-sevilla-1233">1</a></td>
-														<td class="match" ng-show="::day.report"><a class="team" title="Sevilla" team-modal="day.match.visitor" href="/liga-bbva/teams/sevilla"><img ng-src="https://lh3.googleusercontent.com/0KsgOzYydIeCP6UQBxjGGk-FwkHEEjEWEgTAYc2mdl2Z-_8RO1vKz9RXxSqcZ4k6FuU8A12jBlNG3ZGrkMwg3HsTr-X5UQ4" src="https://lh3.googleusercontent.com/0KsgOzYydIeCP6UQBxjGGk-FwkHEEjEWEgTAYc2mdl2Z-_8RO1vKz9RXxSqcZ4k6FuU8A12jBlNG3ZGrkMwg3HsTr-X5UQ4"></a></td>
-														<td class="neg"><a href="/liga-bbva/match/villarreal-sevilla-1233" ng-show="::day.points<0" class="bar ng-hide" ng-class="{'negative': day.count===0 || day.count===false}" ng-style="{width: (day.points * -1 * factor)+'px'}" title="Villarreal 2 - 1 Sevilla">6</a></td>
-														<td ng-class="::{'no-border': day.report}" class="no-border"><a href="/liga-bbva/match/villarreal-sevilla-1233" ng-show="::day.points>0" class="bar" ng-class="{'negative': day.count===0 || day.count===false}" ng-style="{width: (day.points * factor)+'px'}" title="Villarreal 2 - 1 Sevilla" style="width: 236px;">6</a> <span ng-show="::day.points === undefined &amp;&amp; day.report.status.status!=&quot;ok&quot;" class="ng-hide"><span class="label danger player-status with-label ng-hide" ng-show="::day.report.status.status == &quot;injured&quot;" title="Lesionado. "><i class="icon icon-injured"></i> Lesionado</span> <span class="label danger player-status with-label ng-hide" ng-show="::day.report.status.status == &quot;sanctioned&quot;" title="Sancionado. "><i class="icon icon-sanctioned"></i> Sancionado</span> <span class="label warning player-status with-label ng-hide" ng-show="::day.report.status.status == &quot;discomfort&quot;" title="Molestias. "><i class="icon icon-discomfort"></i> Molestias</span> <span class="label warning player-status with-label ng-hide" ng-show="::day.report.status.status == &quot;discarded&quot;" title="No convocado. "><i class="icon icon-discarded"></i> No convocado</span> <span class="label success player-status with-label" ng-show="::day.report.status.status == &quot;ok&quot;" title="En forma. "><i class="icon icon-ok"></i> En forma</span></span></td>
-														<td class="events" ng-show="::day.report">
-															<!-- ngRepeat: event in ::day.report.events -->
-														</td>
-													</tr>
+													
 													<!-- end ngRepeat: day in matchDays -->
 												</tbody>
 											</table>

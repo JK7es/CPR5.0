@@ -48,9 +48,6 @@
 
 		<!-- Theme Custom CSS -->
 		<link rel="stylesheet" href="css/custom.css">
-
-		<!-- Theme JQPlot CSS -->
-		<link rel="stylesheet" type="text/css" href="vendor/jqplot/jquery.jqplot.min.css" />
         
         <!-- Head Libs -->
 		<script src="vendor/modernizr/modernizr.js"></script>
@@ -243,6 +240,10 @@
 		<script src="vendor/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
 		<script src="vendor/circle-flip-slideshow/js/jquery.flipshow.js"></script>
 		<script src="js/views/view.home.js"></script>
+
+		<!-- Google Charts -->
+		<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+		
 		
 		<!-- Theme Custom -->
 		<script src="js/custom.js"></script>
@@ -252,16 +253,8 @@
 
 		<!-- Theme Initialization Files -->
 		<script src="js/theme.init.js"></script>
-
-		<!-- JQplot libreria -->
-		<script type="text/javascript" src="vendor/jqplot/jquery.jqplot.min.js"></script>
-		<script type="text/javascript" src="vendor/jqplot/plugins/jqplot.pieRenderer.js"></script>
 		
 		
-
-
-
-
 		<!-- Google Analytics: Change UA-XXXXX-X to be your site's ID. Go to http://www.google.com/analytics/ for more information.
 		<script type="text/javascript">
 		

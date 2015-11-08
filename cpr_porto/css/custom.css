@@ -146,11 +146,19 @@
     text-align: left;
 }
 .panel .body .fa-info-circle {
-    font-size: 4em;
-    float: right;
+	font-size: 3em;
+	float: right;
+}
+.panel .body .fa-line-chart {
+	font-size: 3em;
+	float: right;
+}
+.panel .body .fa-bar-chart{
+	font-size: 3em;
+	float: right;
 }
 .icon-info:before {
-    content: "\e00e";
+	content: "\e00e";
 }
 .icon:before {
     font-family: comuniame!important;
@@ -189,10 +197,15 @@
     border-bottom: 1px solid #e8e9ee;
 }
 .form-control, .input, .meditor, input, select, textarea {    
+    padding: 5px;
     margin-left: 5px;
-    color: #555;    
-    border-radius: 4px;    
-    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);    
+    color: #555;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
     transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
 }
 .points-list .day {
@@ -225,7 +238,10 @@
 .points-list td.no-border {
     border-right: 0;
 }
-
+.selTemporada{
+	display: initial;
+	width: auto;
+}
 
 
 

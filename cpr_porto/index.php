@@ -51,8 +51,33 @@
         
         <!-- Head Libs -->
 		<script src="vendor/modernizr/modernizr.js"></script>
-        
-        
+
+		<!-- Google Charts -->
+		<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+		<script type="text/javascript">
+			google.load("visualization", "1", {packages:["corechart"]});
+			
+/*
+			function drawChart(JsonData) {
+
+
+
+				var data = google.visualization.arrayToDataTable(JsonData);
+
+				var options = {
+					title: 'Evaluación Puntos',
+					vAxis: {minValue: 0}
+				};
+
+				var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
+				chart.draw(data, options);
+			}
+*/
+    	</script>
+
+
+
+
         <!-- InstanceBeginEditable name="head" -->
         <!-- InstanceEndEditable -->
     </head>
@@ -241,8 +266,6 @@
 		<script src="vendor/circle-flip-slideshow/js/jquery.flipshow.js"></script>
 		<script src="js/views/view.home.js"></script>
 
-		<!-- Google Charts -->
-		<script type="text/javascript" src="https://www.google.com/jsapi"></script>
 		
 		
 		<!-- Theme Custom -->

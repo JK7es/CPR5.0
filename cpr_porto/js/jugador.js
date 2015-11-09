@@ -31,11 +31,6 @@ console.log("id_jugador: " + id);
 
 	var ratio2 	= 0; // Media
 
-	// Load the Visualization API library and the piechart library.
-  	google.load('visualization', '1.0', {'packages':['corechart']});
-	// Set a callback to run when the Google Visualization API is loaded.
-	google.setOnLoadCallback(drawChart());
-
 	$.ajax({
 		url: 		 'http://topera.esy.es/ws_resp_info_jugador.php',
 		type: 		 'GET',
@@ -82,15 +77,20 @@ console.log("id_jugador: " + id);
 					var j 	= 0;
 					html  	= "";
 					var pts = $("#lbPuntos").html();
+					var pts_max = 0;
+					var pts_min = 99999;
 
-
+					var j = 0;
 					var chartDat= new Array();
 					var cData 	= new Array();
-					cData 		= ["Fecha", "Puntos"];
+
+					cData.push("Fecha");
+					cData.push("Puntos");
 
 					chartDat.push(cData);
 
-console.log("pts--> " + pts); 
+console.log("pts--> " + pts);
+
 
 console.log("data2.length--> " + data2.length); 
 					while (i < data2.length){
@@ -116,21 +116,30 @@ console.log("data2.length--> " + data2.length);
 console.log ("************-" + i + "-*************");
 						var anno = data2[i].fecha.substring(data2[i].fecha.length - 4);
 console.log ("anno: " + anno);
-console.log("data2[i].puntos--> " + data2[i].puntos);
-						pts = pts - data2[i].puntos;
-console.log("pts--> " + pts);
 
-						
 						if (eval(data2[i].puntos) != 0){
 
-							cData = [data2[i].fecha, pts];
+
+							cData 	= new Array();
+							cData.push(data2[i].fecha);							
+							cData.push(pts);							
+							pts = eval(pts - data2[i].puntos);
+
+							if (pts > pts_max){
+								pts_max = pts;
+							}
+							if (pts < pts_min){
+								pts_min = pts;
+							}
 							chartDat.push(cData);
 						}
 
 						i++;
 					}
 
-					var str = JSON.stringify(chartDat);
+					var str = JSON.stringify(voltearArray(chartDat));
+					//google.setOnLoadCallback(drawChart);
+					drawChart(str, pts_max, pts_min);
 				}
 			});
 			$("#matchlist").html(html);
@@ -138,34 +147,34 @@ console.log("fin lista partidos");
 		}
 	});
 	
-	$("#lbAnno").html(anno-1);				
+	$("#lbAnno").html(anno-1);
 	html = datosTorneo(lig_w, lig_l);
-	$("#lbLiga").html(html);				
+	$("#lbLiga").html(html);
 	html = datosTorneo(cop_w, cop_l);
-	$("#lbCopa").html(html);				
+	$("#lbCopa").html(html);
 	html = datosTorneo(cir_w, cir_l);
-	$("#lbCir").html(html);				
+	$("#lbCir").html(html);
 	html = datosTorneo(mas_w, mas_l);
 	$("#lbMaster").html(html);
 	
-	$("#lbAnno2").html(anno-2);				
+	$("#lbAnno2").html(anno-2);
 	html = datosTorneo(lig2_w, lig2_l);
-	$("#lbLiga2").html(html);				
+	$("#lbLiga2").html(html);
 	html = datosTorneo(cop2_w, cop2_l);
-	$("#lbCopa2").html(html);				
+	$("#lbCopa2").html(html);
 	html = datosTorneo(cir2_w, cir2_l);
-	$("#lbCir2").html(html);				
+	$("#lbCir2").html(html);
 	html = datosTorneo(mas2_w, mas2_l);
 	$("#lbMaster2").html(html);
-	
-	
-	$("#lbAnnoT").html("Total");				
+
+
+	$("#lbAnnoT").html("Total");
 	html = datosTorneo(lig_w + lig2_w, lig_l + lig2_l);
-	$("#lbLigaT").html(html);				
+	$("#lbLigaT").html(html);
 	html = datosTorneo(cop_w + cop2_w, cop_l + cop2_l);
-	$("#lbCopaT").html(html);				
+	$("#lbCopaT").html(html);
 	html = datosTorneo(cir_w + cir2_w, cir_l + cir2_l);
-	$("#lbCirT").html(html);				
+	$("#lbCirT").html(html);
 	html = datosTorneo(mas_w + mas2_w, mas_l + mas2_l);
 	$("#lbMasterT").html(html);
 	
@@ -179,8 +188,8 @@ function datosTorneo(win, lose){
 	}else{
 		ratio = 0;
 	}
-	txt = "W:" + win + " L:" + lose + " %:" + ratio;				
-	return txt;				
+	txt = "W:" + win + " L:" + lose + " %:" + ratio;
+	return txt;
 }
 
 function getTipoTorneo(torneo){
@@ -192,7 +201,7 @@ console.log ("getTipoTorneo: " + torneo);
 	}else if (torneo == "REGIONAL"){
 		img = "http://topera.esy.es/img/regional.png";
 	}else if (torneo == "CIRCUITO"){
-		img = "http://topera.esy.es/img/circuito.png";		
+		img = "http://topera.esy.es/img/circuito.png";
 	}else if (torneo == "COPA"){
 		img = "http://topera.esy.es/img/copa.png";
 	}else if (torneo == "LIGA"){
@@ -204,34 +213,37 @@ console.log ("getTipoTorneo: " + torneo);
 	return img;
 }
 
+function drawChart(JsonData, maximo, minimo) {
 
-function drawChart() {
-
-	var data = google.visualization.arrayToDataTable([["Fecha","Puntos"],["17/08/2014",1808],["17/08/2014",1850],["08/08/2014",1813],["17/05/2014",1869],["10/05/2014",1914],["03/05/2014",1886],["26/04/2014",1949],["05/04/2014",1904],["28/03/2014",1850],["08/03/2014",1819],["22/02/2014",1794],["08/02/2014",1779],["26/01/2014",1724],["18/01/2014",1685],["16/08/2013",1722],["10/08/2013",1685],["26/05/2013",1737],["11/05/2013",1796],["04/05/2013",1855],["27/04/2013",1903],["13/04/2013",1860],["23/03/2013",1923],["17/03/2013",1885],["08/03/2013",1929],["22/02/2013",1891],["15/02/2013",1935],["03/02/2013",1896],["25/01/2013",1849],["20/01/2013",1814],["12/01/2013",1773]]);
+	var data 		= google.visualization.arrayToDataTable($.parseJSON(JsonData));
 
 	var options = {
-					title: 'Company Performance',
-					hAxis: {title: 'Year',  titleTextStyle: {color: '#333'}},
-					vAxis: {minValue: 0}
-				  };
+		title: 'Evoluación Puntos',
+		vAxis: {minValue: minimo}
+	};
 
 	var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
 	chart.draw(data, options);
 }
 
-function loadjscssfile(filename, filetype){
-    if (filetype=="js"){ //if filename is a external JavaScript file
-        var fileref=document.createElement('script')
-        fileref.setAttribute("type","text/javascript")
-        fileref.setAttribute("src", filename)
-    }
-    else if (filetype=="css"){ //if filename is an external CSS file
-        var fileref=document.createElement("link")
-        fileref.setAttribute("rel", "stylesheet")
-        fileref.setAttribute("type", "text/css")
-        fileref.setAttribute("href", filename)
-    }
-    if (typeof fileref!="undefined")
-        document.getElementsByTagName("head")[0].appendChild(fileref)
-}
+function voltearArray(charData){
+	console.log("Longitud Array: " + charData.length);
 
+	var i = charData.length - 1;
+	var j = 0;
+	var array = new Array();	
+
+	array[j] = charData[0];
+
+	for (i; i >= 0; i--) {
+		console.log("Indice: " + i);
+		console.log("Nuevo array " + array[j]);	
+
+		j++;
+
+		array[j] = charData[i];
+		
+	}
+	
+	return array;
+}

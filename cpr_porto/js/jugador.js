@@ -60,7 +60,89 @@ console.log("id_jugador: " + id);
 			$("#imgJg").attr("alt", data[0].jugador);
 			$("#imgJg").attr("onerror", "this.src='http://topera.esy.es/img/sin_foto_75x70.png'");
 
-///////////////////////////////					
+			////////////////////////////////
+			///// ESTADISTICAS JUGADOR /////
+			////////////////////////////////
+			$.ajax({
+				url: 		 'http://topera.esy.es/cpr_ws.php',
+				type: 		 'GET',
+				dataType: 	 'json',
+				async: 		 false,
+				crossDomain: true,
+				timeout: 	 5000,
+				data: {
+					op 		: 'infojgstat',
+					idpl	: id
+				},
+				success: function(stats){
+
+					var i 			= 0;
+					var copa_win	= 0;
+					var copa_lose	= 0;
+					var cir_win		= 0;
+					var cir_lose	= 0;
+					var lig_win		= 0;
+					var lig_lose	= 0;
+					var reg_win		= 0;
+					var reg_lose	= 0;
+					var copa_stats	= 0;
+					var cir_stats	= 0;
+					var lig_stats	= 0;
+					var reg_stats	= 0;
+					var tot_win		= 0;
+					var tot_lose	= 0;
+					var tot_stats	= 0;
+					
+					while (i < stats.length){
+
+						switch(stats[i].torneo) {
+							case 'COPA':
+								copa_win 	= copa_win  + parseInt(stats[i].victorias);
+								copa_lose	= copa_lose + parseInt(stats[i].derrotas);
+								break;
+							case 'CIRCUITO':
+								cir_win 	= cir_win  + parseInt(stats[i].victorias);
+								cir_lose	= cir_lose + parseInt(stats[i].derrotas);
+								break;
+							case 'LIGA':
+								lig_win 	= lig_win  + parseInt(stats[i].victorias);
+								lig_lose	= lig_lose + parseInt(stats[i].derrotas);
+								break;
+							case 'MASTER':
+								reg_win 	= reg_win  + parseInt(stats[i].victorias);
+								reg_lose	= reg_lose + parseInt(stats[i].derrotas);
+								break;
+						}
+						tot_win		= tot_win  + parseInt(stats[i].victorias);
+						tot_lose 	= tot_lose + parseInt(stats[i].derrotas);
+
+						i++;
+					}
+
+//					devuelvePorcentaje(copa_win, copa_lose);
+//					devuelvePorcentaje(cir_win,  cir_lose);
+//					devuelvePorcentaje(lig_win,  lig_lose);
+//					devuelvePorcentaje(reg_win,  reg_lose);
+//					devuelvePorcentaje(tot_win,  tot_lose);
+
+										
+//					cir_stats 	= eval((cir_win  / (cir_win  + cir_lose))  * 100).toFixed(0);
+//					lig_stats 	= eval((lig_win  / (lig_win  + lig_lose))  * 100).toFixed(0);
+//					reg_stats 	= eval((reg_win  / (reg_win  + reg_lose))  * 100).toFixed(0);
+//					tot_stats	= eval((tot_win  / (tot_win  + tot_lose))  * 100).toFixed(0);
+
+
+					$("#lbLigaStats").html(devuelvePorcentaje(lig_win,  lig_lose) + ' %');
+					$("#lbCircuitoStats").html(devuelvePorcentaje(cir_win,  cir_lose) + ' %');
+					$("#lbCopaStats").html(devuelvePorcentaje(copa_win, copa_lose) + ' %');
+					$("#lbMasterStats").html(devuelvePorcentaje(reg_win,  reg_lose) + ' %');
+					$("#lbVictorias").html(devuelvePorcentaje(tot_win,  tot_lose) + ' %');
+				}
+			});		
+
+			////////////////////////////
+			///// PARTIDOS JUGADOR /////
+			////////////////////////////				
 			$.ajax({
 				url: 		 'http://topera.esy.es/ws_resp_partidos_jugador.php',
 				type: 		 'GET',
@@ -246,4 +328,17 @@ function voltearArray(charData){
 	}
 	
 	return array;
+}
+
+// En funcion de dos cantidades devuelve el porcentaje
+function devuelvePorcentaje(win, lose){
+	
+	if (eval(win  + lose) <= 0){
+
+		return 0;
+	}
+
+	var retorno =  eval((win  / (win  + lose))  * 100).toFixed(0);
+
+	return retorno;
 }

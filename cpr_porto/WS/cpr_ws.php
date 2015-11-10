@@ -11,10 +11,15 @@
 	header('Content-Type: application/javascript;charset=utf-8');
 
 	// Se genera la Conexion a la base de datos MySql
+//	$host 	= "mysql.hostinger.es";
+//	$user	= "u742715305_cpr";
+//	$pass	= "PDRtopera";
+//	$db		= "u742715305_cpr";
+
 	$host 	= "mysql.hostinger.es";
-	$user	= "u742715305_cpr";
-	$pass	= "PDRtopera";
-	$db		= "u742715305_cpr";
+	$user	= "u312321597_top";
+	$pass	= "123456";
+	$db		= "u312321597_top";
 
 	// Conexion con el servidor
 

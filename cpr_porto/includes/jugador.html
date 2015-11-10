@@ -70,8 +70,8 @@
 														<h5>Categoría Circuito</h5>
 													</div>
 													<div class="stat col-xs-6">
-														<span id="lbVictorias">45%</span>
-														<h5>% Victorias</h5>
+														<span id="lbVictorias">0 %</span>
+														<h5>Victorias</h5>
 													</div>
 												</div>
 												<div class="row">
@@ -80,115 +80,41 @@
 														<h5>Equipo</h5>
 													</div>													
 												</div>
+												<div class="row">
+													<div class="stat col-xs-6">
+														<span id="lbLigaStats">0 %</span>
+														<h5>Victorias Liga</h5>
+													</div>
+													<div class="stat col-xs-6">
+														<span id="lbCircuitoStats">0 %</span>
+														<h5>Victorias Circuito</h5>
+													</div>
+												</div>
+												<div class="row">
+													<div class="stat col-xs-6">
+														<span id="lbCopaStats">0 %</span>
+														<h5>Victorias Copa</h5>
+													</div>
+													<div class="stat col-xs-6">
+														<span id="lbMasterStats">0 %</span>
+														<h5>Victorias Master</h5>
+													</div>
+												</div>
 											</div>
 										</div>
 									</div>
 								</div>
 								
 								<div class="col-md-8">
+
 									<div class="panel">
 										<div class="body" loader="seasonPromise || loadingPromise" style="position: relative;">
 											<i class="fa fa-line-chart"></i>
 											<h4>Evolución en puntos</h4>
 											<div id="chart_div" ></div>											
-<!-- ngIf: player.statuses 
-											<value-chart ng-if="player.statuses" data="player.statuses">
-												<g-chart chart="gChart" style="display: block;width: 100%">
-													<div style="position: relative;">
-														<div dir="ltr" style="position: relative; width: 514px; height: 200px;">
-															<div aria-label="A chart." style="position: absolute; left: 0px; top: 0px; width: 100%; height: 100%;">
-																<svg width="514" height="200" aria-label="A chart." style="overflow: hidden;">
-																	<defs id="defs">
-																		<clipPath id="_ABSTRACT_RENDERER_ID_1030">
-																			<rect x="26" y="38" width="463" height="124"></rect>
-																		</clipPath>
-																	</defs>
-																	<rect x="0" y="0" width="514" height="200" stroke="none" stroke-width="0" fill="#ffffff"></rect>
-																	<g>
-																		<rect x="26" y="38" width="463" height="124" stroke="none" stroke-width="0" fill-opacity="0" fill="#ffffff"></rect>
-																		<g clip-path="url(#_ABSTRACT_RENDERER_ID_1030)">
-																			<g>
-																				<rect x="79" y="38" width="1" height="124" stroke="none" stroke-width="0" fill="#cccccc"></rect>
-																				<rect x="145" y="38" width="1" height="124" stroke="none" stroke-width="0" fill="#cccccc"></rect>
-																				<rect x="211" y="38" width="1" height="124" stroke="none" stroke-width="0" fill="#cccccc"></rect>
-																				<rect x="277" y="38" width="1" height="124" stroke="none" stroke-width="0" fill="#cccccc"></rect>
-																				<rect x="343" y="38" width="1" height="124" stroke="none" stroke-width="0" fill="#cccccc"></rect>
-																				<rect x="409" y="38" width="1" height="124" stroke="none" stroke-width="0" fill="#cccccc"></rect>
-																				<rect x="26" y="161" width="463" height="1" stroke="none" stroke-width="0" fill="#cccccc"></rect>
-																				<rect x="26" y="130" width="463" height="1" stroke="none" stroke-width="0" fill="#cccccc"></rect>
-																				<rect x="26" y="100" width="463" height="1" stroke="none" stroke-width="0" fill="#cccccc"></rect>
-																				<rect x="26" y="69" width="463" height="1" stroke="none" stroke-width="0" fill="#cccccc"></rect>
-																				<rect x="26" y="38" width="463" height="1" stroke="none" stroke-width="0" fill="#cccccc"></rect>
-																			</g>
-																			<g>
-																				<g>
-																					<path d="M488.5,161.5L488.5,161.5L488.5,67.52799999999999L479.07943925233644,67.52799999999999L469.6588785046729,67.52799999999999L460.2383177570094,67.52799999999999L450.8177570093458,60.639999999999986L441.39719626168227,62.97699999999999L431.9766355140187,62.97699999999999L422.55607476635515,64.08399999999999L413.1355140186916,64.45299999999999L403.71495327102804,64.45299999999999L394.2943925233645,65.068L384.48130841121497,65.068L375.0607476635514,61.009L365.64018691588785,61.009L356.2196261682243,56.70399999999999L346.79906542056074,56.70399999999999L337.3785046728972,50.55399999999999L327.9579439252337,45.510999999999996L318.5373831775701,44.28099999999999L309.11682242990656,48.831999999999994L299.696261682243,48.831999999999994L290.27570093457945,48.831999999999994L280.8551401869159,48.831999999999994L271.43457943925233,54.36699999999999L262.01401869158883,54.36699999999999L252.59345794392524,54.613L243.1728971962617,54.613L233.75233644859813,54.613L224.33177570093457,54.613L214.91121495327104,63.592L205.49065420560748,63.592L196.07009345794393,63.592L186.64953271028037,63.592L177.22897196261684,64.45299999999999L167.80841121495328,64.45299999999999L158.38785046728972,62.485L148.96728971962617,62.485L139.54672897196264,61.747L130.12616822429908,61.747L120.70560747663552,61.747L111.28504672897196,61.747L101.86448598130842,62.97699999999999L92.44392523364486,63.099999999999994L83.02336448598132,65.68299999999999L73.60280373831776,65.68299999999999L64.1822429906542,69.127L54.76168224299066,69.127L45.3411214953271,69.127L35.92056074766355,69.127L26.5,69.127L26.5,161.5L26.5,161.5Z" stroke="none" stroke-width="0" fill-opacity="0.3" fill="#3366cc"></path>
-																				</g>
-																			</g>
-																			<g>
-																				<rect x="26" y="161" width="463" height="1" stroke="none" stroke-width="0" fill="#333333"></rect>
-																			</g>
-																			<g>
-																				<path d="M488.5,67.52799999999999L479.07943925233644,67.52799999999999L469.6588785046729,67.52799999999999L460.2383177570094,67.52799999999999L450.8177570093458,60.639999999999986L441.39719626168227,62.97699999999999L431.9766355140187,62.97699999999999L422.55607476635515,64.08399999999999L413.1355140186916,64.45299999999999L403.71495327102804,64.45299999999999L394.2943925233645,65.068L384.48130841121497,65.068L375.0607476635514,61.009L365.64018691588785,61.009L356.2196261682243,56.70399999999999L346.79906542056074,56.70399999999999L337.3785046728972,50.55399999999999L327.9579439252337,45.510999999999996L318.5373831775701,44.28099999999999L309.11682242990656,48.831999999999994L299.696261682243,48.831999999999994L290.27570093457945,48.831999999999994L280.8551401869159,48.831999999999994L271.43457943925233,54.36699999999999L262.01401869158883,54.36699999999999L252.59345794392524,54.613L243.1728971962617,54.613L233.75233644859813,54.613L224.33177570093457,54.613L214.91121495327104,63.592L205.49065420560748,63.592L196.07009345794393,63.592L186.64953271028037,63.592L177.22897196261684,64.45299999999999L167.80841121495328,64.45299999999999L158.38785046728972,62.485L148.96728971962617,62.485L139.54672897196264,61.747L130.12616822429908,61.747L120.70560747663552,61.747L111.28504672897196,61.747L101.86448598130842,62.97699999999999L92.44392523364486,63.099999999999994L83.02336448598132,65.68299999999999L73.60280373831776,65.68299999999999L64.1822429906542,69.127L54.76168224299066,69.127L45.3411214953271,69.127L35.92056074766355,69.127L26.5,69.127" stroke="#3366cc" stroke-width="2" fill-opacity="1" fill="none"></path>
-																			</g>
-																		</g>
-																		<g></g>
-																		<g>
-																			<g>
-																				<text text-anchor="middle" x="79.5394114953271" y="177.6" font-family="inherit" font-size="16" stroke="none" stroke-width="0" fill="#444444">Sep</text>
-																				<text text-anchor="middle" x="79.5394114953271" y="195.6" font-family="inherit" font-size="16" stroke="none" stroke-width="0" fill="#444444">15</text>
-																			</g>
-																			<g>
-																				<text text-anchor="middle" x="145.48333672897195" y="177.6" font-family="inherit" font-size="16" stroke="none" stroke-width="0" fill="#444444">Sep</text>
-																				<text text-anchor="middle" x="145.48333672897195" y="195.6" font-family="inherit" font-size="16" stroke="none" stroke-width="0" fill="#444444">15</text>
-																			</g>
-																			<g>
-																				<text text-anchor="middle" x="211.42726196261683" y="177.6" font-family="inherit" font-size="16" stroke="none" stroke-width="0" fill="#444444">Oct 15</text>
-																			</g>
-																			<g>
-																				<text text-anchor="middle" x="277.3711871962617" y="177.6" font-family="inherit" font-size="16" stroke="none" stroke-width="0" fill="#444444">Oct 15</text>
-																			</g>
-																			<g>
-																				<text text-anchor="middle" x="343.31511242990655" y="177.6" font-family="inherit" font-size="16" stroke="none" stroke-width="0" fill="#444444">Oct 15</text>
-																			</g>
-																			<g>
-																				<text text-anchor="middle" x="409.6515610280374" y="177.6" font-family="inherit" font-size="16" stroke="none" stroke-width="0" fill="#444444">Oct 15</text>
-																			</g>
-																			<g>
-																				<text text-anchor="end" x="24" y="167.1" font-family="inherit" font-size="16" stroke="none" stroke-width="0" fill="#444444">0…</text>
-																				<rect x="2" y="153.5" width="22" height="16" stroke="none" stroke-width="0" fill-opacity="0" fill="#ffffff"></rect>
-																			</g>
-																			<g>
-																				<text text-anchor="end" x="24" y="136.35" font-family="inherit" font-size="16" stroke="none" stroke-width="0" fill="#444444">2…</text>
-																				<rect x="2" y="122.75" width="22" height="16" stroke="none" stroke-width="0" fill-opacity="0" fill="#ffffff"></rect>
-																			</g>
-																			<g>
-																				<text text-anchor="end" x="24" y="105.6" font-family="inherit" font-size="16" stroke="none" stroke-width="0" fill="#444444">5…</text>
-																				<rect x="2" y="92" width="22" height="16" stroke="none" stroke-width="0" fill-opacity="0" fill="#ffffff"></rect>
-																			</g>
-																			<g>
-																				<text text-anchor="end" x="24" y="74.85" font-family="inherit" font-size="16" stroke="none" stroke-width="0" fill="#444444">7…</text>
-																				<rect x="2" y="61.25" width="22" height="16" stroke="none" stroke-width="0" fill-opacity="0" fill="#ffffff"></rect>
-																			</g>
-																			<g>
-																				<text text-anchor="end" x="24" y="44.09999999999999" font-family="inherit" font-size="16" stroke="none" stroke-width="0" fill="#444444">1…</text>
-																				<rect x="2" y="30.499999999999986" width="22" height="16" stroke="none" stroke-width="0" fill-opacity="0" fill="#ffffff"></rect>
-																			</g>
-																		</g>
-																	</g>
-																	<g></g>
-																</svg>
-															</div>
-														</div>
-														<div aria-hidden="true" style="display: none; position: absolute; top: 210px; left: 717px; white-space: nowrap; font-family: Arial; font-size: 11px; font-weight: bold;">8.110.000&nbsp;€</div>
-														<div></div>
-													</div>
-												</g-chart>
-											</value-chart>
- end ngIf: player.statuses -->
 										</div>
 									</div>
-									
+
 									<div class="panel" loader="seasonPromise || loadingPromise" style="position: relative;">
 										<div class="body">
 											<i class="fa fa-bar-chart"></i>
@@ -201,70 +127,14 @@
 											</h4>											
 											<table id="matchlist" class="table points-list">
 												<tbody>
-													
-													<tr>
-														<!--nº Partido-->
-														<td class="narrow day">1</td>
-														<!--Foto Compañero-->
-														<td class="match no-border">
-															<a class="team" title="Betis" team-modal="day.match.local" href="/liga-bbva/teams/betis">
-																<img src="https://lh3.googleusercontent.com/PYX97hRSUCZXQRKEzG2SyssUyq3ESop_3LH9-_BTyAI85yg4zaNIHJVaKsChGXxPZropK4aoJEABPd25g1iHRJIt696ALWFL">
-															</a>
-														</td>
-														<!--Resultado Local-->
-														<td class="match no-border"><a href="/liga-bbva/match/betis-villarreal-7753">1</a></td>
-														<!--Resultado Local guion-->
-														<td class="match separator no-border"><a href="/liga-bbva/match/betis-villarreal-7753">‐</a></td>
-														<!--Resultado Visitante-->
-														<td class="match no-border"><a href="/liga-bbva/match/betis-villarreal-7753">1</a></td>
-														<!--Foto pareja visitante-->
-														<td class="match">
-															<a class="team" title="Villarreal" team-modal="day.match.visitor" href="/liga-bbva/teams/villarreal">
-																<img src="https://lh3.googleusercontent.com/_YkLZewRsw1fQLgJYsjQ1mzhsGuoxEvOCoImtIfeEbg8awHJBb2uNyhRMtHtGFHZSXw5OQIhiOPTlDJ9suM2Kw6BCuOICdc">
-															</a>
-														</td>
-														<!--Puntos-->
-														<td class="neg">
-															<a href="/liga-bbva/match/betis-villarreal-7753" class="bar ng-hide" title="Betis 1 - 1 Villarreal" style="width: 0px;">0</a>
-														</td>
-														<!--Estado-->
-														<td>
-															
-														</td>
-
-														<td class="events" ng-show="::day.report">
-															<!-- ngRepeat: event in ::day.report.events -->
-															<span ng-repeat="event in ::day.report.events" ng-switch="::event.type">
-																<!-- ngSwitchWhen: 1 --> <!-- ngSwitchWhen: 2 --> <!-- ngSwitchWhen: 3 --> <!-- ngSwitchWhen: 9 --> <!-- ngSwitchWhen: 4 --> <!-- ngSwitchWhen: 5 --> <!-- ngSwitchWhen: 6 --> <!-- ngSwitchWhen: 7 --><i ng-switch-when="7" style="color:red" title="Tarjeta roja en el minuto 90" class="icon icon-card"></i><!-- end ngSwitchWhen: --> <!-- ngSwitchWhen: 8 -->
-															</span>
-															<!-- end ngRepeat: event in ::day.report.events -->
-														</td>
-													</tr>
-													
-													<!-- end ngRepeat: day in matchDays -->
+													<td class='narrow day'>No hay datos</td>
 												</tbody>
 											</table>
 										</div>
 									</div>
+
 								</div>								
 							</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 						</div><!-- end ngIf: player -->
 					</div>
 				</div>

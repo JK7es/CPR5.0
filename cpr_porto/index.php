@@ -141,8 +141,10 @@
 			<div role="main" class="main">
 
 
-				<?php //include("includes/calculadora.html"); 
-					include("includes/jugador.html"); 
+				<?php 
+					//include("includes/calculadora.html"); 
+					//include("includes/jugador.html");
+					include("includes/equipo.html");
 				?>
                 <!-- InstanceBeginEditable name="body" -->        
 				<div id="include"></div>
@@ -273,6 +275,7 @@
    		<script src="js/noticias.js"></script>
 		<script src="js/calculadora.js"></script>
 		<script src="js/jugador.js"></script>
+		<script src="js/equipo.js"></script>
 
 		<!-- Theme Initialization Files -->
 		<script src="js/theme.init.js"></script>

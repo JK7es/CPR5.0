@@ -1,0 +1,1418 @@
+            <section class="page-header">
+               <div class="container">
+                  <div class="row">
+                     <div class="col-md-12">
+                        <ul class="breadcrumb">
+                           <li><a href="#">Inicio</a></li>
+                           <li class="active">Jugador</li>
+                        </ul>
+                     </div>
+                  </div>
+                  <div class="row">
+                     <div class="col-md-12">
+                        <h1>Jugador</h1>
+                     </div>
+                  </div>
+               </div>
+            </section>
+
+            <div class="container">
+               <!-- ngView:  -->
+               <div id="view" ng-view="" autoscroll="">
+                  <div class="player-detail" loader="loadingPromise" style="position: relative;">
+
+
+                     <div class="row" ng-if="team">
+                        <div class="col-md-4">
+                           <div class="panel entity-info">
+                              <div class="body">
+                                 <h1 ng-show="::settings.showName" class="ng-hide">Sporting</h1>
+                                 <a class="team" title="Sporting" team-modal="team" href="/liga-bbva/teams/sporting"><img ng-src="https://cdn.comuniame.com/i/zwcg.png" src="https://cdn.comuniame.com/i/zwcg.png"></a>
+                              </div>
+                              <div class="social sticker"><a class="fb" title="Compartir en Facebook" target="_blank" href="https://www.facebook.com/dialog/feed?app_id=919678774751592&amp;name=Comuniame&amp;description=Resultados%2C+jugadores+y+estad%C3%ADsticas+del+Sporting+en+%23Comuniame&amp;link=https://app.comunia.me/liga-bbva/teams/sporting&amp;redirect_uri=https://app.comunia.me/close_fb"><i class="icon icon-facebook"></i></a> <a class="tw" title="Compartir en Twitter" target="_blank" href="https://twitter.com/intent/tweet?text=Resultados%2C+jugadores+y+estad%C3%ADsticas+del+Sporting+en+%23Comuniame%3A+https://app.comunia.me/liga-bbva/teams/sporting&amp;via=comuniame&amp;related=comuniame"><i class="icon icon-twitter"></i></a> <a class="whatsapp visible-xs" title="Compartir en Whatsapp" target="_blank" href="whatsapp://send?text=Resultados%2C+jugadores+y+estad%C3%ADsticas+del+Sporting+en+%23Comuniame%3A+https://app.comunia.me/liga-bbva/teams/sporting"><i class="icon icon-whatsapp"></i></a></div>
+                           </div>
+                           <div class="ad ad-rectangle" template="header-rectangle"></div>
+                           <div class="panel">
+                              <div class="body">
+                                 <i class="icon icon-info panel-icon"></i>
+                                 <h4>Información</h4>
+                                 <div class="stats">
+                                    <div class="row">
+                                       <div class="stat col-xs-6">
+                                          <span>700</span>
+                                          <h5>Puntos</h5>
+                                       </div>
+                                       <div class="stat col-xs-6">
+                                          <span style="font-size:21px">56.370.000&nbsp;€</span>
+                                          <h5>Valor</h5>
+                                       </div>
+                                    </div>
+                                    <div class="row">
+                                       <div class="stat col-xs-6">
+                                          <span>24</span>
+                                          <h5>Jugadores</h5>
+                                       </div>
+                                       <div class="stat col-xs-6">
+                                          <span>4</span>
+                                          <h5>Lesionados y sancionados</h5>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="ad ad-horizontal visible-xs" template="content-horizontal"></div>
+                        <div class="col-md-8">
+                           <div class="panel">
+                              <div class="body" loader="loadingPromise" style="position: relative;">
+                                 <i class="icon icon-team panel-icon"></i>
+                                 <h4>Jugadores</h4>
+                                 <players players="team.players" settings="{showTeam: false, columns: 2}">
+                                    <div class="players" loader="loadingPromise">
+                                       <p class="text-center text-muted ng-hide" ng-show="players.length==0"></p>
+                                       <div class="player-filter visible-xs">
+                                          <div class="layout-selector"><i class="icon icon-grid"></i> &nbsp;<span class="switch ng-valid" ng-click="undefined ? showTable : showTable=!showTable" ng-class="{ checked:showTable, disabled:undefined }" ng-model="showTable" title="Mostrar listado como tabla"><small></small><input type="checkbox" ng-model="showTable" style="display:none" class="ng-pristine ng-untouched ng-valid"><span class="switch-text"> </span></span>&nbsp; <i class="icon icon-table"></i></div>
+                                          <input placeholder="Filtrar" ng-model="filter.q" list="list32847053091973066" ng-show="::settings.showFilter &amp;&amp; !settings.debounceFilter" class="ng-pristine ng-untouched ng-valid"> <input placeholder="Filtrar" ng-model="filter.q" list="list32847053091973066" ng-show="::settings.showFilter &amp;&amp; settings.debounceFilter" ng-model-options="{debounce: 500}" class="ng-pristine ng-untouched ng-valid ng-hide">
+                                          <datalist id="list32847053091973066">
+                                             <!-- ngRepeat: entry in autoCompleteList -->
+                                          </datalist>
+                                          <div class="dropdown sort" ng-show="::settings.showSort">
+                                             <button class="btn white" title="Ordenar por"><i class="icon icon-sort"></i></button>
+                                             <ul>
+                                                <li class="dropdown-header">Ordenar por</li>
+                                                <li sort-by="position"><a class="sortBy active" ng-class="{active: sortingBy==sortBy}" ng-click="doSort()"><span ng-transclude=""><span>Posición</span></span><span class="sort-down ng-hide" ng-show="isOrder('-')"><i class="icon icon-caret-down"></i></span><span class="sort-up" ng-show="isOrder('+')"><i class="icon icon-caret-up"></i></span><span class="sort-both ng-hide" ng-show="sortingBy != sortBy"><i class="icon icon-caret-up-down"></i></span></a></li>
+                                                <li sort-by="name"><a class="sortBy" ng-class="{active: sortingBy==sortBy}" ng-click="doSort()"><span ng-transclude=""><span>Jugador</span></span><span class="sort-down ng-hide" ng-show="isOrder('-')"><i class="icon icon-caret-down"></i></span><span class="sort-up ng-hide" ng-show="isOrder('+')"><i class="icon icon-caret-up"></i></span><span class="sort-both" ng-show="sortingBy != sortBy"><i class="icon icon-caret-up-down"></i></span></a></li>
+                                                <li sort-by="points,-pointsLastSeason"><a class="sortBy" ng-class="{active: sortingBy==sortBy}" ng-click="doSort()"><span ng-transclude=""><span>Puntos</span></span><span class="sort-down ng-hide" ng-show="isOrder('-')"><i class="icon icon-caret-down"></i></span><span class="sort-up ng-hide" ng-show="isOrder('+')"><i class="icon icon-caret-up"></i></span><span class="sort-both" ng-show="sortingBy != sortBy"><i class="icon icon-caret-up-down"></i></span></a></li>
+                                                <li sort-by="price"><a class="sortBy" ng-class="{active: sortingBy==sortBy}" ng-click="doSort()"><span ng-transclude=""><span>Valor de Mercado</span></span><span class="sort-down ng-hide" ng-show="isOrder('-')"><i class="icon icon-caret-down"></i></span><span class="sort-up ng-hide" ng-show="isOrder('+')"><i class="icon icon-caret-up"></i></span><span class="sort-both" ng-show="sortingBy != sortBy"><i class="icon icon-caret-up-down"></i></span></a></li>
+                                                <li sort-by="status"><a class="sortBy" ng-class="{active: sortingBy==sortBy}" ng-click="doSort()"><span ng-transclude=""><span>Estado</span></span><span class="sort-down ng-hide" ng-show="isOrder('-')"><i class="icon icon-caret-down"></i></span><span class="sort-up ng-hide" ng-show="isOrder('+')"><i class="icon icon-caret-up"></i></span><span class="sort-both" ng-show="sortingBy != sortBy"><i class="icon icon-caret-up-down"></i></span></a></li>
+                                                <li sort-by="market.user.name" ng-show="::settings.marketMode" class="ng-hide"><a class="sortBy" ng-class="{active: sortingBy==sortBy}" ng-click="doSort()"><span ng-transclude=""><span>Propietario</span></span><span class="sort-down ng-hide" ng-show="isOrder('-')"><i class="icon icon-caret-down"></i></span><span class="sort-up ng-hide" ng-show="isOrder('+')"><i class="icon icon-caret-up"></i></span><span class="sort-both" ng-show="sortingBy != sortBy"><i class="icon icon-caret-up-down"></i></span></a></li>
+                                                <li sort-by="market.date" ng-show="::settings.marketMode" class="ng-hide"><a class="sortBy" ng-class="{active: sortingBy==sortBy}" ng-click="doSort()"><span ng-transclude=""><span>Fecha de venta</span></span><span class="sort-down ng-hide" ng-show="isOrder('-')"><i class="icon icon-caret-down"></i></span><span class="sort-up ng-hide" ng-show="isOrder('+')"><i class="icon icon-caret-up"></i></span><span class="sort-both" ng-show="sortingBy != sortBy"><i class="icon icon-caret-up-down"></i></span></a></li>
+                                             </ul>
+                                          </div>
+                                       </div>
+                                       <!-- ngIf: settings.layout=='grid' && players.length>0 -->
+                                       <div class="row grid" ng-if="settings.layout=='grid' &amp;&amp; players.length>0">
+                                          <!-- ngRepeat: player in players | filter:filter.q -->
+                                          <div ng-repeat-start="player in players | filter:filter.q" ng-class="{
+                                             'clearfix visible-lg': $index % settings.columns==0,
+                                             'clearfix visible-md': settings.columns==2?($index % 2 == 0):($index % (settings.columns-1)==0),
+                                             'clearfix visible-sm': $index % (settings.columns-2)==0}" class="clearfix visible-lg visible-md"></div>
+                                          <div ng-repeat-end="" class="no-xs-margin col-sm-12 col-md-6 col-lg-6 first" ng-class="{
+                                             'col-sm-12 col-md-6 col-lg-4':settings.columns==3,
+                                             'col-sm-12 col-md-6 col-lg-6':settings.columns==2,
+                                             'col-xs-12':settings.columns==1,
+                                             first:$first,
+                                             last:$last,
+                                             selected: selectedPlayers[player.id]}">
+                                             <player player="player" extra="extra" settings="settings">
+                                                <div class="player-card animate-zoom-in" ng-show="player">
+                                                   <div ng-transclude="header" class="header">
+                                                      <div transclude-to="header">
+                                                         <div ng-show="::player.market &amp;&amp; player.market.user.id == $root.session.currentUser.id" class="ng-hide">En venta desde <time relative=""></time> por <strong></strong></div>
+                                                         <div ng-show="::settings.marketMode &amp;&amp; player.market.user.id != $root.session.currentUser.id" class="ng-hide"><a ng-class="::{'current-user': player.market.user.id == $root.session.currentUser.id}" href="/user/-"></a><i ng-show="::!player.market.user">Libre</i>, <time relative=""></time> <span ng-show="::playerOffer || player.owner.id==$root.session.currentUser.id || player.market.user.id==$root.session.currentUser.id" class="ng-hide">por </span></div>
+                                                      </div>
+                                                   </div>
+                                                   <div class="team-pos valign pull-left">
+                                                      <div class="cell"><a ng-show="settings.showTeam" class="team ng-hide" title="" team-modal="player.team" href="#"><img></a> <span class="pos pos-1 sm" title="Portero" ng-show="player.position == 1">PT</span> <span class="pos pos-2 sm ng-hide" title="Defensa" ng-show="player.position == 2">DF</span> <span class="pos pos-3 sm ng-hide" title="Centrocampista" ng-show="player.position == 3">MC</span> <span class="pos pos-4 sm ng-hide" title="Delantero" ng-show="player.position == 4">DL</span></div>
+                                                   </div>
+                                                   <div class="pic pull-left">
+                                                      <a player-modal="player" href="/liga-bbva/players/cuellar">
+                                                         <div class="player-icon ok" style="background-image: url(https://cdn.comuniame.com/i/6f15.png);" ng-style="{'background-image':  'url('+(player.icon || &quot;https://cdn.comuniame.com/img/liga-bbva/player.png&quot;)+')'}" ng-class="player.status"></div>
+                                                      </a>
+                                                      <div class="points" title="Puntos conseguidos esta temporada">38</div>
+                                                      <span class="label danger player-status only-icon ng-hide" ng-show="player.status == &quot;injured&quot;" title="Lesionado. "><i class="icon icon-injured"></i></span> <span class="label danger player-status only-icon ng-hide" ng-show="player.status == &quot;sanctioned&quot;" title="Sancionado. "><i class="icon icon-sanctioned"></i></span> <span class="label warning player-status only-icon ng-hide" ng-show="player.status == &quot;discomfort&quot;" title="Molestias. "><i class="icon icon-discomfort"></i></span> <span class="label warning player-status only-icon ng-hide" ng-show="player.status == &quot;discarded&quot;" title="No convocado. "><i class="icon icon-discarded"></i></span>
+                                                   </div>
+                                                   <ng-transclude ng-transclude-slot="tools">
+                                                      <div class="valign pull-right" transclude-to="tools">
+                                                         <!-- ngIf: ::settings.marketMode || settings.showMarketTools -->
+                                                      </div>
+                                                   </ng-transclude>
+                                                   <div class="info valign">
+                                                      <div class="cell">
+                                                         <h3 ng-show="::settings.showName"><a player-modal="player" href="/liga-bbva/players/cuellar">Cuéllar</a></h3>
+                                                         <div ng-show="::settings.showPrice">
+                                                            <h4 title="Valor de Mercado">3.440.000&nbsp;€</h4>
+                                                            <span class="mv-increment ng-hide" ng-show="player.priceIncrement>0" title="Diferencia del Valor de Mercado entre ayer y hoy"><i class="icon icon-increment"></i>0&nbsp;€</span> <span class="mv-decrement ng-hide" ng-show="player.priceIncrement<0" title="Diferencia del Valor de Mercado entre ayer y hoy"><i class="icon icon-decrement"></i>0&nbsp;€</span>
+                                                         </div>
+                                                      </div>
+                                                   </div>
+                                                </div>
+                                             </player>
+                                             <!-- ngIf: ::ads && $index==2 -->
+                                          </div>
+                                          <!-- end ngRepeat: player in players | filter:filter.q -->
+                                          <div ng-repeat-start="player in players | filter:filter.q" ng-class="{
+                                             'clearfix visible-lg': $index % settings.columns==0,
+                                             'clearfix visible-md': settings.columns==2?($index % 2 == 0):($index % (settings.columns-1)==0),
+                                             'clearfix visible-sm': $index % (settings.columns-2)==0}"></div>
+                                          <div ng-repeat-end="" class="no-xs-margin col-sm-12 col-md-6 col-lg-6" ng-class="{
+                                             'col-sm-12 col-md-6 col-lg-4':settings.columns==3,
+                                             'col-sm-12 col-md-6 col-lg-6':settings.columns==2,
+                                             'col-xs-12':settings.columns==1,
+                                             first:$first,
+                                             last:$last,
+                                             selected: selectedPlayers[player.id]}">
+                                             <player player="player" extra="extra" settings="settings">
+                                                <div class="player-card animate-zoom-in" ng-show="player">
+                                                   <div ng-transclude="header" class="header">
+                                                      <div transclude-to="header">
+                                                         <div ng-show="::player.market &amp;&amp; player.market.user.id == $root.session.currentUser.id" class="ng-hide">En venta desde <time relative=""></time> por <strong></strong></div>
+                                                         <div ng-show="::settings.marketMode &amp;&amp; player.market.user.id != $root.session.currentUser.id" class="ng-hide"><a ng-class="::{'current-user': player.market.user.id == $root.session.currentUser.id}" href="/user/-"></a><i ng-show="::!player.market.user">Libre</i>, <time relative=""></time> <span ng-show="::playerOffer || player.owner.id==$root.session.currentUser.id || player.market.user.id==$root.session.currentUser.id" class="ng-hide">por </span></div>
+                                                      </div>
+                                                   </div>
+                                                   <div class="team-pos valign pull-left">
+                                                      <div class="cell"><a ng-show="settings.showTeam" class="team ng-hide" title="" team-modal="player.team" href="#"><img></a> <span class="pos pos-1 sm" title="Portero" ng-show="player.position == 1">PT</span> <span class="pos pos-2 sm ng-hide" title="Defensa" ng-show="player.position == 2">DF</span> <span class="pos pos-3 sm ng-hide" title="Centrocampista" ng-show="player.position == 3">MC</span> <span class="pos pos-4 sm ng-hide" title="Delantero" ng-show="player.position == 4">DL</span></div>
+                                                   </div>
+                                                   <div class="pic pull-left">
+                                                      <a player-modal="player" href="/liga-bbva/players/alberto-garcia">
+                                                         <div class="player-icon ok" style="background-image: url(https://cdn.comuniame.com/i/vghn.png);" ng-style="{'background-image':  'url('+(player.icon || &quot;https://cdn.comuniame.com/img/liga-bbva/player.png&quot;)+')'}" ng-class="player.status"></div>
+                                                      </a>
+                                                      <div class="points" title="Puntos conseguidos esta temporada">44</div>
+                                                      <span class="label danger player-status only-icon ng-hide" ng-show="player.status == &quot;injured&quot;" title="Lesionado. "><i class="icon icon-injured"></i></span> <span class="label danger player-status only-icon ng-hide" ng-show="player.status == &quot;sanctioned&quot;" title="Sancionado. "><i class="icon icon-sanctioned"></i></span> <span class="label warning player-status only-icon ng-hide" ng-show="player.status == &quot;discomfort&quot;" title="Molestias. "><i class="icon icon-discomfort"></i></span> <span class="label warning player-status only-icon ng-hide" ng-show="player.status == &quot;discarded&quot;" title="No convocado. "><i class="icon icon-discarded"></i></span>
+                                                   </div>
+                                                   <ng-transclude ng-transclude-slot="tools">
+                                                      <div class="valign pull-right" transclude-to="tools">
+                                                         <!-- ngIf: ::settings.marketMode || settings.showMarketTools -->
+                                                      </div>
+                                                   </ng-transclude>
+                                                   <div class="info valign">
+                                                      <div class="cell">
+                                                         <h3 ng-show="::settings.showName"><a player-modal="player" href="/liga-bbva/players/alberto-garcia">Alberto García</a></h3>
+                                                         <div ng-show="::settings.showPrice">
+                                                            <h4 title="Valor de Mercado">1.620.000&nbsp;€</h4>
+                                                            <span class="mv-increment ng-hide" ng-show="player.priceIncrement>0" title="Diferencia del Valor de Mercado entre ayer y hoy"><i class="icon icon-increment"></i>-90.000&nbsp;€</span> <span class="mv-decrement" ng-show="player.priceIncrement<0" title="Diferencia del Valor de Mercado entre ayer y hoy"><i class="icon icon-decrement"></i>90.000&nbsp;€</span>
+                                                         </div>
+                                                      </div>
+                                                   </div>
+                                                </div>
+                                             </player>
+                                             <!-- ngIf: ::ads && $index==2 -->
+                                          </div>
+                                          <!-- end ngRepeat: player in players | filter:filter.q -->
+                                          <div ng-repeat-start="player in players | filter:filter.q" ng-class="{
+                                             'clearfix visible-lg': $index % settings.columns==0,
+                                             'clearfix visible-md': settings.columns==2?($index % 2 == 0):($index % (settings.columns-1)==0),
+                                             'clearfix visible-sm': $index % (settings.columns-2)==0}" class="clearfix visible-lg visible-md"></div>
+                                          <div ng-repeat-end="" class="no-xs-margin col-sm-12 col-md-6 col-lg-6" ng-class="{
+                                             'col-sm-12 col-md-6 col-lg-4':settings.columns==3,
+                                             'col-sm-12 col-md-6 col-lg-6':settings.columns==2,
+                                             'col-xs-12':settings.columns==1,
+                                             first:$first,
+                                             last:$last,
+                                             selected: selectedPlayers[player.id]}">
+                                             <player player="player" extra="extra" settings="settings">
+                                                <div class="player-card animate-zoom-in" ng-show="player">
+                                                   <div ng-transclude="header" class="header">
+                                                      <div transclude-to="header">
+                                                         <div ng-show="::player.market &amp;&amp; player.market.user.id == $root.session.currentUser.id" class="ng-hide">En venta desde <time relative=""></time> por <strong></strong></div>
+                                                         <div ng-show="::settings.marketMode &amp;&amp; player.market.user.id != $root.session.currentUser.id" class="ng-hide"><a ng-class="::{'current-user': player.market.user.id == $root.session.currentUser.id}" href="/user/-"></a><i ng-show="::!player.market.user">Libre</i>, <time relative=""></time> <span ng-show="::playerOffer || player.owner.id==$root.session.currentUser.id || player.market.user.id==$root.session.currentUser.id" class="ng-hide">por </span></div>
+                                                      </div>
+                                                   </div>
+                                                   <div class="team-pos valign pull-left">
+                                                      <div class="cell"><a ng-show="settings.showTeam" class="team ng-hide" title="" team-modal="player.team" href="#"><img></a> <span class="pos pos-1 sm ng-hide" title="Portero" ng-show="player.position == 1">PT</span> <span class="pos pos-2 sm" title="Defensa" ng-show="player.position == 2">DF</span> <span class="pos pos-3 sm ng-hide" title="Centrocampista" ng-show="player.position == 3">MC</span> <span class="pos pos-4 sm ng-hide" title="Delantero" ng-show="player.position == 4">DL</span></div>
+                                                   </div>
+                                                   <div class="pic pull-left">
+                                                      <a player-modal="player" href="/liga-bbva/players/canella">
+                                                         <div class="player-icon discomfort" style="background-image: url(https://cdn.comuniame.com/i/sg1d.png);" ng-style="{'background-image':  'url('+(player.icon || &quot;https://cdn.comuniame.com/img/liga-bbva/player.png&quot;)+')'}" ng-class="player.status"></div>
+                                                      </a>
+                                                      <div class="points" title="Puntos conseguidos esta temporada">12</div>
+                                                      <span class="label danger player-status only-icon ng-hide" ng-show="player.status == &quot;injured&quot;" title="Lesionado. Elongación en el aductor. Duda esta jornada."><i class="icon icon-injured"></i></span> <span class="label danger player-status only-icon ng-hide" ng-show="player.status == &quot;sanctioned&quot;" title="Sancionado. Elongación en el aductor. Duda esta jornada."><i class="icon icon-sanctioned"></i></span> <span class="label warning player-status only-icon" ng-show="player.status == &quot;discomfort&quot;" title="Molestias. Elongación en el aductor. Duda esta jornada."><i class="icon icon-discomfort"></i></span> <span class="label warning player-status only-icon ng-hide" ng-show="player.status == &quot;discarded&quot;" title="No convocado. Elongación en el aductor. Duda esta jornada."><i class="icon icon-discarded"></i></span>
+                                                   </div>
+                                                   <ng-transclude ng-transclude-slot="tools">
+                                                      <div class="valign pull-right" transclude-to="tools">
+                                                         <!-- ngIf: ::settings.marketMode || settings.showMarketTools -->
+                                                      </div>
+                                                   </ng-transclude>
+                                                   <div class="info valign">
+                                                      <div class="cell">
+                                                         <h3 ng-show="::settings.showName"><a player-modal="player" href="/liga-bbva/players/canella">Canella</a></h3>
+                                                         <div ng-show="::settings.showPrice">
+                                                            <h4 title="Valor de Mercado">1.100.000&nbsp;€</h4>
+                                                            <span class="mv-increment ng-hide" ng-show="player.priceIncrement>0" title="Diferencia del Valor de Mercado entre ayer y hoy"><i class="icon icon-increment"></i>0&nbsp;€</span> <span class="mv-decrement ng-hide" ng-show="player.priceIncrement<0" title="Diferencia del Valor de Mercado entre ayer y hoy"><i class="icon icon-decrement"></i>0&nbsp;€</span>
+                                                         </div>
+                                                      </div>
+                                                   </div>
+                                                </div>
+                                             </player>
+                                             <!-- ngIf: ::ads && $index==2 -->
+                                          </div>
+                                          <!-- end ngRepeat: player in players | filter:filter.q -->
+                                          <div ng-repeat-start="player in players | filter:filter.q" ng-class="{
+                                             'clearfix visible-lg': $index % settings.columns==0,
+                                             'clearfix visible-md': settings.columns==2?($index % 2 == 0):($index % (settings.columns-1)==0),
+                                             'clearfix visible-sm': $index % (settings.columns-2)==0}"></div>
+                                          <div ng-repeat-end="" class="no-xs-margin col-sm-12 col-md-6 col-lg-6" ng-class="{
+                                             'col-sm-12 col-md-6 col-lg-4':settings.columns==3,
+                                             'col-sm-12 col-md-6 col-lg-6':settings.columns==2,
+                                             'col-xs-12':settings.columns==1,
+                                             first:$first,
+                                             last:$last,
+                                             selected: selectedPlayers[player.id]}">
+                                             <player player="player" extra="extra" settings="settings">
+                                                <div class="player-card animate-zoom-in" ng-show="player">
+                                                   <div ng-transclude="header" class="header">
+                                                      <div transclude-to="header">
+                                                         <div ng-show="::player.market &amp;&amp; player.market.user.id == $root.session.currentUser.id" class="ng-hide">En venta desde <time relative=""></time> por <strong></strong></div>
+                                                         <div ng-show="::settings.marketMode &amp;&amp; player.market.user.id != $root.session.currentUser.id" class="ng-hide"><a ng-class="::{'current-user': player.market.user.id == $root.session.currentUser.id}" href="/user/-"></a><i ng-show="::!player.market.user">Libre</i>, <time relative=""></time> <span ng-show="::playerOffer || player.owner.id==$root.session.currentUser.id || player.market.user.id==$root.session.currentUser.id" class="ng-hide">por </span></div>
+                                                      </div>
+                                                   </div>
+                                                   <div class="team-pos valign pull-left">
+                                                      <div class="cell"><a ng-show="settings.showTeam" class="team ng-hide" title="" team-modal="player.team" href="#"><img></a> <span class="pos pos-1 sm ng-hide" title="Portero" ng-show="player.position == 1">PT</span> <span class="pos pos-2 sm" title="Defensa" ng-show="player.position == 2">DF</span> <span class="pos pos-3 sm ng-hide" title="Centrocampista" ng-show="player.position == 3">MC</span> <span class="pos pos-4 sm ng-hide" title="Delantero" ng-show="player.position == 4">DL</span></div>
+                                                   </div>
+                                                   <div class="pic pull-left">
+                                                      <a player-modal="player" href="/liga-bbva/players/luis-hernandez">
+                                                         <div class="player-icon ok" style="background-image: url(https://cdn.comuniame.com/i/hmv9.png);" ng-style="{'background-image':  'url('+(player.icon || &quot;https://cdn.comuniame.com/img/liga-bbva/player.png&quot;)+')'}" ng-class="player.status"></div>
+                                                      </a>
+                                                      <div class="points" title="Puntos conseguidos esta temporada">62</div>
+                                                      <span class="label danger player-status only-icon ng-hide" ng-show="player.status == &quot;injured&quot;" title="Lesionado. "><i class="icon icon-injured"></i></span> <span class="label danger player-status only-icon ng-hide" ng-show="player.status == &quot;sanctioned&quot;" title="Sancionado. "><i class="icon icon-sanctioned"></i></span> <span class="label warning player-status only-icon ng-hide" ng-show="player.status == &quot;discomfort&quot;" title="Molestias. "><i class="icon icon-discomfort"></i></span> <span class="label warning player-status only-icon ng-hide" ng-show="player.status == &quot;discarded&quot;" title="No convocado. "><i class="icon icon-discarded"></i></span>
+                                                   </div>
+                                                   <ng-transclude ng-transclude-slot="tools">
+                                                      <div class="valign pull-right" transclude-to="tools">
+                                                         <!-- ngIf: ::settings.marketMode || settings.showMarketTools -->
+                                                      </div>
+                                                   </ng-transclude>
+                                                   <div class="info valign">
+                                                      <div class="cell">
+                                                         <h3 ng-show="::settings.showName"><a player-modal="player" href="/liga-bbva/players/luis-hernandez">Luis Hernández</a></h3>
+                                                         <div ng-show="::settings.showPrice">
+                                                            <h4 title="Valor de Mercado">3.810.000&nbsp;€</h4>
+                                                            <span class="mv-increment ng-hide" ng-show="player.priceIncrement>0" title="Diferencia del Valor de Mercado entre ayer y hoy"><i class="icon icon-increment"></i>0&nbsp;€</span> <span class="mv-decrement ng-hide" ng-show="player.priceIncrement<0" title="Diferencia del Valor de Mercado entre ayer y hoy"><i class="icon icon-decrement"></i>0&nbsp;€</span>
+                                                         </div>
+                                                      </div>
+                                                   </div>
+                                                </div>
+                                             </player>
+                                             <!-- ngIf: ::ads && $index==2 -->
+                                          </div>
+                                          <!-- end ngRepeat: player in players | filter:filter.q -->
+                                          <div ng-repeat-start="player in players | filter:filter.q" ng-class="{
+                                             'clearfix visible-lg': $index % settings.columns==0,
+                                             'clearfix visible-md': settings.columns==2?($index % 2 == 0):($index % (settings.columns-1)==0),
+                                             'clearfix visible-sm': $index % (settings.columns-2)==0}" class="clearfix visible-lg visible-md"></div>
+                                          <div ng-repeat-end="" class="no-xs-margin col-sm-12 col-md-6 col-lg-6" ng-class="{
+                                             'col-sm-12 col-md-6 col-lg-4':settings.columns==3,
+                                             'col-sm-12 col-md-6 col-lg-6':settings.columns==2,
+                                             'col-xs-12':settings.columns==1,
+                                             first:$first,
+                                             last:$last,
+                                             selected: selectedPlayers[player.id]}">
+                                             <player player="player" extra="extra" settings="settings">
+                                                <div class="player-card animate-zoom-in" ng-show="player">
+                                                   <div ng-transclude="header" class="header">
+                                                      <div transclude-to="header">
+                                                         <div ng-show="::player.market &amp;&amp; player.market.user.id == $root.session.currentUser.id" class="ng-hide">En venta desde <time relative=""></time> por <strong></strong></div>
+                                                         <div ng-show="::settings.marketMode &amp;&amp; player.market.user.id != $root.session.currentUser.id" class="ng-hide"><a ng-class="::{'current-user': player.market.user.id == $root.session.currentUser.id}" href="/user/-"></a><i ng-show="::!player.market.user">Libre</i>, <time relative=""></time> <span ng-show="::playerOffer || player.owner.id==$root.session.currentUser.id || player.market.user.id==$root.session.currentUser.id" class="ng-hide">por </span></div>
+                                                      </div>
+                                                   </div>
+                                                   <div class="team-pos valign pull-left">
+                                                      <div class="cell"><a ng-show="settings.showTeam" class="team ng-hide" title="" team-modal="player.team" href="#"><img></a> <span class="pos pos-1 sm ng-hide" title="Portero" ng-show="player.position == 1">PT</span> <span class="pos pos-2 sm" title="Defensa" ng-show="player.position == 2">DF</span> <span class="pos pos-3 sm ng-hide" title="Centrocampista" ng-show="player.position == 3">MC</span> <span class="pos pos-4 sm ng-hide" title="Delantero" ng-show="player.position == 4">DL</span></div>
+                                                   </div>
+                                                   <div class="pic pull-left">
+                                                      <a player-modal="player" href="/liga-bbva/players/lora">
+                                                         <div class="player-icon ok" style="background-image: url(https://cdn.comuniame.com/i/f7jc.png);" ng-style="{'background-image':  'url('+(player.icon || &quot;https://cdn.comuniame.com/img/liga-bbva/player.png&quot;)+')'}" ng-class="player.status"></div>
+                                                      </a>
+                                                      <div class="points" title="Puntos conseguidos esta temporada">62</div>
+                                                      <span class="label danger player-status only-icon ng-hide" ng-show="player.status == &quot;injured&quot;" title="Lesionado. "><i class="icon icon-injured"></i></span> <span class="label danger player-status only-icon ng-hide" ng-show="player.status == &quot;sanctioned&quot;" title="Sancionado. "><i class="icon icon-sanctioned"></i></span> <span class="label warning player-status only-icon ng-hide" ng-show="player.status == &quot;discomfort&quot;" title="Molestias. "><i class="icon icon-discomfort"></i></span> <span class="label warning player-status only-icon ng-hide" ng-show="player.status == &quot;discarded&quot;" title="No convocado. "><i class="icon icon-discarded"></i></span>
+                                                   </div>
+                                                   <ng-transclude ng-transclude-slot="tools">
+                                                      <div class="valign pull-right" transclude-to="tools">
+                                                         <!-- ngIf: ::settings.marketMode || settings.showMarketTools -->
+                                                      </div>
+                                                   </ng-transclude>
+                                                   <div class="info valign">
+                                                      <div class="cell">
+                                                         <h3 ng-show="::settings.showName"><a player-modal="player" href="/liga-bbva/players/lora">Lora</a></h3>
+                                                         <div ng-show="::settings.showPrice">
+                                                            <h4 title="Valor de Mercado">4.820.000&nbsp;€</h4>
+                                                            <span class="mv-increment ng-hide" ng-show="player.priceIncrement>0" title="Diferencia del Valor de Mercado entre ayer y hoy"><i class="icon icon-increment"></i>0&nbsp;€</span> <span class="mv-decrement ng-hide" ng-show="player.priceIncrement<0" title="Diferencia del Valor de Mercado entre ayer y hoy"><i class="icon icon-decrement"></i>0&nbsp;€</span>
+                                                         </div>
+                                                      </div>
+                                                   </div>
+                                                </div>
+                                             </player>
+                                             <!-- ngIf: ::ads && $index==2 -->
+                                          </div>
+                                          <!-- end ngRepeat: player in players | filter:filter.q -->
+                                          <div ng-repeat-start="player in players | filter:filter.q" ng-class="{
+                                             'clearfix visible-lg': $index % settings.columns==0,
+                                             'clearfix visible-md': settings.columns==2?($index % 2 == 0):($index % (settings.columns-1)==0),
+                                             'clearfix visible-sm': $index % (settings.columns-2)==0}"></div>
+                                          <div ng-repeat-end="" class="no-xs-margin col-sm-12 col-md-6 col-lg-6" ng-class="{
+                                             'col-sm-12 col-md-6 col-lg-4':settings.columns==3,
+                                             'col-sm-12 col-md-6 col-lg-6':settings.columns==2,
+                                             'col-xs-12':settings.columns==1,
+                                             first:$first,
+                                             last:$last,
+                                             selected: selectedPlayers[player.id]}">
+                                             <player player="player" extra="extra" settings="settings">
+                                                <div class="player-card animate-zoom-in" ng-show="player">
+                                                   <div ng-transclude="header" class="header">
+                                                      <div transclude-to="header">
+                                                         <div ng-show="::player.market &amp;&amp; player.market.user.id == $root.session.currentUser.id" class="ng-hide">En venta desde <time relative=""></time> por <strong></strong></div>
+                                                         <div ng-show="::settings.marketMode &amp;&amp; player.market.user.id != $root.session.currentUser.id" class="ng-hide"><a ng-class="::{'current-user': player.market.user.id == $root.session.currentUser.id}" href="/user/-"></a><i ng-show="::!player.market.user">Libre</i>, <time relative=""></time> <span ng-show="::playerOffer || player.owner.id==$root.session.currentUser.id || player.market.user.id==$root.session.currentUser.id" class="ng-hide">por </span></div>
+                                                      </div>
+                                                   </div>
+                                                   <div class="team-pos valign pull-left">
+                                                      <div class="cell"><a ng-show="settings.showTeam" class="team ng-hide" title="" team-modal="player.team" href="#"><img></a> <span class="pos pos-1 sm ng-hide" title="Portero" ng-show="player.position == 1">PT</span> <span class="pos pos-2 sm" title="Defensa" ng-show="player.position == 2">DF</span> <span class="pos pos-3 sm ng-hide" title="Centrocampista" ng-show="player.position == 3">MC</span> <span class="pos pos-4 sm ng-hide" title="Delantero" ng-show="player.position == 4">DL</span></div>
+                                                   </div>
+                                                   <div class="pic pull-left">
+                                                      <a player-modal="player" href="/liga-bbva/players/jorge-mere">
+                                                         <div class="player-icon ok" style="background-image: url(https://cdn.comuniame.com/i/sk3p.png);" ng-style="{'background-image':  'url('+(player.icon || &quot;https://cdn.comuniame.com/img/liga-bbva/player.png&quot;)+')'}" ng-class="player.status"></div>
+                                                      </a>
+                                                      <div class="points" title="Puntos conseguidos esta temporada">12</div>
+                                                      <span class="label danger player-status only-icon ng-hide" ng-show="player.status == &quot;injured&quot;" title="Lesionado. "><i class="icon icon-injured"></i></span> <span class="label danger player-status only-icon ng-hide" ng-show="player.status == &quot;sanctioned&quot;" title="Sancionado. "><i class="icon icon-sanctioned"></i></span> <span class="label warning player-status only-icon ng-hide" ng-show="player.status == &quot;discomfort&quot;" title="Molestias. "><i class="icon icon-discomfort"></i></span> <span class="label warning player-status only-icon ng-hide" ng-show="player.status == &quot;discarded&quot;" title="No convocado. "><i class="icon icon-discarded"></i></span>
+                                                   </div>
+                                                   <ng-transclude ng-transclude-slot="tools">
+                                                      <div class="valign pull-right" transclude-to="tools">
+                                                         <!-- ngIf: ::settings.marketMode || settings.showMarketTools -->
+                                                      </div>
+                                                   </ng-transclude>
+                                                   <div class="info valign">
+                                                      <div class="cell">
+                                                         <h3 ng-show="::settings.showName"><a player-modal="player" href="/liga-bbva/players/jorge-mere">Jorge Meré</a></h3>
+                                                         <div ng-show="::settings.showPrice">
+                                                            <h4 title="Valor de Mercado">610.000&nbsp;€</h4>
+                                                            <span class="mv-increment ng-hide" ng-show="player.priceIncrement>0" title="Diferencia del Valor de Mercado entre ayer y hoy"><i class="icon icon-increment"></i>-20.000&nbsp;€</span> <span class="mv-decrement" ng-show="player.priceIncrement<0" title="Diferencia del Valor de Mercado entre ayer y hoy"><i class="icon icon-decrement"></i>20.000&nbsp;€</span>
+                                                         </div>
+                                                      </div>
+                                                   </div>
+                                                </div>
+                                             </player>
+                                             <!-- ngIf: ::ads && $index==2 -->
+                                          </div>
+                                          <!-- end ngRepeat: player in players | filter:filter.q -->
+                                          <div ng-repeat-start="player in players | filter:filter.q" ng-class="{
+                                             'clearfix visible-lg': $index % settings.columns==0,
+                                             'clearfix visible-md': settings.columns==2?($index % 2 == 0):($index % (settings.columns-1)==0),
+                                             'clearfix visible-sm': $index % (settings.columns-2)==0}" class="clearfix visible-lg visible-md"></div>
+                                          <div ng-repeat-end="" class="no-xs-margin col-sm-12 col-md-6 col-lg-6" ng-class="{
+                                             'col-sm-12 col-md-6 col-lg-4':settings.columns==3,
+                                             'col-sm-12 col-md-6 col-lg-6':settings.columns==2,
+                                             'col-xs-12':settings.columns==1,
+                                             first:$first,
+                                             last:$last,
+                                             selected: selectedPlayers[player.id]}">
+                                             <player player="player" extra="extra" settings="settings">
+                                                <div class="player-card animate-zoom-in" ng-show="player">
+                                                   <div ng-transclude="header" class="header">
+                                                      <div transclude-to="header">
+                                                         <div ng-show="::player.market &amp;&amp; player.market.user.id == $root.session.currentUser.id" class="ng-hide">En venta desde <time relative=""></time> por <strong></strong></div>
+                                                         <div ng-show="::settings.marketMode &amp;&amp; player.market.user.id != $root.session.currentUser.id" class="ng-hide"><a ng-class="::{'current-user': player.market.user.id == $root.session.currentUser.id}" href="/user/-"></a><i ng-show="::!player.market.user">Libre</i>, <time relative=""></time> <span ng-show="::playerOffer || player.owner.id==$root.session.currentUser.id || player.market.user.id==$root.session.currentUser.id" class="ng-hide">por </span></div>
+                                                      </div>
+                                                   </div>
+                                                   <div class="team-pos valign pull-left">
+                                                      <div class="cell"><a ng-show="settings.showTeam" class="team ng-hide" title="" team-modal="player.team" href="#"><img></a> <span class="pos pos-1 sm ng-hide" title="Portero" ng-show="player.position == 1">PT</span> <span class="pos pos-2 sm" title="Defensa" ng-show="player.position == 2">DF</span> <span class="pos pos-3 sm ng-hide" title="Centrocampista" ng-show="player.position == 3">MC</span> <span class="pos pos-4 sm ng-hide" title="Delantero" ng-show="player.position == 4">DL</span></div>
+                                                   </div>
+                                                   <div class="pic pull-left">
+                                                      <a player-modal="player" href="/liga-bbva/players/ismael-lopez">
+                                                         <div class="player-icon ok" style="background-image: url(https://cdn.comuniame.com/i/3pt3.png);" ng-style="{'background-image':  'url('+(player.icon || &quot;https://cdn.comuniame.com/img/liga-bbva/player.png&quot;)+')'}" ng-class="player.status"></div>
+                                                      </a>
+                                                      <div class="points" title="Puntos conseguidos esta temporada">24</div>
+                                                      <span class="label danger player-status only-icon ng-hide" ng-show="player.status == &quot;injured&quot;" title="Lesionado. "><i class="icon icon-injured"></i></span> <span class="label danger player-status only-icon ng-hide" ng-show="player.status == &quot;sanctioned&quot;" title="Sancionado. "><i class="icon icon-sanctioned"></i></span> <span class="label warning player-status only-icon ng-hide" ng-show="player.status == &quot;discomfort&quot;" title="Molestias. "><i class="icon icon-discomfort"></i></span> <span class="label warning player-status only-icon ng-hide" ng-show="player.status == &quot;discarded&quot;" title="No convocado. "><i class="icon icon-discarded"></i></span>
+                                                   </div>
+                                                   <ng-transclude ng-transclude-slot="tools">
+                                                      <div class="valign pull-right" transclude-to="tools">
+                                                         <!-- ngIf: ::settings.marketMode || settings.showMarketTools -->
+                                                      </div>
+                                                   </ng-transclude>
+                                                   <div class="info valign">
+                                                      <div class="cell">
+                                                         <h3 ng-show="::settings.showName"><a player-modal="player" href="/liga-bbva/players/ismael-lopez">Isma López</a></h3>
+                                                         <div ng-show="::settings.showPrice">
+                                                            <h4 title="Valor de Mercado">1.480.000&nbsp;€</h4>
+                                                            <span class="mv-increment ng-hide" ng-show="player.priceIncrement>0" title="Diferencia del Valor de Mercado entre ayer y hoy"><i class="icon icon-increment"></i>-80.000&nbsp;€</span> <span class="mv-decrement" ng-show="player.priceIncrement<0" title="Diferencia del Valor de Mercado entre ayer y hoy"><i class="icon icon-decrement"></i>80.000&nbsp;€</span>
+                                                         </div>
+                                                      </div>
+                                                   </div>
+                                                </div>
+                                             </player>
+                                             <!-- ngIf: ::ads && $index==2 -->
+                                          </div>
+                                          <!-- end ngRepeat: player in players | filter:filter.q -->
+                                          <div ng-repeat-start="player in players | filter:filter.q" ng-class="{
+                                             'clearfix visible-lg': $index % settings.columns==0,
+                                             'clearfix visible-md': settings.columns==2?($index % 2 == 0):($index % (settings.columns-1)==0),
+                                             'clearfix visible-sm': $index % (settings.columns-2)==0}"></div>
+                                          <div ng-repeat-end="" class="no-xs-margin col-sm-12 col-md-6 col-lg-6" ng-class="{
+                                             'col-sm-12 col-md-6 col-lg-4':settings.columns==3,
+                                             'col-sm-12 col-md-6 col-lg-6':settings.columns==2,
+                                             'col-xs-12':settings.columns==1,
+                                             first:$first,
+                                             last:$last,
+                                             selected: selectedPlayers[player.id]}">
+                                             <player player="player" extra="extra" settings="settings">
+                                                <div class="player-card animate-zoom-in" ng-show="player">
+                                                   <div ng-transclude="header" class="header">
+                                                      <div transclude-to="header">
+                                                         <div ng-show="::player.market &amp;&amp; player.market.user.id == $root.session.currentUser.id" class="ng-hide">En venta desde <time relative=""></time> por <strong></strong></div>
+                                                         <div ng-show="::settings.marketMode &amp;&amp; player.market.user.id != $root.session.currentUser.id" class="ng-hide"><a ng-class="::{'current-user': player.market.user.id == $root.session.currentUser.id}" href="/user/-"></a><i ng-show="::!player.market.user">Libre</i>, <time relative=""></time> <span ng-show="::playerOffer || player.owner.id==$root.session.currentUser.id || player.market.user.id==$root.session.currentUser.id" class="ng-hide">por </span></div>
+                                                      </div>
+                                                   </div>
+                                                   <div class="team-pos valign pull-left">
+                                                      <div class="cell"><a ng-show="settings.showTeam" class="team ng-hide" title="" team-modal="player.team" href="#"><img></a> <span class="pos pos-1 sm ng-hide" title="Portero" ng-show="player.position == 1">PT</span> <span class="pos pos-2 sm" title="Defensa" ng-show="player.position == 2">DF</span> <span class="pos pos-3 sm ng-hide" title="Centrocampista" ng-show="player.position == 3">MC</span> <span class="pos pos-4 sm ng-hide" title="Delantero" ng-show="player.position == 4">DL</span></div>
+                                                   </div>
+                                                   <div class="pic pull-left">
+                                                      <a player-modal="player" href="/liga-bbva/players/bernardo">
+                                                         <div class="player-icon ok" style="background-image: url(https://cdn.comuniame.com/i/fv85.png);" ng-style="{'background-image':  'url('+(player.icon || &quot;https://cdn.comuniame.com/img/liga-bbva/player.png&quot;)+')'}" ng-class="player.status"></div>
+                                                      </a>
+                                                      <div class="points" title="Puntos conseguidos esta temporada">50</div>
+                                                      <span class="label danger player-status only-icon ng-hide" ng-show="player.status == &quot;injured&quot;" title="Lesionado. "><i class="icon icon-injured"></i></span> <span class="label danger player-status only-icon ng-hide" ng-show="player.status == &quot;sanctioned&quot;" title="Sancionado. "><i class="icon icon-sanctioned"></i></span> <span class="label warning player-status only-icon ng-hide" ng-show="player.status == &quot;discomfort&quot;" title="Molestias. "><i class="icon icon-discomfort"></i></span> <span class="label warning player-status only-icon ng-hide" ng-show="player.status == &quot;discarded&quot;" title="No convocado. "><i class="icon icon-discarded"></i></span>
+                                                   </div>
+                                                   <ng-transclude ng-transclude-slot="tools">
+                                                      <div class="valign pull-right" transclude-to="tools">
+                                                         <!-- ngIf: ::settings.marketMode || settings.showMarketTools -->
+                                                      </div>
+                                                   </ng-transclude>
+                                                   <div class="info valign">
+                                                      <div class="cell">
+                                                         <h3 ng-show="::settings.showName"><a player-modal="player" href="/liga-bbva/players/bernardo">Bernardo</a></h3>
+                                                         <div ng-show="::settings.showPrice">
+                                                            <h4 title="Valor de Mercado">3.040.000&nbsp;€</h4>
+                                                            <span class="mv-increment ng-hide" ng-show="player.priceIncrement>0" title="Diferencia del Valor de Mercado entre ayer y hoy"><i class="icon icon-increment"></i>0&nbsp;€</span> <span class="mv-decrement ng-hide" ng-show="player.priceIncrement<0" title="Diferencia del Valor de Mercado entre ayer y hoy"><i class="icon icon-decrement"></i>0&nbsp;€</span>
+                                                         </div>
+                                                      </div>
+                                                   </div>
+                                                </div>
+                                             </player>
+                                             <!-- ngIf: ::ads && $index==2 -->
+                                          </div>
+                                          <!-- end ngRepeat: player in players | filter:filter.q -->
+                                          <div ng-repeat-start="player in players | filter:filter.q" ng-class="{
+                                             'clearfix visible-lg': $index % settings.columns==0,
+                                             'clearfix visible-md': settings.columns==2?($index % 2 == 0):($index % (settings.columns-1)==0),
+                                             'clearfix visible-sm': $index % (settings.columns-2)==0}" class="clearfix visible-lg visible-md"></div>
+                                          <div ng-repeat-end="" class="no-xs-margin col-sm-12 col-md-6 col-lg-6" ng-class="{
+                                             'col-sm-12 col-md-6 col-lg-4':settings.columns==3,
+                                             'col-sm-12 col-md-6 col-lg-6':settings.columns==2,
+                                             'col-xs-12':settings.columns==1,
+                                             first:$first,
+                                             last:$last,
+                                             selected: selectedPlayers[player.id]}">
+                                             <player player="player" extra="extra" settings="settings">
+                                                <div class="player-card animate-zoom-in" ng-show="player">
+                                                   <div ng-transclude="header" class="header">
+                                                      <div transclude-to="header">
+                                                         <div ng-show="::player.market &amp;&amp; player.market.user.id == $root.session.currentUser.id" class="ng-hide">En venta desde <time relative=""></time> por <strong></strong></div>
+                                                         <div ng-show="::settings.marketMode &amp;&amp; player.market.user.id != $root.session.currentUser.id" class="ng-hide"><a ng-class="::{'current-user': player.market.user.id == $root.session.currentUser.id}" href="/user/-"></a><i ng-show="::!player.market.user">Libre</i>, <time relative=""></time> <span ng-show="::playerOffer || player.owner.id==$root.session.currentUser.id || player.market.user.id==$root.session.currentUser.id" class="ng-hide">por </span></div>
+                                                      </div>
+                                                   </div>
+                                                   <div class="team-pos valign pull-left">
+                                                      <div class="cell"><a ng-show="settings.showTeam" class="team ng-hide" title="" team-modal="player.team" href="#"><img></a> <span class="pos pos-1 sm ng-hide" title="Portero" ng-show="player.position == 1">PT</span> <span class="pos pos-2 sm" title="Defensa" ng-show="player.position == 2">DF</span> <span class="pos pos-3 sm ng-hide" title="Centrocampista" ng-show="player.position == 3">MC</span> <span class="pos pos-4 sm ng-hide" title="Delantero" ng-show="player.position == 4">DL</span></div>
+                                                   </div>
+                                                   <div class="pic pull-left">
+                                                      <a player-modal="player" href="/liga-bbva/players/alex-menendez">
+                                                         <div class="player-icon ok" style="background-image: url(https://cdn.comuniame.com/i/vh4n.png);" ng-style="{'background-image':  'url('+(player.icon || &quot;https://cdn.comuniame.com/img/liga-bbva/player.png&quot;)+')'}" ng-class="player.status"></div>
+                                                      </a>
+                                                      <div class="points" title="Puntos conseguidos esta temporada">44</div>
+                                                      <span class="label danger player-status only-icon ng-hide" ng-show="player.status == &quot;injured&quot;" title="Lesionado. "><i class="icon icon-injured"></i></span> <span class="label danger player-status only-icon ng-hide" ng-show="player.status == &quot;sanctioned&quot;" title="Sancionado. "><i class="icon icon-sanctioned"></i></span> <span class="label warning player-status only-icon ng-hide" ng-show="player.status == &quot;discomfort&quot;" title="Molestias. "><i class="icon icon-discomfort"></i></span> <span class="label warning player-status only-icon ng-hide" ng-show="player.status == &quot;discarded&quot;" title="No convocado. "><i class="icon icon-discarded"></i></span>
+                                                   </div>
+                                                   <ng-transclude ng-transclude-slot="tools">
+                                                      <div class="valign pull-right" transclude-to="tools">
+                                                         <!-- ngIf: ::settings.marketMode || settings.showMarketTools -->
+                                                      </div>
+                                                   </ng-transclude>
+                                                   <div class="info valign">
+                                                      <div class="cell">
+                                                         <h3 ng-show="::settings.showName"><a player-modal="player" href="/liga-bbva/players/alex-menendez">Álex Menéndez</a></h3>
+                                                         <div ng-show="::settings.showPrice">
+                                                            <h4 title="Valor de Mercado">3.380.000&nbsp;€</h4>
+                                                            <span class="mv-increment" ng-show="player.priceIncrement>0" title="Diferencia del Valor de Mercado entre ayer y hoy"><i class="icon icon-increment"></i>170.000&nbsp;€</span> <span class="mv-decrement ng-hide" ng-show="player.priceIncrement<0" title="Diferencia del Valor de Mercado entre ayer y hoy"><i class="icon icon-decrement"></i>-170.000&nbsp;€</span>
+                                                         </div>
+                                                      </div>
+                                                   </div>
+                                                </div>
+                                             </player>
+                                             <!-- ngIf: ::ads && $index==2 -->
+                                          </div>
+                                          <!-- end ngRepeat: player in players | filter:filter.q -->
+                                          <div ng-repeat-start="player in players | filter:filter.q" ng-class="{
+                                             'clearfix visible-lg': $index % settings.columns==0,
+                                             'clearfix visible-md': settings.columns==2?($index % 2 == 0):($index % (settings.columns-1)==0),
+                                             'clearfix visible-sm': $index % (settings.columns-2)==0}"></div>
+                                          <div ng-repeat-end="" class="no-xs-margin col-sm-12 col-md-6 col-lg-6" ng-class="{
+                                             'col-sm-12 col-md-6 col-lg-4':settings.columns==3,
+                                             'col-sm-12 col-md-6 col-lg-6':settings.columns==2,
+                                             'col-xs-12':settings.columns==1,
+                                             first:$first,
+                                             last:$last,
+                                             selected: selectedPlayers[player.id]}">
+                                             <player player="player" extra="extra" settings="settings">
+                                                <div class="player-card animate-zoom-in" ng-show="player">
+                                                   <div ng-transclude="header" class="header">
+                                                      <div transclude-to="header">
+                                                         <div ng-show="::player.market &amp;&amp; player.market.user.id == $root.session.currentUser.id" class="ng-hide">En venta desde <time relative=""></time> por <strong></strong></div>
+                                                         <div ng-show="::settings.marketMode &amp;&amp; player.market.user.id != $root.session.currentUser.id" class="ng-hide"><a ng-class="::{'current-user': player.market.user.id == $root.session.currentUser.id}" href="/user/-"></a><i ng-show="::!player.market.user">Libre</i>, <time relative=""></time> <span ng-show="::playerOffer || player.owner.id==$root.session.currentUser.id || player.market.user.id==$root.session.currentUser.id" class="ng-hide">por </span></div>
+                                                      </div>
+                                                   </div>
+                                                   <div class="team-pos valign pull-left">
+                                                      <div class="cell"><a ng-show="settings.showTeam" class="team ng-hide" title="" team-modal="player.team" href="#"><img></a> <span class="pos pos-1 sm ng-hide" title="Portero" ng-show="player.position == 1">PT</span> <span class="pos pos-2 sm ng-hide" title="Defensa" ng-show="player.position == 2">DF</span> <span class="pos pos-3 sm" title="Centrocampista" ng-show="player.position == 3">MC</span> <span class="pos pos-4 sm ng-hide" title="Delantero" ng-show="player.position == 4">DL</span></div>
+                                                   </div>
+                                                   <div class="pic pull-left">
+                                                      <a player-modal="player" href="/liga-bbva/players/jony-rodriguez">
+                                                         <div class="player-icon ok" style="background-image: url(https://cdn.comuniame.com/i/w0s1.png);" ng-style="{'background-image':  'url('+(player.icon || &quot;https://cdn.comuniame.com/img/liga-bbva/player.png&quot;)+')'}" ng-class="player.status"></div>
+                                                      </a>
+                                                      <div class="points" title="Puntos conseguidos esta temporada">60</div>
+                                                      <span class="label danger player-status only-icon ng-hide" ng-show="player.status == &quot;injured&quot;" title="Lesionado. "><i class="icon icon-injured"></i></span> <span class="label danger player-status only-icon ng-hide" ng-show="player.status == &quot;sanctioned&quot;" title="Sancionado. "><i class="icon icon-sanctioned"></i></span> <span class="label warning player-status only-icon ng-hide" ng-show="player.status == &quot;discomfort&quot;" title="Molestias. "><i class="icon icon-discomfort"></i></span> <span class="label warning player-status only-icon ng-hide" ng-show="player.status == &quot;discarded&quot;" title="No convocado. "><i class="icon icon-discarded"></i></span>
+                                                   </div>
+                                                   <ng-transclude ng-transclude-slot="tools">
+                                                      <div class="valign pull-right" transclude-to="tools">
+                                                         <!-- ngIf: ::settings.marketMode || settings.showMarketTools -->
+                                                      </div>
+                                                   </ng-transclude>
+                                                   <div class="info valign">
+                                                      <div class="cell">
+                                                         <h3 ng-show="::settings.showName"><a player-modal="player" href="/liga-bbva/players/jony-rodriguez">Jony Rodríguez</a></h3>
+                                                         <div ng-show="::settings.showPrice">
+                                                            <h4 title="Valor de Mercado">5.510.000&nbsp;€</h4>
+                                                            <span class="mv-increment ng-hide" ng-show="player.priceIncrement>0" title="Diferencia del Valor de Mercado entre ayer y hoy"><i class="icon icon-increment"></i>0&nbsp;€</span> <span class="mv-decrement ng-hide" ng-show="player.priceIncrement<0" title="Diferencia del Valor de Mercado entre ayer y hoy"><i class="icon icon-decrement"></i>0&nbsp;€</span>
+                                                         </div>
+                                                      </div>
+                                                   </div>
+                                                </div>
+                                             </player>
+                                             <!-- ngIf: ::ads && $index==2 -->
+                                          </div>
+                                          <!-- end ngRepeat: player in players | filter:filter.q -->
+                                          <div ng-repeat-start="player in players | filter:filter.q" ng-class="{
+                                             'clearfix visible-lg': $index % settings.columns==0,
+                                             'clearfix visible-md': settings.columns==2?($index % 2 == 0):($index % (settings.columns-1)==0),
+                                             'clearfix visible-sm': $index % (settings.columns-2)==0}" class="clearfix visible-lg visible-md"></div>
+                                          <div ng-repeat-end="" class="no-xs-margin col-sm-12 col-md-6 col-lg-6" ng-class="{
+                                             'col-sm-12 col-md-6 col-lg-4':settings.columns==3,
+                                             'col-sm-12 col-md-6 col-lg-6':settings.columns==2,
+                                             'col-xs-12':settings.columns==1,
+                                             first:$first,
+                                             last:$last,
+                                             selected: selectedPlayers[player.id]}">
+                                             <player player="player" extra="extra" settings="settings">
+                                                <div class="player-card animate-zoom-in" ng-show="player">
+                                                   <div ng-transclude="header" class="header">
+                                                      <div transclude-to="header">
+                                                         <div ng-show="::player.market &amp;&amp; player.market.user.id == $root.session.currentUser.id" class="ng-hide">En venta desde <time relative=""></time> por <strong></strong></div>
+                                                         <div ng-show="::settings.marketMode &amp;&amp; player.market.user.id != $root.session.currentUser.id" class="ng-hide"><a ng-class="::{'current-user': player.market.user.id == $root.session.currentUser.id}" href="/user/-"></a><i ng-show="::!player.market.user">Libre</i>, <time relative=""></time> <span ng-show="::playerOffer || player.owner.id==$root.session.currentUser.id || player.market.user.id==$root.session.currentUser.id" class="ng-hide">por </span></div>
+                                                      </div>
+                                                   </div>
+                                                   <div class="team-pos valign pull-left">
+                                                      <div class="cell"><a ng-show="settings.showTeam" class="team ng-hide" title="" team-modal="player.team" href="#"><img></a> <span class="pos pos-1 sm ng-hide" title="Portero" ng-show="player.position == 1">PT</span> <span class="pos pos-2 sm ng-hide" title="Defensa" ng-show="player.position == 2">DF</span> <span class="pos pos-3 sm" title="Centrocampista" ng-show="player.position == 3">MC</span> <span class="pos pos-4 sm ng-hide" title="Delantero" ng-show="player.position == 4">DL</span></div>
+                                                   </div>
+                                                   <div class="pic pull-left">
+                                                      <a player-modal="player" href="/liga-bbva/players/carmona">
+                                                         <div class="player-icon ok" style="background-image: url(https://cdn.comuniame.com/i/8ln6.png);" ng-style="{'background-image':  'url('+(player.icon || &quot;https://cdn.comuniame.com/img/liga-bbva/player.png&quot;)+')'}" ng-class="player.status"></div>
+                                                      </a>
+                                                      <div class="points" title="Puntos conseguidos esta temporada">12</div>
+                                                      <span class="label danger player-status only-icon ng-hide" ng-show="player.status == &quot;injured&quot;" title="Lesionado. "><i class="icon icon-injured"></i></span> <span class="label danger player-status only-icon ng-hide" ng-show="player.status == &quot;sanctioned&quot;" title="Sancionado. "><i class="icon icon-sanctioned"></i></span> <span class="label warning player-status only-icon ng-hide" ng-show="player.status == &quot;discomfort&quot;" title="Molestias. "><i class="icon icon-discomfort"></i></span> <span class="label warning player-status only-icon ng-hide" ng-show="player.status == &quot;discarded&quot;" title="No convocado. "><i class="icon icon-discarded"></i></span>
+                                                   </div>
+                                                   <ng-transclude ng-transclude-slot="tools">
+                                                      <div class="valign pull-right" transclude-to="tools">
+                                                         <!-- ngIf: ::settings.marketMode || settings.showMarketTools -->
+                                                      </div>
+                                                   </ng-transclude>
+                                                   <div class="info valign">
+                                                      <div class="cell">
+                                                         <h3 ng-show="::settings.showName"><a player-modal="player" href="/liga-bbva/players/carmona">Carmona</a></h3>
+                                                         <div ng-show="::settings.showPrice">
+                                                            <h4 title="Valor de Mercado">630.000&nbsp;€</h4>
+                                                            <span class="mv-increment ng-hide" ng-show="player.priceIncrement>0" title="Diferencia del Valor de Mercado entre ayer y hoy"><i class="icon icon-increment"></i>-10.000&nbsp;€</span> <span class="mv-decrement" ng-show="player.priceIncrement<0" title="Diferencia del Valor de Mercado entre ayer y hoy"><i class="icon icon-decrement"></i>10.000&nbsp;€</span>
+                                                         </div>
+                                                      </div>
+                                                   </div>
+                                                </div>
+                                             </player>
+                                             <!-- ngIf: ::ads && $index==2 -->
+                                          </div>
+                                          <!-- end ngRepeat: player in players | filter:filter.q -->
+                                          <div ng-repeat-start="player in players | filter:filter.q" ng-class="{
+                                             'clearfix visible-lg': $index % settings.columns==0,
+                                             'clearfix visible-md': settings.columns==2?($index % 2 == 0):($index % (settings.columns-1)==0),
+                                             'clearfix visible-sm': $index % (settings.columns-2)==0}"></div>
+                                          <div ng-repeat-end="" class="no-xs-margin col-sm-12 col-md-6 col-lg-6" ng-class="{
+                                             'col-sm-12 col-md-6 col-lg-4':settings.columns==3,
+                                             'col-sm-12 col-md-6 col-lg-6':settings.columns==2,
+                                             'col-xs-12':settings.columns==1,
+                                             first:$first,
+                                             last:$last,
+                                             selected: selectedPlayers[player.id]}">
+                                             <player player="player" extra="extra" settings="settings">
+                                                <div class="player-card animate-zoom-in" ng-show="player">
+                                                   <div ng-transclude="header" class="header">
+                                                      <div transclude-to="header">
+                                                         <div ng-show="::player.market &amp;&amp; player.market.user.id == $root.session.currentUser.id" class="ng-hide">En venta desde <time relative=""></time> por <strong></strong></div>
+                                                         <div ng-show="::settings.marketMode &amp;&amp; player.market.user.id != $root.session.currentUser.id" class="ng-hide"><a ng-class="::{'current-user': player.market.user.id == $root.session.currentUser.id}" href="/user/-"></a><i ng-show="::!player.market.user">Libre</i>, <time relative=""></time> <span ng-show="::playerOffer || player.owner.id==$root.session.currentUser.id || player.market.user.id==$root.session.currentUser.id" class="ng-hide">por </span></div>
+                                                      </div>
+                                                   </div>
+                                                   <div class="team-pos valign pull-left">
+                                                      <div class="cell"><a ng-show="settings.showTeam" class="team ng-hide" title="" team-modal="player.team" href="#"><img></a> <span class="pos pos-1 sm ng-hide" title="Portero" ng-show="player.position == 1">PT</span> <span class="pos pos-2 sm ng-hide" title="Defensa" ng-show="player.position == 2">DF</span> <span class="pos pos-3 sm" title="Centrocampista" ng-show="player.position == 3">MC</span> <span class="pos pos-4 sm ng-hide" title="Delantero" ng-show="player.position == 4">DL</span></div>
+                                                   </div>
+                                                   <div class="pic pull-left">
+                                                      <a player-modal="player" href="/liga-bbva/players/muniz">
+                                                         <div class="player-icon ok" style="background-image: url(https://cdn.comuniame.com/i/21cr.png);" ng-style="{'background-image':  'url('+(player.icon || &quot;https://cdn.comuniame.com/img/liga-bbva/player.png&quot;)+')'}" ng-class="player.status"></div>
+                                                      </a>
+                                                      <div class="points" title="Puntos conseguidos esta temporada">4</div>
+                                                      <span class="label danger player-status only-icon ng-hide" ng-show="player.status == &quot;injured&quot;" title="Lesionado. "><i class="icon icon-injured"></i></span> <span class="label danger player-status only-icon ng-hide" ng-show="player.status == &quot;sanctioned&quot;" title="Sancionado. "><i class="icon icon-sanctioned"></i></span> <span class="label warning player-status only-icon ng-hide" ng-show="player.status == &quot;discomfort&quot;" title="Molestias. "><i class="icon icon-discomfort"></i></span> <span class="label warning player-status only-icon ng-hide" ng-show="player.status == &quot;discarded&quot;" title="No convocado. "><i class="icon icon-discarded"></i></span>
+                                                   </div>
+                                                   <ng-transclude ng-transclude-slot="tools">
+                                                      <div class="valign pull-right" transclude-to="tools">
+                                                         <!-- ngIf: ::settings.marketMode || settings.showMarketTools -->
+                                                      </div>
+                                                   </ng-transclude>
+                                                   <div class="info valign">
+                                                      <div class="cell">
+                                                         <h3 ng-show="::settings.showName"><a player-modal="player" href="/liga-bbva/players/muniz">Muñiz</a></h3>
+                                                         <div ng-show="::settings.showPrice">
+                                                            <h4 title="Valor de Mercado">330.000&nbsp;€</h4>
+                                                            <span class="mv-increment ng-hide" ng-show="player.priceIncrement>0" title="Diferencia del Valor de Mercado entre ayer y hoy"><i class="icon icon-increment"></i>0&nbsp;€</span> <span class="mv-decrement ng-hide" ng-show="player.priceIncrement<0" title="Diferencia del Valor de Mercado entre ayer y hoy"><i class="icon icon-decrement"></i>0&nbsp;€</span>
+                                                         </div>
+                                                      </div>
+                                                   </div>
+                                                </div>
+                                             </player>
+                                             <!-- ngIf: ::ads && $index==2 -->
+                                          </div>
+                                          <!-- end ngRepeat: player in players | filter:filter.q -->
+                                          <div ng-repeat-start="player in players | filter:filter.q" ng-class="{
+                                             'clearfix visible-lg': $index % settings.columns==0,
+                                             'clearfix visible-md': settings.columns==2?($index % 2 == 0):($index % (settings.columns-1)==0),
+                                             'clearfix visible-sm': $index % (settings.columns-2)==0}" class="clearfix visible-lg visible-md"></div>
+                                          <div ng-repeat-end="" class="no-xs-margin col-sm-12 col-md-6 col-lg-6" ng-class="{
+                                             'col-sm-12 col-md-6 col-lg-4':settings.columns==3,
+                                             'col-sm-12 col-md-6 col-lg-6':settings.columns==2,
+                                             'col-xs-12':settings.columns==1,
+                                             first:$first,
+                                             last:$last,
+                                             selected: selectedPlayers[player.id]}">
+                                             <player player="player" extra="extra" settings="settings">
+                                                <div class="player-card animate-zoom-in" ng-show="player">
+                                                   <div ng-transclude="header" class="header">
+                                                      <div transclude-to="header">
+                                                         <div ng-show="::player.market &amp;&amp; player.market.user.id == $root.session.currentUser.id" class="ng-hide">En venta desde <time relative=""></time> por <strong></strong></div>
+                                                         <div ng-show="::settings.marketMode &amp;&amp; player.market.user.id != $root.session.currentUser.id" class="ng-hide"><a ng-class="::{'current-user': player.market.user.id == $root.session.currentUser.id}" href="/user/-"></a><i ng-show="::!player.market.user">Libre</i>, <time relative=""></time> <span ng-show="::playerOffer || player.owner.id==$root.session.currentUser.id || player.market.user.id==$root.session.currentUser.id" class="ng-hide">por </span></div>
+                                                      </div>
+                                                   </div>
+                                                   <div class="team-pos valign pull-left">
+                                                      <div class="cell"><a ng-show="settings.showTeam" class="team ng-hide" title="" team-modal="player.team" href="#"><img></a> <span class="pos pos-1 sm ng-hide" title="Portero" ng-show="player.position == 1">PT</span> <span class="pos pos-2 sm ng-hide" title="Defensa" ng-show="player.position == 2">DF</span> <span class="pos pos-3 sm" title="Centrocampista" ng-show="player.position == 3">MC</span> <span class="pos pos-4 sm ng-hide" title="Delantero" ng-show="player.position == 4">DL</span></div>
+                                                   </div>
+                                                   <div class="pic pull-left">
+                                                      <a player-modal="player" href="/liga-bbva/players/rachid">
+                                                         <div class="player-icon ok" style="background-image: url(https://cdn.comuniame.com/i/r81f.png);" ng-style="{'background-image':  'url('+(player.icon || &quot;https://cdn.comuniame.com/img/liga-bbva/player.png&quot;)+')'}" ng-class="player.status"></div>
+                                                      </a>
+                                                      <div class="points" title="Puntos conseguidos esta temporada">6</div>
+                                                      <span class="label danger player-status only-icon ng-hide" ng-show="player.status == &quot;injured&quot;" title="Lesionado. "><i class="icon icon-injured"></i></span> <span class="label danger player-status only-icon ng-hide" ng-show="player.status == &quot;sanctioned&quot;" title="Sancionado. "><i class="icon icon-sanctioned"></i></span> <span class="label warning player-status only-icon ng-hide" ng-show="player.status == &quot;discomfort&quot;" title="Molestias. "><i class="icon icon-discomfort"></i></span> <span class="label warning player-status only-icon ng-hide" ng-show="player.status == &quot;discarded&quot;" title="No convocado. "><i class="icon icon-discarded"></i></span>
+                                                   </div>
+                                                   <ng-transclude ng-transclude-slot="tools">
+                                                      <div class="valign pull-right" transclude-to="tools">
+                                                         <!-- ngIf: ::settings.marketMode || settings.showMarketTools -->
+                                                      </div>
+                                                   </ng-transclude>
+                                                   <div class="info valign">
+                                                      <div class="cell">
+                                                         <h3 ng-show="::settings.showName"><a player-modal="player" href="/liga-bbva/players/rachid">Rachid</a></h3>
+                                                         <div ng-show="::settings.showPrice">
+                                                            <h4 title="Valor de Mercado">330.000&nbsp;€</h4>
+                                                            <span class="mv-increment ng-hide" ng-show="player.priceIncrement>0" title="Diferencia del Valor de Mercado entre ayer y hoy"><i class="icon icon-increment"></i>0&nbsp;€</span> <span class="mv-decrement ng-hide" ng-show="player.priceIncrement<0" title="Diferencia del Valor de Mercado entre ayer y hoy"><i class="icon icon-decrement"></i>0&nbsp;€</span>
+                                                         </div>
+                                                      </div>
+                                                   </div>
+                                                </div>
+                                             </player>
+                                             <!-- ngIf: ::ads && $index==2 -->
+                                          </div>
+                                          <!-- end ngRepeat: player in players | filter:filter.q -->
+                                          <div ng-repeat-start="player in players | filter:filter.q" ng-class="{
+                                             'clearfix visible-lg': $index % settings.columns==0,
+                                             'clearfix visible-md': settings.columns==2?($index % 2 == 0):($index % (settings.columns-1)==0),
+                                             'clearfix visible-sm': $index % (settings.columns-2)==0}"></div>
+                                          <div ng-repeat-end="" class="no-xs-margin col-sm-12 col-md-6 col-lg-6" ng-class="{
+                                             'col-sm-12 col-md-6 col-lg-4':settings.columns==3,
+                                             'col-sm-12 col-md-6 col-lg-6':settings.columns==2,
+                                             'col-xs-12':settings.columns==1,
+                                             first:$first,
+                                             last:$last,
+                                             selected: selectedPlayers[player.id]}">
+                                             <player player="player" extra="extra" settings="settings">
+                                                <div class="player-card animate-zoom-in" ng-show="player">
+                                                   <div ng-transclude="header" class="header">
+                                                      <div transclude-to="header">
+                                                         <div ng-show="::player.market &amp;&amp; player.market.user.id == $root.session.currentUser.id" class="ng-hide">En venta desde <time relative=""></time> por <strong></strong></div>
+                                                         <div ng-show="::settings.marketMode &amp;&amp; player.market.user.id != $root.session.currentUser.id" class="ng-hide"><a ng-class="::{'current-user': player.market.user.id == $root.session.currentUser.id}" href="/user/-"></a><i ng-show="::!player.market.user">Libre</i>, <time relative=""></time> <span ng-show="::playerOffer || player.owner.id==$root.session.currentUser.id || player.market.user.id==$root.session.currentUser.id" class="ng-hide">por </span></div>
+                                                      </div>
+                                                   </div>
+                                                   <div class="team-pos valign pull-left">
+                                                      <div class="cell"><a ng-show="settings.showTeam" class="team ng-hide" title="" team-modal="player.team" href="#"><img></a> <span class="pos pos-1 sm ng-hide" title="Portero" ng-show="player.position == 1">PT</span> <span class="pos pos-2 sm ng-hide" title="Defensa" ng-show="player.position == 2">DF</span> <span class="pos pos-3 sm" title="Centrocampista" ng-show="player.position == 3">MC</span> <span class="pos pos-4 sm ng-hide" title="Delantero" ng-show="player.position == 4">DL</span></div>
+                                                   </div>
+                                                   <div class="pic pull-left">
+                                                      <a player-modal="player" href="/liga-bbva/players/nacho-cases">
+                                                         <div class="player-icon ok" style="background-image: url(https://cdn.comuniame.com/i/b170.png);" ng-style="{'background-image':  'url('+(player.icon || &quot;https://cdn.comuniame.com/img/liga-bbva/player.png&quot;)+')'}" ng-class="player.status"></div>
+                                                      </a>
+                                                      <div class="points" title="Puntos conseguidos esta temporada">38</div>
+                                                      <span class="label danger player-status only-icon ng-hide" ng-show="player.status == &quot;injured&quot;" title="Lesionado. "><i class="icon icon-injured"></i></span> <span class="label danger player-status only-icon ng-hide" ng-show="player.status == &quot;sanctioned&quot;" title="Sancionado. "><i class="icon icon-sanctioned"></i></span> <span class="label warning player-status only-icon ng-hide" ng-show="player.status == &quot;discomfort&quot;" title="Molestias. "><i class="icon icon-discomfort"></i></span> <span class="label warning player-status only-icon ng-hide" ng-show="player.status == &quot;discarded&quot;" title="No convocado. "><i class="icon icon-discarded"></i></span>
+                                                   </div>
+                                                   <ng-transclude ng-transclude-slot="tools">
+                                                      <div class="valign pull-right" transclude-to="tools">
+                                                         <!-- ngIf: ::settings.marketMode || settings.showMarketTools -->
+                                                      </div>
+                                                   </ng-transclude>
+                                                   <div class="info valign">
+                                                      <div class="cell">
+                                                         <h3 ng-show="::settings.showName"><a player-modal="player" href="/liga-bbva/players/nacho-cases">Nacho Cases</a></h3>
+                                                         <div ng-show="::settings.showPrice">
+                                                            <h4 title="Valor de Mercado">2.270.000&nbsp;€</h4>
+                                                            <span class="mv-increment ng-hide" ng-show="player.priceIncrement>0" title="Diferencia del Valor de Mercado entre ayer y hoy"><i class="icon icon-increment"></i>-190.000&nbsp;€</span> <span class="mv-decrement" ng-show="player.priceIncrement<0" title="Diferencia del Valor de Mercado entre ayer y hoy"><i class="icon icon-decrement"></i>190.000&nbsp;€</span>
+                                                         </div>
+                                                      </div>
+                                                   </div>
+                                                </div>
+                                             </player>
+                                             <!-- ngIf: ::ads && $index==2 -->
+                                          </div>
+                                          <!-- end ngRepeat: player in players | filter:filter.q -->
+                                          <div ng-repeat-start="player in players | filter:filter.q" ng-class="{
+                                             'clearfix visible-lg': $index % settings.columns==0,
+                                             'clearfix visible-md': settings.columns==2?($index % 2 == 0):($index % (settings.columns-1)==0),
+                                             'clearfix visible-sm': $index % (settings.columns-2)==0}" class="clearfix visible-lg visible-md"></div>
+                                          <div ng-repeat-end="" class="no-xs-margin col-sm-12 col-md-6 col-lg-6" ng-class="{
+                                             'col-sm-12 col-md-6 col-lg-4':settings.columns==3,
+                                             'col-sm-12 col-md-6 col-lg-6':settings.columns==2,
+                                             'col-xs-12':settings.columns==1,
+                                             first:$first,
+                                             last:$last,
+                                             selected: selectedPlayers[player.id]}">
+                                             <player player="player" extra="extra" settings="settings">
+                                                <div class="player-card animate-zoom-in" ng-show="player">
+                                                   <div ng-transclude="header" class="header">
+                                                      <div transclude-to="header">
+                                                         <div ng-show="::player.market &amp;&amp; player.market.user.id == $root.session.currentUser.id" class="ng-hide">En venta desde <time relative=""></time> por <strong></strong></div>
+                                                         <div ng-show="::settings.marketMode &amp;&amp; player.market.user.id != $root.session.currentUser.id" class="ng-hide"><a ng-class="::{'current-user': player.market.user.id == $root.session.currentUser.id}" href="/user/-"></a><i ng-show="::!player.market.user">Libre</i>, <time relative=""></time> <span ng-show="::playerOffer || player.owner.id==$root.session.currentUser.id || player.market.user.id==$root.session.currentUser.id" class="ng-hide">por </span></div>
+                                                      </div>
+                                                   </div>
+                                                   <div class="team-pos valign pull-left">
+                                                      <div class="cell"><a ng-show="settings.showTeam" class="team ng-hide" title="" team-modal="player.team" href="#"><img></a> <span class="pos pos-1 sm ng-hide" title="Portero" ng-show="player.position == 1">PT</span> <span class="pos pos-2 sm ng-hide" title="Defensa" ng-show="player.position == 2">DF</span> <span class="pos pos-3 sm" title="Centrocampista" ng-show="player.position == 3">MC</span> <span class="pos pos-4 sm ng-hide" title="Delantero" ng-show="player.position == 4">DL</span></div>
+                                                   </div>
+                                                   <div class="pic pull-left">
+                                                      <a player-modal="player" href="/liga-bbva/players/alex-barrera">
+                                                         <div class="player-icon ok" style="background-image: url(https://cdn.comuniame.com/i/m7mv.png);" ng-style="{'background-image':  'url('+(player.icon || &quot;https://cdn.comuniame.com/img/liga-bbva/player.png&quot;)+')'}" ng-class="player.status"></div>
+                                                      </a>
+                                                      <div class="points" title="Puntos conseguidos esta temporada">0</div>
+                                                      <span class="label danger player-status only-icon ng-hide" ng-show="player.status == &quot;injured&quot;" title="Lesionado. "><i class="icon icon-injured"></i></span> <span class="label danger player-status only-icon ng-hide" ng-show="player.status == &quot;sanctioned&quot;" title="Sancionado. "><i class="icon icon-sanctioned"></i></span> <span class="label warning player-status only-icon ng-hide" ng-show="player.status == &quot;discomfort&quot;" title="Molestias. "><i class="icon icon-discomfort"></i></span> <span class="label warning player-status only-icon ng-hide" ng-show="player.status == &quot;discarded&quot;" title="No convocado. "><i class="icon icon-discarded"></i></span>
+                                                   </div>
+                                                   <ng-transclude ng-transclude-slot="tools">
+                                                      <div class="valign pull-right" transclude-to="tools">
+                                                         <!-- ngIf: ::settings.marketMode || settings.showMarketTools -->
+                                                      </div>
+                                                   </ng-transclude>
+                                                   <div class="info valign">
+                                                      <div class="cell">
+                                                         <h3 ng-show="::settings.showName"><a player-modal="player" href="/liga-bbva/players/alex-barrera">Álex Barrera</a></h3>
+                                                         <div ng-show="::settings.showPrice">
+                                                            <h4 title="Valor de Mercado">190.000&nbsp;€</h4>
+                                                            <span class="mv-increment ng-hide" ng-show="player.priceIncrement>0" title="Diferencia del Valor de Mercado entre ayer y hoy"><i class="icon icon-increment"></i>0&nbsp;€</span> <span class="mv-decrement ng-hide" ng-show="player.priceIncrement<0" title="Diferencia del Valor de Mercado entre ayer y hoy"><i class="icon icon-decrement"></i>0&nbsp;€</span>
+                                                         </div>
+                                                      </div>
+                                                   </div>
+                                                </div>
+                                             </player>
+                                             <!-- ngIf: ::ads && $index==2 -->
+                                          </div>
+                                          <!-- end ngRepeat: player in players | filter:filter.q -->
+                                          <div ng-repeat-start="player in players | filter:filter.q" ng-class="{
+                                             'clearfix visible-lg': $index % settings.columns==0,
+                                             'clearfix visible-md': settings.columns==2?($index % 2 == 0):($index % (settings.columns-1)==0),
+                                             'clearfix visible-sm': $index % (settings.columns-2)==0}"></div>
+                                          <div ng-repeat-end="" class="no-xs-margin col-sm-12 col-md-6 col-lg-6" ng-class="{
+                                             'col-sm-12 col-md-6 col-lg-4':settings.columns==3,
+                                             'col-sm-12 col-md-6 col-lg-6':settings.columns==2,
+                                             'col-xs-12':settings.columns==1,
+                                             first:$first,
+                                             last:$last,
+                                             selected: selectedPlayers[player.id]}">
+                                             <player player="player" extra="extra" settings="settings">
+                                                <div class="player-card animate-zoom-in" ng-show="player">
+                                                   <div ng-transclude="header" class="header">
+                                                      <div transclude-to="header">
+                                                         <div ng-show="::player.market &amp;&amp; player.market.user.id == $root.session.currentUser.id" class="ng-hide">En venta desde <time relative=""></time> por <strong></strong></div>
+                                                         <div ng-show="::settings.marketMode &amp;&amp; player.market.user.id != $root.session.currentUser.id" class="ng-hide"><a ng-class="::{'current-user': player.market.user.id == $root.session.currentUser.id}" href="/user/-"></a><i ng-show="::!player.market.user">Libre</i>, <time relative=""></time> <span ng-show="::playerOffer || player.owner.id==$root.session.currentUser.id || player.market.user.id==$root.session.currentUser.id" class="ng-hide">por </span></div>
+                                                      </div>
+                                                   </div>
+                                                   <div class="team-pos valign pull-left">
+                                                      <div class="cell"><a ng-show="settings.showTeam" class="team ng-hide" title="" team-modal="player.team" href="#"><img></a> <span class="pos pos-1 sm ng-hide" title="Portero" ng-show="player.position == 1">PT</span> <span class="pos pos-2 sm ng-hide" title="Defensa" ng-show="player.position == 2">DF</span> <span class="pos pos-3 sm" title="Centrocampista" ng-show="player.position == 3">MC</span> <span class="pos pos-4 sm ng-hide" title="Delantero" ng-show="player.position == 4">DL</span></div>
+                                                   </div>
+                                                   <div class="pic pull-left">
+                                                      <a player-modal="player" href="/liga-bbva/players/hugo">
+                                                         <div class="player-icon ok" style="background-image: url(https://cdn.comuniame.com/i/849x.png);" ng-style="{'background-image':  'url('+(player.icon || &quot;https://cdn.comuniame.com/img/liga-bbva/player.png&quot;)+')'}" ng-class="player.status"></div>
+                                                      </a>
+                                                      <div class="points" title="Puntos conseguidos esta temporada">4</div>
+                                                      <span class="label danger player-status only-icon ng-hide" ng-show="player.status == &quot;injured&quot;" title="Lesionado. "><i class="icon icon-injured"></i></span> <span class="label danger player-status only-icon ng-hide" ng-show="player.status == &quot;sanctioned&quot;" title="Sancionado. "><i class="icon icon-sanctioned"></i></span> <span class="label warning player-status only-icon ng-hide" ng-show="player.status == &quot;discomfort&quot;" title="Molestias. "><i class="icon icon-discomfort"></i></span> <span class="label warning player-status only-icon ng-hide" ng-show="player.status == &quot;discarded&quot;" title="No convocado. "><i class="icon icon-discarded"></i></span>
+                                                   </div>
+                                                   <ng-transclude ng-transclude-slot="tools">
+                                                      <div class="valign pull-right" transclude-to="tools">
+                                                         <!-- ngIf: ::settings.marketMode || settings.showMarketTools -->
+                                                      </div>
+                                                   </ng-transclude>
+                                                   <div class="info valign">
+                                                      <div class="cell">
+                                                         <h3 ng-show="::settings.showName"><a player-modal="player" href="/liga-bbva/players/hugo">Hugo Fraile</a></h3>
+                                                         <div ng-show="::settings.showPrice">
+                                                            <h4 title="Valor de Mercado">340.000&nbsp;€</h4>
+                                                            <span class="mv-increment ng-hide" ng-show="player.priceIncrement>0" title="Diferencia del Valor de Mercado entre ayer y hoy"><i class="icon icon-increment"></i>-10.000&nbsp;€</span> <span class="mv-decrement" ng-show="player.priceIncrement<0" title="Diferencia del Valor de Mercado entre ayer y hoy"><i class="icon icon-decrement"></i>10.000&nbsp;€</span>
+                                                         </div>
+                                                      </div>
+                                                   </div>
+                                                </div>
+                                             </player>
+                                             <!-- ngIf: ::ads && $index==2 -->
+                                          </div>
+                                          <!-- end ngRepeat: player in players | filter:filter.q -->
+                                          <div ng-repeat-start="player in players | filter:filter.q" ng-class="{
+                                             'clearfix visible-lg': $index % settings.columns==0,
+                                             'clearfix visible-md': settings.columns==2?($index % 2 == 0):($index % (settings.columns-1)==0),
+                                             'clearfix visible-sm': $index % (settings.columns-2)==0}" class="clearfix visible-lg visible-md"></div>
+                                          <div ng-repeat-end="" class="no-xs-margin col-sm-12 col-md-6 col-lg-6" ng-class="{
+                                             'col-sm-12 col-md-6 col-lg-4':settings.columns==3,
+                                             'col-sm-12 col-md-6 col-lg-6':settings.columns==2,
+                                             'col-xs-12':settings.columns==1,
+                                             first:$first,
+                                             last:$last,
+                                             selected: selectedPlayers[player.id]}">
+                                             <player player="player" extra="extra" settings="settings">
+                                                <div class="player-card animate-zoom-in" ng-show="player">
+                                                   <div ng-transclude="header" class="header">
+                                                      <div transclude-to="header">
+                                                         <div ng-show="::player.market &amp;&amp; player.market.user.id == $root.session.currentUser.id" class="ng-hide">En venta desde <time relative=""></time> por <strong></strong></div>
+                                                         <div ng-show="::settings.marketMode &amp;&amp; player.market.user.id != $root.session.currentUser.id" class="ng-hide"><a ng-class="::{'current-user': player.market.user.id == $root.session.currentUser.id}" href="/user/-"></a><i ng-show="::!player.market.user">Libre</i>, <time relative=""></time> <span ng-show="::playerOffer || player.owner.id==$root.session.currentUser.id || player.market.user.id==$root.session.currentUser.id" class="ng-hide">por </span></div>
+                                                      </div>
+                                                   </div>
+                                                   <div class="team-pos valign pull-left">
+                                                      <div class="cell"><a ng-show="settings.showTeam" class="team ng-hide" title="" team-modal="player.team" href="#"><img></a> <span class="pos pos-1 sm ng-hide" title="Portero" ng-show="player.position == 1">PT</span> <span class="pos pos-2 sm ng-hide" title="Defensa" ng-show="player.position == 2">DF</span> <span class="pos pos-3 sm" title="Centrocampista" ng-show="player.position == 3">MC</span> <span class="pos pos-4 sm ng-hide" title="Delantero" ng-show="player.position == 4">DL</span></div>
+                                                   </div>
+                                                   <div class="pic pull-left">
+                                                      <a player-modal="player" href="/liga-bbva/players/omar-mascarell">
+                                                         <div class="player-icon ok" style="background-image: url(https://cdn.comuniame.com/i/p6hj.png);" ng-style="{'background-image':  'url('+(player.icon || &quot;https://cdn.comuniame.com/img/liga-bbva/player.png&quot;)+')'}" ng-class="player.status"></div>
+                                                      </a>
+                                                      <div class="points" title="Puntos conseguidos esta temporada">22</div>
+                                                      <span class="label danger player-status only-icon ng-hide" ng-show="player.status == &quot;injured&quot;" title="Lesionado. "><i class="icon icon-injured"></i></span> <span class="label danger player-status only-icon ng-hide" ng-show="player.status == &quot;sanctioned&quot;" title="Sancionado. "><i class="icon icon-sanctioned"></i></span> <span class="label warning player-status only-icon ng-hide" ng-show="player.status == &quot;discomfort&quot;" title="Molestias. "><i class="icon icon-discomfort"></i></span> <span class="label warning player-status only-icon ng-hide" ng-show="player.status == &quot;discarded&quot;" title="No convocado. "><i class="icon icon-discarded"></i></span>
+                                                   </div>
+                                                   <ng-transclude ng-transclude-slot="tools">
+                                                      <div class="valign pull-right" transclude-to="tools">
+                                                         <!-- ngIf: ::settings.marketMode || settings.showMarketTools -->
+                                                      </div>
+                                                   </ng-transclude>
+                                                   <div class="info valign">
+                                                      <div class="cell">
+                                                         <h3 ng-show="::settings.showName"><a player-modal="player" href="/liga-bbva/players/omar-mascarell">Omar Mascarell</a></h3>
+                                                         <div ng-show="::settings.showPrice">
+                                                            <h4 title="Valor de Mercado">1.470.000&nbsp;€</h4>
+                                                            <span class="mv-increment ng-hide" ng-show="player.priceIncrement>0" title="Diferencia del Valor de Mercado entre ayer y hoy"><i class="icon icon-increment"></i>0&nbsp;€</span> <span class="mv-decrement ng-hide" ng-show="player.priceIncrement<0" title="Diferencia del Valor de Mercado entre ayer y hoy"><i class="icon icon-decrement"></i>0&nbsp;€</span>
+                                                         </div>
+                                                      </div>
+                                                   </div>
+                                                </div>
+                                             </player>
+                                             <!-- ngIf: ::ads && $index==2 -->
+                                          </div>
+                                          <!-- end ngRepeat: player in players | filter:filter.q -->
+                                          <div ng-repeat-start="player in players | filter:filter.q" ng-class="{
+                                             'clearfix visible-lg': $index % settings.columns==0,
+                                             'clearfix visible-md': settings.columns==2?($index % 2 == 0):($index % (settings.columns-1)==0),
+                                             'clearfix visible-sm': $index % (settings.columns-2)==0}"></div>
+                                          <div ng-repeat-end="" class="no-xs-margin col-sm-12 col-md-6 col-lg-6" ng-class="{
+                                             'col-sm-12 col-md-6 col-lg-4':settings.columns==3,
+                                             'col-sm-12 col-md-6 col-lg-6':settings.columns==2,
+                                             'col-xs-12':settings.columns==1,
+                                             first:$first,
+                                             last:$last,
+                                             selected: selectedPlayers[player.id]}">
+                                             <player player="player" extra="extra" settings="settings">
+                                                <div class="player-card animate-zoom-in" ng-show="player">
+                                                   <div ng-transclude="header" class="header">
+                                                      <div transclude-to="header">
+                                                         <div ng-show="::player.market &amp;&amp; player.market.user.id == $root.session.currentUser.id" class="ng-hide">En venta desde <time relative=""></time> por <strong></strong></div>
+                                                         <div ng-show="::settings.marketMode &amp;&amp; player.market.user.id != $root.session.currentUser.id" class="ng-hide"><a ng-class="::{'current-user': player.market.user.id == $root.session.currentUser.id}" href="/user/-"></a><i ng-show="::!player.market.user">Libre</i>, <time relative=""></time> <span ng-show="::playerOffer || player.owner.id==$root.session.currentUser.id || player.market.user.id==$root.session.currentUser.id" class="ng-hide">por </span></div>
+                                                      </div>
+                                                   </div>
+                                                   <div class="team-pos valign pull-left">
+                                                      <div class="cell"><a ng-show="settings.showTeam" class="team ng-hide" title="" team-modal="player.team" href="#"><img></a> <span class="pos pos-1 sm ng-hide" title="Portero" ng-show="player.position == 1">PT</span> <span class="pos pos-2 sm ng-hide" title="Defensa" ng-show="player.position == 2">DF</span> <span class="pos pos-3 sm" title="Centrocampista" ng-show="player.position == 3">MC</span> <span class="pos pos-4 sm ng-hide" title="Delantero" ng-show="player.position == 4">DL</span></div>
+                                                   </div>
+                                                   <div class="pic pull-left">
+                                                      <a player-modal="player" href="/liga-bbva/players/pablo-perez-2">
+                                                         <div class="player-icon ok" style="background-image: url(https://cdn.comuniame.com/i/7f7x.png);" ng-style="{'background-image':  'url('+(player.icon || &quot;https://cdn.comuniame.com/img/liga-bbva/player.png&quot;)+')'}" ng-class="player.status"></div>
+                                                      </a>
+                                                      <div class="points" title="Puntos conseguidos esta temporada">26</div>
+                                                      <span class="label danger player-status only-icon ng-hide" ng-show="player.status == &quot;injured&quot;" title="Lesionado. "><i class="icon icon-injured"></i></span> <span class="label danger player-status only-icon ng-hide" ng-show="player.status == &quot;sanctioned&quot;" title="Sancionado. "><i class="icon icon-sanctioned"></i></span> <span class="label warning player-status only-icon ng-hide" ng-show="player.status == &quot;discomfort&quot;" title="Molestias. "><i class="icon icon-discomfort"></i></span> <span class="label warning player-status only-icon ng-hide" ng-show="player.status == &quot;discarded&quot;" title="No convocado. "><i class="icon icon-discarded"></i></span>
+                                                   </div>
+                                                   <ng-transclude ng-transclude-slot="tools">
+                                                      <div class="valign pull-right" transclude-to="tools">
+                                                         <!-- ngIf: ::settings.marketMode || settings.showMarketTools -->
+                                                      </div>
+                                                   </ng-transclude>
+                                                   <div class="info valign">
+                                                      <div class="cell">
+                                                         <h3 ng-show="::settings.showName"><a player-modal="player" href="/liga-bbva/players/pablo-perez-2">Pablo Pérez</a></h3>
+                                                         <div ng-show="::settings.showPrice">
+                                                            <h4 title="Valor de Mercado">1.100.000&nbsp;€</h4>
+                                                            <span class="mv-increment" ng-show="player.priceIncrement>0" title="Diferencia del Valor de Mercado entre ayer y hoy"><i class="icon icon-increment"></i>60.000&nbsp;€</span> <span class="mv-decrement ng-hide" ng-show="player.priceIncrement<0" title="Diferencia del Valor de Mercado entre ayer y hoy"><i class="icon icon-decrement"></i>-60.000&nbsp;€</span>
+                                                         </div>
+                                                      </div>
+                                                   </div>
+                                                </div>
+                                             </player>
+                                             <!-- ngIf: ::ads && $index==2 -->
+                                          </div>
+                                          <!-- end ngRepeat: player in players | filter:filter.q -->
+                                          <div ng-repeat-start="player in players | filter:filter.q" ng-class="{
+                                             'clearfix visible-lg': $index % settings.columns==0,
+                                             'clearfix visible-md': settings.columns==2?($index % 2 == 0):($index % (settings.columns-1)==0),
+                                             'clearfix visible-sm': $index % (settings.columns-2)==0}" class="clearfix visible-lg visible-md"></div>
+                                          <div ng-repeat-end="" class="no-xs-margin col-sm-12 col-md-6 col-lg-6" ng-class="{
+                                             'col-sm-12 col-md-6 col-lg-4':settings.columns==3,
+                                             'col-sm-12 col-md-6 col-lg-6':settings.columns==2,
+                                             'col-xs-12':settings.columns==1,
+                                             first:$first,
+                                             last:$last,
+                                             selected: selectedPlayers[player.id]}">
+                                             <player player="player" extra="extra" settings="settings">
+                                                <div class="player-card animate-zoom-in" ng-show="player">
+                                                   <div ng-transclude="header" class="header">
+                                                      <div transclude-to="header">
+                                                         <div ng-show="::player.market &amp;&amp; player.market.user.id == $root.session.currentUser.id" class="ng-hide">En venta desde <time relative=""></time> por <strong></strong></div>
+                                                         <div ng-show="::settings.marketMode &amp;&amp; player.market.user.id != $root.session.currentUser.id" class="ng-hide"><a ng-class="::{'current-user': player.market.user.id == $root.session.currentUser.id}" href="/user/-"></a><i ng-show="::!player.market.user">Libre</i>, <time relative=""></time> <span ng-show="::playerOffer || player.owner.id==$root.session.currentUser.id || player.market.user.id==$root.session.currentUser.id" class="ng-hide">por </span></div>
+                                                      </div>
+                                                   </div>
+                                                   <div class="team-pos valign pull-left">
+                                                      <div class="cell"><a ng-show="settings.showTeam" class="team ng-hide" title="" team-modal="player.team" href="#"><img></a> <span class="pos pos-1 sm ng-hide" title="Portero" ng-show="player.position == 1">PT</span> <span class="pos pos-2 sm ng-hide" title="Defensa" ng-show="player.position == 2">DF</span> <span class="pos pos-3 sm" title="Centrocampista" ng-show="player.position == 3">MC</span> <span class="pos pos-4 sm ng-hide" title="Delantero" ng-show="player.position == 4">DL</span></div>
+                                                   </div>
+                                                   <div class="pic pull-left">
+                                                      <a player-modal="player" href="/liga-bbva/players/halilovic">
+                                                         <div class="player-icon ok" style="background-image: url(https://cdn.comuniame.com/i/cpf2.png);" ng-style="{'background-image':  'url('+(player.icon || &quot;https://cdn.comuniame.com/img/liga-bbva/player.png&quot;)+')'}" ng-class="player.status"></div>
+                                                      </a>
+                                                      <div class="points" title="Puntos conseguidos esta temporada">56</div>
+                                                      <span class="label danger player-status only-icon ng-hide" ng-show="player.status == &quot;injured&quot;" title="Lesionado. "><i class="icon icon-injured"></i></span> <span class="label danger player-status only-icon ng-hide" ng-show="player.status == &quot;sanctioned&quot;" title="Sancionado. "><i class="icon icon-sanctioned"></i></span> <span class="label warning player-status only-icon ng-hide" ng-show="player.status == &quot;discomfort&quot;" title="Molestias. "><i class="icon icon-discomfort"></i></span> <span class="label warning player-status only-icon ng-hide" ng-show="player.status == &quot;discarded&quot;" title="No convocado. "><i class="icon icon-discarded"></i></span>
+                                                   </div>
+                                                   <ng-transclude ng-transclude-slot="tools">
+                                                      <div class="valign pull-right" transclude-to="tools">
+                                                         <!-- ngIf: ::settings.marketMode || settings.showMarketTools -->
+                                                      </div>
+                                                   </ng-transclude>
+                                                   <div class="info valign">
+                                                      <div class="cell">
+                                                         <h3 ng-show="::settings.showName"><a player-modal="player" href="/liga-bbva/players/halilovic">Halilovic</a></h3>
+                                                         <div ng-show="::settings.showPrice">
+                                                            <h4 title="Valor de Mercado">9.600.000&nbsp;€</h4>
+                                                            <span class="mv-increment ng-hide" ng-show="player.priceIncrement>0" title="Diferencia del Valor de Mercado entre ayer y hoy"><i class="icon icon-increment"></i>0&nbsp;€</span> <span class="mv-decrement ng-hide" ng-show="player.priceIncrement<0" title="Diferencia del Valor de Mercado entre ayer y hoy"><i class="icon icon-decrement"></i>0&nbsp;€</span>
+                                                         </div>
+                                                      </div>
+                                                   </div>
+                                                </div>
+                                             </player>
+                                             <!-- ngIf: ::ads && $index==2 -->
+                                          </div>
+                                          <!-- end ngRepeat: player in players | filter:filter.q -->
+                                          <div ng-repeat-start="player in players | filter:filter.q" ng-class="{
+                                             'clearfix visible-lg': $index % settings.columns==0,
+                                             'clearfix visible-md': settings.columns==2?($index % 2 == 0):($index % (settings.columns-1)==0),
+                                             'clearfix visible-sm': $index % (settings.columns-2)==0}"></div>
+                                          <div ng-repeat-end="" class="no-xs-margin col-sm-12 col-md-6 col-lg-6" ng-class="{
+                                             'col-sm-12 col-md-6 col-lg-4':settings.columns==3,
+                                             'col-sm-12 col-md-6 col-lg-6':settings.columns==2,
+                                             'col-xs-12':settings.columns==1,
+                                             first:$first,
+                                             last:$last,
+                                             selected: selectedPlayers[player.id]}">
+                                             <player player="player" extra="extra" settings="settings">
+                                                <div class="player-card animate-zoom-in" ng-show="player">
+                                                   <div ng-transclude="header" class="header">
+                                                      <div transclude-to="header">
+                                                         <div ng-show="::player.market &amp;&amp; player.market.user.id == $root.session.currentUser.id" class="ng-hide">En venta desde <time relative=""></time> por <strong></strong></div>
+                                                         <div ng-show="::settings.marketMode &amp;&amp; player.market.user.id != $root.session.currentUser.id" class="ng-hide"><a ng-class="::{'current-user': player.market.user.id == $root.session.currentUser.id}" href="/user/-"></a><i ng-show="::!player.market.user">Libre</i>, <time relative=""></time> <span ng-show="::playerOffer || player.owner.id==$root.session.currentUser.id || player.market.user.id==$root.session.currentUser.id" class="ng-hide">por </span></div>
+                                                      </div>
+                                                   </div>
+                                                   <div class="team-pos valign pull-left">
+                                                      <div class="cell"><a ng-show="settings.showTeam" class="team ng-hide" title="" team-modal="player.team" href="#"><img></a> <span class="pos pos-1 sm ng-hide" title="Portero" ng-show="player.position == 1">PT</span> <span class="pos pos-2 sm ng-hide" title="Defensa" ng-show="player.position == 2">DF</span> <span class="pos pos-3 sm" title="Centrocampista" ng-show="player.position == 3">MC</span> <span class="pos pos-4 sm ng-hide" title="Delantero" ng-show="player.position == 4">DL</span></div>
+                                                   </div>
+                                                   <div class="pic pull-left">
+                                                      <a player-modal="player" href="/liga-bbva/players/sergio-alvarez-diaz">
+                                                         <div class="player-icon injured" style="background-image: url(https://cdn.comuniame.com/i/0r5q.png);" ng-style="{'background-image':  'url('+(player.icon || &quot;https://cdn.comuniame.com/img/liga-bbva/player.png&quot;)+')'}" ng-class="player.status"></div>
+                                                      </a>
+                                                      <div class="points" title="Puntos conseguidos esta temporada">40</div>
+                                                      <span class="label danger player-status only-icon" ng-show="player.status == &quot;injured&quot;" title="Lesionado. Luxación acromio-clavicular. Baja hasta Febrero."><i class="icon icon-injured"></i></span> <span class="label danger player-status only-icon ng-hide" ng-show="player.status == &quot;sanctioned&quot;" title="Sancionado. Luxación acromio-clavicular. Baja hasta Febrero."><i class="icon icon-sanctioned"></i></span> <span class="label warning player-status only-icon ng-hide" ng-show="player.status == &quot;discomfort&quot;" title="Molestias. Luxación acromio-clavicular. Baja hasta Febrero."><i class="icon icon-discomfort"></i></span> <span class="label warning player-status only-icon ng-hide" ng-show="player.status == &quot;discarded&quot;" title="No convocado. Luxación acromio-clavicular. Baja hasta Febrero."><i class="icon icon-discarded"></i></span>
+                                                   </div>
+                                                   <ng-transclude ng-transclude-slot="tools">
+                                                      <div class="valign pull-right" transclude-to="tools">
+                                                         <!-- ngIf: ::settings.marketMode || settings.showMarketTools -->
+                                                      </div>
+                                                   </ng-transclude>
+                                                   <div class="info valign">
+                                                      <div class="cell">
+                                                         <h3 ng-show="::settings.showName"><a player-modal="player" href="/liga-bbva/players/sergio-alvarez-diaz">Sergio Álvarez Díaz</a></h3>
+                                                         <div ng-show="::settings.showPrice">
+                                                            <h4 title="Valor de Mercado">2.850.000&nbsp;€</h4>
+                                                            <span class="mv-increment ng-hide" ng-show="player.priceIncrement>0" title="Diferencia del Valor de Mercado entre ayer y hoy"><i class="icon icon-increment"></i>0&nbsp;€</span> <span class="mv-decrement ng-hide" ng-show="player.priceIncrement<0" title="Diferencia del Valor de Mercado entre ayer y hoy"><i class="icon icon-decrement"></i>0&nbsp;€</span>
+                                                         </div>
+                                                      </div>
+                                                   </div>
+                                                </div>
+                                             </player>
+                                             <!-- ngIf: ::ads && $index==2 -->
+                                          </div>
+                                          <!-- end ngRepeat: player in players | filter:filter.q -->
+                                          <div ng-repeat-start="player in players | filter:filter.q" ng-class="{
+                                             'clearfix visible-lg': $index % settings.columns==0,
+                                             'clearfix visible-md': settings.columns==2?($index % 2 == 0):($index % (settings.columns-1)==0),
+                                             'clearfix visible-sm': $index % (settings.columns-2)==0}" class="clearfix visible-lg visible-md"></div>
+                                          <div ng-repeat-end="" class="no-xs-margin col-sm-12 col-md-6 col-lg-6" ng-class="{
+                                             'col-sm-12 col-md-6 col-lg-4':settings.columns==3,
+                                             'col-sm-12 col-md-6 col-lg-6':settings.columns==2,
+                                             'col-xs-12':settings.columns==1,
+                                             first:$first,
+                                             last:$last,
+                                             selected: selectedPlayers[player.id]}">
+                                             <player player="player" extra="extra" settings="settings">
+                                                <div class="player-card animate-zoom-in" ng-show="player">
+                                                   <div ng-transclude="header" class="header">
+                                                      <div transclude-to="header">
+                                                         <div ng-show="::player.market &amp;&amp; player.market.user.id == $root.session.currentUser.id" class="ng-hide">En venta desde <time relative=""></time> por <strong></strong></div>
+                                                         <div ng-show="::settings.marketMode &amp;&amp; player.market.user.id != $root.session.currentUser.id" class="ng-hide"><a ng-class="::{'current-user': player.market.user.id == $root.session.currentUser.id}" href="/user/-"></a><i ng-show="::!player.market.user">Libre</i>, <time relative=""></time> <span ng-show="::playerOffer || player.owner.id==$root.session.currentUser.id || player.market.user.id==$root.session.currentUser.id" class="ng-hide">por </span></div>
+                                                      </div>
+                                                   </div>
+                                                   <div class="team-pos valign pull-left">
+                                                      <div class="cell"><a ng-show="settings.showTeam" class="team ng-hide" title="" team-modal="player.team" href="#"><img></a> <span class="pos pos-1 sm ng-hide" title="Portero" ng-show="player.position == 1">PT</span> <span class="pos pos-2 sm ng-hide" title="Defensa" ng-show="player.position == 2">DF</span> <span class="pos pos-3 sm ng-hide" title="Centrocampista" ng-show="player.position == 3">MC</span> <span class="pos pos-4 sm" title="Delantero" ng-show="player.position == 4">DL</span></div>
+                                                   </div>
+                                                   <div class="pic pull-left">
+                                                      <a player-modal="player" href="/liga-bbva/players/guerrero">
+                                                         <div class="player-icon discomfort" style="background-image: url(https://cdn.comuniame.com/i/j4mc.png);" ng-style="{'background-image':  'url('+(player.icon || &quot;https://cdn.comuniame.com/img/liga-bbva/player.png&quot;)+')'}" ng-class="player.status"></div>
+                                                      </a>
+                                                      <div class="points" title="Puntos conseguidos esta temporada">41</div>
+                                                      <span class="label danger player-status only-icon ng-hide" ng-show="player.status == &quot;injured&quot;" title="Lesionado. Esguince en su tobillo izquierdo. Duda esta jornada."><i class="icon icon-injured"></i></span> <span class="label danger player-status only-icon ng-hide" ng-show="player.status == &quot;sanctioned&quot;" title="Sancionado. Esguince en su tobillo izquierdo. Duda esta jornada."><i class="icon icon-sanctioned"></i></span> <span class="label warning player-status only-icon" ng-show="player.status == &quot;discomfort&quot;" title="Molestias. Esguince en su tobillo izquierdo. Duda esta jornada."><i class="icon icon-discomfort"></i></span> <span class="label warning player-status only-icon ng-hide" ng-show="player.status == &quot;discarded&quot;" title="No convocado. Esguince en su tobillo izquierdo. Duda esta jornada."><i class="icon icon-discarded"></i></span>
+                                                   </div>
+                                                   <ng-transclude ng-transclude-slot="tools">
+                                                      <div class="valign pull-right" transclude-to="tools">
+                                                         <!-- ngIf: ::settings.marketMode || settings.showMarketTools -->
+                                                      </div>
+                                                   </ng-transclude>
+                                                   <div class="info valign">
+                                                      <div class="cell">
+                                                         <h3 ng-show="::settings.showName"><a player-modal="player" href="/liga-bbva/players/guerrero">Guerrero</a></h3>
+                                                         <div ng-show="::settings.showPrice">
+                                                            <h4 title="Valor de Mercado">3.820.000&nbsp;€</h4>
+                                                            <span class="mv-increment ng-hide" ng-show="player.priceIncrement>0" title="Diferencia del Valor de Mercado entre ayer y hoy"><i class="icon icon-increment"></i>-170.000&nbsp;€</span> <span class="mv-decrement" ng-show="player.priceIncrement<0" title="Diferencia del Valor de Mercado entre ayer y hoy"><i class="icon icon-decrement"></i>170.000&nbsp;€</span>
+                                                         </div>
+                                                      </div>
+                                                   </div>
+                                                </div>
+                                             </player>
+                                             <!-- ngIf: ::ads && $index==2 -->
+                                          </div>
+                                          <!-- end ngRepeat: player in players | filter:filter.q -->
+                                          <div ng-repeat-start="player in players | filter:filter.q" ng-class="{
+                                             'clearfix visible-lg': $index % settings.columns==0,
+                                             'clearfix visible-md': settings.columns==2?($index % 2 == 0):($index % (settings.columns-1)==0),
+                                             'clearfix visible-sm': $index % (settings.columns-2)==0}"></div>
+                                          <div ng-repeat-end="" class="no-xs-margin col-sm-12 col-md-6 col-lg-6" ng-class="{
+                                             'col-sm-12 col-md-6 col-lg-4':settings.columns==3,
+                                             'col-sm-12 col-md-6 col-lg-6':settings.columns==2,
+                                             'col-xs-12':settings.columns==1,
+                                             first:$first,
+                                             last:$last,
+                                             selected: selectedPlayers[player.id]}">
+                                             <player player="player" extra="extra" settings="settings">
+                                                <div class="player-card animate-zoom-in" ng-show="player">
+                                                   <div ng-transclude="header" class="header">
+                                                      <div transclude-to="header">
+                                                         <div ng-show="::player.market &amp;&amp; player.market.user.id == $root.session.currentUser.id" class="ng-hide">En venta desde <time relative=""></time> por <strong></strong></div>
+                                                         <div ng-show="::settings.marketMode &amp;&amp; player.market.user.id != $root.session.currentUser.id" class="ng-hide"><a ng-class="::{'current-user': player.market.user.id == $root.session.currentUser.id}" href="/user/-"></a><i ng-show="::!player.market.user">Libre</i>, <time relative=""></time> <span ng-show="::playerOffer || player.owner.id==$root.session.currentUser.id || player.market.user.id==$root.session.currentUser.id" class="ng-hide">por </span></div>
+                                                      </div>
+                                                   </div>
+                                                   <div class="team-pos valign pull-left">
+                                                      <div class="cell"><a ng-show="settings.showTeam" class="team ng-hide" title="" team-modal="player.team" href="#"><img></a> <span class="pos pos-1 sm ng-hide" title="Portero" ng-show="player.position == 1">PT</span> <span class="pos pos-2 sm ng-hide" title="Defensa" ng-show="player.position == 2">DF</span> <span class="pos pos-3 sm ng-hide" title="Centrocampista" ng-show="player.position == 3">MC</span> <span class="pos pos-4 sm" title="Delantero" ng-show="player.position == 4">DL</span></div>
+                                                   </div>
+                                                   <div class="pic pull-left">
+                                                      <a player-modal="player" href="/liga-bbva/players/carlos-castro">
+                                                         <div class="player-icon ok" style="background-image: url(https://cdn.comuniame.com/i/1s2r.png);" ng-style="{'background-image':  'url('+(player.icon || &quot;https://cdn.comuniame.com/img/liga-bbva/player.png&quot;)+')'}" ng-class="player.status"></div>
+                                                      </a>
+                                                      <div class="points" title="Puntos conseguidos esta temporada">15</div>
+                                                      <span class="label danger player-status only-icon ng-hide" ng-show="player.status == &quot;injured&quot;" title="Lesionado. "><i class="icon icon-injured"></i></span> <span class="label danger player-status only-icon ng-hide" ng-show="player.status == &quot;sanctioned&quot;" title="Sancionado. "><i class="icon icon-sanctioned"></i></span> <span class="label warning player-status only-icon ng-hide" ng-show="player.status == &quot;discomfort&quot;" title="Molestias. "><i class="icon icon-discomfort"></i></span> <span class="label warning player-status only-icon ng-hide" ng-show="player.status == &quot;discarded&quot;" title="No convocado. "><i class="icon icon-discarded"></i></span>
+                                                   </div>
+                                                   <ng-transclude ng-transclude-slot="tools">
+                                                      <div class="valign pull-right" transclude-to="tools">
+                                                         <!-- ngIf: ::settings.marketMode || settings.showMarketTools -->
+                                                      </div>
+                                                   </ng-transclude>
+                                                   <div class="info valign">
+                                                      <div class="cell">
+                                                         <h3 ng-show="::settings.showName"><a player-modal="player" href="/liga-bbva/players/carlos-castro">Carlos Castro</a></h3>
+                                                         <div ng-show="::settings.showPrice">
+                                                            <h4 title="Valor de Mercado">1.140.000&nbsp;€</h4>
+                                                            <span class="mv-increment" ng-show="player.priceIncrement>0" title="Diferencia del Valor de Mercado entre ayer y hoy"><i class="icon icon-increment"></i>70.000&nbsp;€</span> <span class="mv-decrement ng-hide" ng-show="player.priceIncrement<0" title="Diferencia del Valor de Mercado entre ayer y hoy"><i class="icon icon-decrement"></i>-70.000&nbsp;€</span>
+                                                         </div>
+                                                      </div>
+                                                   </div>
+                                                </div>
+                                             </player>
+                                             <!-- ngIf: ::ads && $index==2 -->
+                                          </div>
+                                          <!-- end ngRepeat: player in players | filter:filter.q -->
+                                          <div ng-repeat-start="player in players | filter:filter.q" ng-class="{
+                                             'clearfix visible-lg': $index % settings.columns==0,
+                                             'clearfix visible-md': settings.columns==2?($index % 2 == 0):($index % (settings.columns-1)==0),
+                                             'clearfix visible-sm': $index % (settings.columns-2)==0}" class="clearfix visible-lg visible-md"></div>
+                                          <div ng-repeat-end="" class="no-xs-margin col-sm-12 col-md-6 col-lg-6" ng-class="{
+                                             'col-sm-12 col-md-6 col-lg-4':settings.columns==3,
+                                             'col-sm-12 col-md-6 col-lg-6':settings.columns==2,
+                                             'col-xs-12':settings.columns==1,
+                                             first:$first,
+                                             last:$last,
+                                             selected: selectedPlayers[player.id]}">
+                                             <player player="player" extra="extra" settings="settings">
+                                                <div class="player-card animate-zoom-in" ng-show="player">
+                                                   <div ng-transclude="header" class="header">
+                                                      <div transclude-to="header">
+                                                         <div ng-show="::player.market &amp;&amp; player.market.user.id == $root.session.currentUser.id" class="ng-hide">En venta desde <time relative=""></time> por <strong></strong></div>
+                                                         <div ng-show="::settings.marketMode &amp;&amp; player.market.user.id != $root.session.currentUser.id" class="ng-hide"><a ng-class="::{'current-user': player.market.user.id == $root.session.currentUser.id}" href="/user/-"></a><i ng-show="::!player.market.user">Libre</i>, <time relative=""></time> <span ng-show="::playerOffer || player.owner.id==$root.session.currentUser.id || player.market.user.id==$root.session.currentUser.id" class="ng-hide">por </span></div>
+                                                      </div>
+                                                   </div>
+                                                   <div class="team-pos valign pull-left">
+                                                      <div class="cell"><a ng-show="settings.showTeam" class="team ng-hide" title="" team-modal="player.team" href="#"><img></a> <span class="pos pos-1 sm ng-hide" title="Portero" ng-show="player.position == 1">PT</span> <span class="pos pos-2 sm ng-hide" title="Defensa" ng-show="player.position == 2">DF</span> <span class="pos pos-3 sm ng-hide" title="Centrocampista" ng-show="player.position == 3">MC</span> <span class="pos pos-4 sm" title="Delantero" ng-show="player.position == 4">DL</span></div>
+                                                   </div>
+                                                   <div class="pic pull-left">
+                                                      <a player-modal="player" href="/liga-bbva/players/sanabria">
+                                                         <div class="player-icon injured" style="background-image: url(https://cdn.comuniame.com/i/q8dg.png);" ng-style="{'background-image':  'url('+(player.icon || &quot;https://cdn.comuniame.com/img/liga-bbva/player.png&quot;)+')'}" ng-class="player.status"></div>
+                                                      </a>
+                                                      <div class="points" title="Puntos conseguidos esta temporada">26</div>
+                                                      <span class="label danger player-status only-icon" ng-show="player.status == &quot;injured&quot;" title="Lesionado. Rotura fibrilar en el recto anterior del cuádriceps. Baja hasta finales de Noviembre."><i class="icon icon-injured"></i></span> <span class="label danger player-status only-icon ng-hide" ng-show="player.status == &quot;sanctioned&quot;" title="Sancionado. Rotura fibrilar en el recto anterior del cuádriceps. Baja hasta finales de Noviembre."><i class="icon icon-sanctioned"></i></span> <span class="label warning player-status only-icon ng-hide" ng-show="player.status == &quot;discomfort&quot;" title="Molestias. Rotura fibrilar en el recto anterior del cuádriceps. Baja hasta finales de Noviembre."><i class="icon icon-discomfort"></i></span> <span class="label warning player-status only-icon ng-hide" ng-show="player.status == &quot;discarded&quot;" title="No convocado. Rotura fibrilar en el recto anterior del cuádriceps. Baja hasta finales de Noviembre."><i class="icon icon-discarded"></i></span>
+                                                   </div>
+                                                   <ng-transclude ng-transclude-slot="tools">
+                                                      <div class="valign pull-right" transclude-to="tools">
+                                                         <!-- ngIf: ::settings.marketMode || settings.showMarketTools -->
+                                                      </div>
+                                                   </ng-transclude>
+                                                   <div class="info valign">
+                                                      <div class="cell">
+                                                         <h3 ng-show="::settings.showName"><a player-modal="player" href="/liga-bbva/players/sanabria">Sanabria</a></h3>
+                                                         <div ng-show="::settings.showPrice">
+                                                            <h4 title="Valor de Mercado">3.240.000&nbsp;€</h4>
+                                                            <span class="mv-increment ng-hide" ng-show="player.priceIncrement>0" title="Diferencia del Valor de Mercado entre ayer y hoy"><i class="icon icon-increment"></i>-120.000&nbsp;€</span> <span class="mv-decrement" ng-show="player.priceIncrement<0" title="Diferencia del Valor de Mercado entre ayer y hoy"><i class="icon icon-decrement"></i>120.000&nbsp;€</span>
+                                                         </div>
+                                                      </div>
+                                                   </div>
+                                                </div>
+                                             </player>
+                                             <!-- ngIf: ::ads && $index==2 -->
+                                          </div>
+                                          <!-- end ngRepeat: player in players | filter:filter.q -->
+                                          <div ng-repeat-start="player in players | filter:filter.q" ng-class="{
+                                             'clearfix visible-lg': $index % settings.columns==0,
+                                             'clearfix visible-md': settings.columns==2?($index % 2 == 0):($index % (settings.columns-1)==0),
+                                             'clearfix visible-sm': $index % (settings.columns-2)==0}"></div>
+                                          <div ng-repeat-end="" class="no-xs-margin col-sm-12 col-md-6 col-lg-6 last" ng-class="{
+                                             'col-sm-12 col-md-6 col-lg-4':settings.columns==3,
+                                             'col-sm-12 col-md-6 col-lg-6':settings.columns==2,
+                                             'col-xs-12':settings.columns==1,
+                                             first:$first,
+                                             last:$last,
+                                             selected: selectedPlayers[player.id]}">
+                                             <player player="player" extra="extra" settings="settings">
+                                                <div class="player-card animate-zoom-in" ng-show="player">
+                                                   <div ng-transclude="header" class="header">
+                                                      <div transclude-to="header">
+                                                         <div ng-show="::player.market &amp;&amp; player.market.user.id == $root.session.currentUser.id" class="ng-hide">En venta desde <time relative=""></time> por <strong></strong></div>
+                                                         <div ng-show="::settings.marketMode &amp;&amp; player.market.user.id != $root.session.currentUser.id" class="ng-hide"><a ng-class="::{'current-user': player.market.user.id == $root.session.currentUser.id}" href="/user/-"></a><i ng-show="::!player.market.user">Libre</i>, <time relative=""></time> <span ng-show="::playerOffer || player.owner.id==$root.session.currentUser.id || player.market.user.id==$root.session.currentUser.id" class="ng-hide">por </span></div>
+                                                      </div>
+                                                   </div>
+                                                   <div class="team-pos valign pull-left">
+                                                      <div class="cell"><a ng-show="settings.showTeam" class="team ng-hide" title="" team-modal="player.team" href="#"><img></a> <span class="pos pos-1 sm ng-hide" title="Portero" ng-show="player.position == 1">PT</span> <span class="pos pos-2 sm ng-hide" title="Defensa" ng-show="player.position == 2">DF</span> <span class="pos pos-3 sm ng-hide" title="Centrocampista" ng-show="player.position == 3">MC</span> <span class="pos pos-4 sm" title="Delantero" ng-show="player.position == 4">DL</span></div>
+                                                   </div>
+                                                   <div class="pic pull-left">
+                                                      <a player-modal="player" href="/liga-bbva/players/mendi">
+                                                         <div class="player-icon ok" style="background-image: url(https://lh3.googleusercontent.com/LOYdOtjxI5-a9LwnMX9uUV57dfaFgnueoc5dNVto8m0OEcpLGgroxjI9mUgYV7Pv5NwWKS6cXVtgtcjVX7Wt99TNuUSKErc);" ng-style="{'background-image':  'url('+(player.icon || &quot;https://cdn.comuniame.com/img/liga-bbva/player.png&quot;)+')'}" ng-class="player.status"></div>
+                                                      </a>
+                                                      <div class="points" title="Puntos conseguidos esta temporada">2</div>
+                                                      <span class="label danger player-status only-icon ng-hide" ng-show="player.status == &quot;injured&quot;" title="Lesionado. "><i class="icon icon-injured"></i></span> <span class="label danger player-status only-icon ng-hide" ng-show="player.status == &quot;sanctioned&quot;" title="Sancionado. "><i class="icon icon-sanctioned"></i></span> <span class="label warning player-status only-icon ng-hide" ng-show="player.status == &quot;discomfort&quot;" title="Molestias. "><i class="icon icon-discomfort"></i></span> <span class="label warning player-status only-icon ng-hide" ng-show="player.status == &quot;discarded&quot;" title="No convocado. "><i class="icon icon-discarded"></i></span>
+                                                   </div>
+                                                   <ng-transclude ng-transclude-slot="tools">
+                                                      <div class="valign pull-right" transclude-to="tools">
+                                                         <!-- ngIf: ::settings.marketMode || settings.showMarketTools -->
+                                                      </div>
+                                                   </ng-transclude>
+                                                   <div class="info valign">
+                                                      <div class="cell">
+                                                         <h3 ng-show="::settings.showName"><a player-modal="player" href="/liga-bbva/players/mendi">Mendi</a></h3>
+                                                         <div ng-show="::settings.showPrice">
+                                                            <h4 title="Valor de Mercado">250.000&nbsp;€</h4>
+                                                            <span class="mv-increment ng-hide" ng-show="player.priceIncrement>0" title="Diferencia del Valor de Mercado entre ayer y hoy"><i class="icon icon-increment"></i>-10.000&nbsp;€</span> <span class="mv-decrement" ng-show="player.priceIncrement<0" title="Diferencia del Valor de Mercado entre ayer y hoy"><i class="icon icon-decrement"></i>10.000&nbsp;€</span>
+                                                         </div>
+                                                      </div>
+                                                   </div>
+                                                </div>
+                                             </player>
+                                             <!-- ngIf: ::ads && $index==2 -->
+                                          </div>
+                                          <!-- end ngRepeat: player in players | filter:filter.q -->
+                                       </div>
+                                       <!-- end ngIf: settings.layout=='grid' && players.length>0 --><!-- ngIf: settings.layout=='table' && players.length>0 -->
+                                       <div class="footer hidden-xs" ng-class="{'hidden-xs':!settings.pagination}">
+                                          <div class="row">
+                                             <div class="player-filter hidden-xs col-sm-8" ng-class="::{'col-sm-6':settings.pagination, 'col-sm-8':!settings.pagination}">
+                                                <div class="layout-selector"><i class="icon icon-grid"></i> &nbsp;<span class="switch ng-valid" ng-click="undefined ? showTable : showTable=!showTable" ng-class="{ checked:showTable, disabled:undefined }" ng-model="showTable" title="Mostrar listado como tabla"><small></small><input type="checkbox" ng-model="showTable" style="display:none" class="ng-pristine ng-untouched ng-valid"><span class="switch-text"> </span></span>&nbsp; <i class="icon icon-table"></i></div>
+                                                <input placeholder="Filtrar" ng-model="filter.q" list="list32847053091973066" ng-show="::settings.showFilter &amp;&amp; !settings.debounceFilter" class="ng-pristine ng-untouched ng-valid"> <input placeholder="Filtrar" ng-model="filter.q" list="list32847053091973066" ng-show="::settings.showFilter &amp;&amp; settings.debounceFilter" ng-model-options="{debounce: 500}" class="ng-pristine ng-untouched ng-valid ng-hide">
+                                                <datalist id="list32847053091973066">
+                                                   <!-- ngRepeat: entry in autoCompleteList -->
+                                                </datalist>
+                                                <div class="dropdown sort" ng-show="::settings.showSort">
+                                                   <button class="btn white" title="Ordenar por"><i class="icon icon-sort"></i></button>
+                                                   <ul>
+                                                      <li class="dropdown-header">Ordenar por</li>
+                                                      <li sort-by="position"><a class="sortBy active" ng-class="{active: sortingBy==sortBy}" ng-click="doSort()"><span ng-transclude=""><span>Posición</span></span><span class="sort-down ng-hide" ng-show="isOrder('-')"><i class="icon icon-caret-down"></i></span><span class="sort-up" ng-show="isOrder('+')"><i class="icon icon-caret-up"></i></span><span class="sort-both ng-hide" ng-show="sortingBy != sortBy"><i class="icon icon-caret-up-down"></i></span></a></li>
+                                                      <li sort-by="name"><a class="sortBy" ng-class="{active: sortingBy==sortBy}" ng-click="doSort()"><span ng-transclude=""><span>Jugador</span></span><span class="sort-down ng-hide" ng-show="isOrder('-')"><i class="icon icon-caret-down"></i></span><span class="sort-up ng-hide" ng-show="isOrder('+')"><i class="icon icon-caret-up"></i></span><span class="sort-both" ng-show="sortingBy != sortBy"><i class="icon icon-caret-up-down"></i></span></a></li>
+                                                      <li sort-by="points,-pointsLastSeason"><a class="sortBy" ng-class="{active: sortingBy==sortBy}" ng-click="doSort()"><span ng-transclude=""><span>Puntos</span></span><span class="sort-down ng-hide" ng-show="isOrder('-')"><i class="icon icon-caret-down"></i></span><span class="sort-up ng-hide" ng-show="isOrder('+')"><i class="icon icon-caret-up"></i></span><span class="sort-both" ng-show="sortingBy != sortBy"><i class="icon icon-caret-up-down"></i></span></a></li>
+                                                      <li sort-by="price"><a class="sortBy" ng-class="{active: sortingBy==sortBy}" ng-click="doSort()"><span ng-transclude=""><span>Valor de Mercado</span></span><span class="sort-down ng-hide" ng-show="isOrder('-')"><i class="icon icon-caret-down"></i></span><span class="sort-up ng-hide" ng-show="isOrder('+')"><i class="icon icon-caret-up"></i></span><span class="sort-both" ng-show="sortingBy != sortBy"><i class="icon icon-caret-up-down"></i></span></a></li>
+                                                      <li sort-by="status"><a class="sortBy" ng-class="{active: sortingBy==sortBy}" ng-click="doSort()"><span ng-transclude=""><span>Estado</span></span><span class="sort-down ng-hide" ng-show="isOrder('-')"><i class="icon icon-caret-down"></i></span><span class="sort-up ng-hide" ng-show="isOrder('+')"><i class="icon icon-caret-up"></i></span><span class="sort-both" ng-show="sortingBy != sortBy"><i class="icon icon-caret-up-down"></i></span></a></li>
+                                                      <li sort-by="market.user.name" ng-show="::settings.marketMode" class="ng-hide"><a class="sortBy" ng-class="{active: sortingBy==sortBy}" ng-click="doSort()"><span ng-transclude=""><span>Propietario</span></span><span class="sort-down ng-hide" ng-show="isOrder('-')"><i class="icon icon-caret-down"></i></span><span class="sort-up ng-hide" ng-show="isOrder('+')"><i class="icon icon-caret-up"></i></span><span class="sort-both" ng-show="sortingBy != sortBy"><i class="icon icon-caret-up-down"></i></span></a></li>
+                                                      <li sort-by="market.date" ng-show="::settings.marketMode" class="ng-hide"><a class="sortBy" ng-class="{active: sortingBy==sortBy}" ng-click="doSort()"><span ng-transclude=""><span>Fecha de venta</span></span><span class="sort-down ng-hide" ng-show="isOrder('-')"><i class="icon icon-caret-down"></i></span><span class="sort-up ng-hide" ng-show="isOrder('+')"><i class="icon icon-caret-up"></i></span><span class="sort-both" ng-show="sortingBy != sortBy"><i class="icon icon-caret-up-down"></i></span></a></li>
+                                                   </ul>
+                                                </div>
+                                             </div>
+                                             <div class="pagination-wrapper col-sm-4" ng-class="{'col-sm-6':settings.pagination, 'col-sm-4':!settings.pagination}">
+                                                <!-- ngIf: ::settings.pagination -->
+                                                <div class="text-muted" ng-hide="::settings.pagination">24 jugadores</div>
+                                             </div>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </players>
+                              </div>
+                           </div>
+                           <div class="ad ad-horizontal hidden-xs" template="footer-horizontal"><iframe src="/static/app/v271/es/partials/directives/ads/footer-horizontal.html" style="display: none !important;"></iframe></div>
+                           <div class="ad ad-rectangle visible-xs" template="footer-rectangle"></div>
+                           <div class="panel">
+                              <div class="body" loader="loadingPromise" style="position: relative;">
+                                 <i class="icon icon-stats panel-icon"></i>
+                                 <h4>Últimos partidos</h4>
+                                 <div class="row clear">
+                                    <!-- ngRepeat: match in ::team.matches -->
+                                    <div class="col-sm-6" ng-repeat-start="match in ::team.matches">
+                                       <div class="mini-match">
+                                          <div class="row">
+                                             <div class="col-xs-5 local"><a class="team" title="Atlético" team-modal="match.local" href="/liga-bbva/teams/atletico"><img ng-src="https://cdn.comuniame.com/i/svcl.png" src="https://cdn.comuniame.com/i/svcl.png"></a> <a class="team" title="Atlético" team-modal="match.local" href="/liga-bbva/teams/atletico">Atlético</a></div>
+                                             <div class="col-xs-2 score" ng-show="::match.localScore!==null"><a href="/liga-bbva/match/atletico-sporting-1247">1 · 0</a></div>
+                                             <div class="col-xs-2 date ng-hide" ng-hide="::match.localScore!==null"><a href="/liga-bbva/match/atletico-sporting-1247">8/11/15</a></div>
+                                             <div class="col-xs-5 visitor"><a class="team" title="Sporting" team-modal="match.visitor" href="/liga-bbva/teams/sporting">Sporting</a> <a class="team" title="Sporting" team-modal="match.visitor" href="/liga-bbva/teams/sporting"><img ng-src="https://cdn.comuniame.com/i/zwcg.png" src="https://cdn.comuniame.com/i/zwcg.png"></a></div>
+                                          </div>
+                                       </div>
+                                    </div>
+                                    <div class="clearfix ng-hide" ng-show="::$index%2==1" ng-repeat-end=""></div>
+                                    <!-- end ngRepeat: match in ::team.matches -->
+                                    <div class="col-sm-6" ng-repeat-start="match in ::team.matches">
+                                       <div class="mini-match">
+                                          <div class="row">
+                                             <div class="col-xs-5 local"><a class="team" title="Sporting" team-modal="match.local" href="/liga-bbva/teams/sporting"><img ng-src="https://cdn.comuniame.com/i/zwcg.png" src="https://cdn.comuniame.com/i/zwcg.png"></a> <a class="team" title="Sporting" team-modal="match.local" href="/liga-bbva/teams/sporting">Sporting</a></div>
+                                             <div class="col-xs-2 score" ng-show="::match.localScore!==null"><a href="/liga-bbva/match/sporting-malaga-1238">1 · 0</a></div>
+                                             <div class="col-xs-2 date ng-hide" ng-hide="::match.localScore!==null"><a href="/liga-bbva/match/sporting-malaga-1238">1/11/15</a></div>
+                                             <div class="col-xs-5 visitor"><a class="team" title="Málaga" team-modal="match.visitor" href="/liga-bbva/teams/malaga">Málaga</a> <a class="team" title="Málaga" team-modal="match.visitor" href="/liga-bbva/teams/malaga"><img ng-src="https://cdn.comuniame.com/i/8z7n.png" src="https://cdn.comuniame.com/i/8z7n.png"></a></div>
+                                          </div>
+                                       </div>
+                                    </div>
+                                    <div class="clearfix" ng-show="::$index%2==1" ng-repeat-end=""></div>
+                                    <!-- end ngRepeat: match in ::team.matches -->
+                                    <div class="col-sm-6" ng-repeat-start="match in ::team.matches">
+                                       <div class="mini-match">
+                                          <div class="row">
+                                             <div class="col-xs-5 local"><a class="team" title="Athletic" team-modal="match.local" href="/liga-bbva/teams/athletic"><img ng-src="https://cdn.comuniame.com/i/1pg9.png" src="https://cdn.comuniame.com/i/1pg9.png"></a> <a class="team" title="Athletic" team-modal="match.local" href="/liga-bbva/teams/athletic">Athletic</a></div>
+                                             <div class="col-xs-2 score" ng-show="::match.localScore!==null"><a href="/liga-bbva/match/athletic-sporting-1228">3 · 0</a></div>
+                                             <div class="col-xs-2 date ng-hide" ng-hide="::match.localScore!==null"><a href="/liga-bbva/match/athletic-sporting-1228">26/10/15</a></div>
+                                             <div class="col-xs-5 visitor"><a class="team" title="Sporting" team-modal="match.visitor" href="/liga-bbva/teams/sporting">Sporting</a> <a class="team" title="Sporting" team-modal="match.visitor" href="/liga-bbva/teams/sporting"><img ng-src="https://cdn.comuniame.com/i/zwcg.png" src="https://cdn.comuniame.com/i/zwcg.png"></a></div>
+                                          </div>
+                                       </div>
+                                    </div>
+                                    <div class="clearfix ng-hide" ng-show="::$index%2==1" ng-repeat-end=""></div>
+                                    <!-- end ngRepeat: match in ::team.matches -->
+                                    <div class="col-sm-6" ng-repeat-start="match in ::team.matches">
+                                       <div class="mini-match">
+                                          <div class="row">
+                                             <div class="col-xs-5 local"><a class="team" title="Sporting" team-modal="match.local" href="/liga-bbva/teams/sporting"><img ng-src="https://cdn.comuniame.com/i/zwcg.png" src="https://cdn.comuniame.com/i/zwcg.png"></a> <a class="team" title="Sporting" team-modal="match.local" href="/liga-bbva/teams/sporting">Sporting</a></div>
+                                             <div class="col-xs-2 score" ng-show="::match.localScore!==null"><a href="/liga-bbva/match/sporting-granada-1219">3 · 3</a></div>
+                                             <div class="col-xs-2 date ng-hide" ng-hide="::match.localScore!==null"><a href="/liga-bbva/match/sporting-granada-1219">19/10/15</a></div>
+                                             <div class="col-xs-5 visitor"><a class="team" title="Granada" team-modal="match.visitor" href="/liga-bbva/teams/granada">Granada</a> <a class="team" title="Granada" team-modal="match.visitor" href="/liga-bbva/teams/granada"><img ng-src="https://cdn.comuniame.com/i/pzwc.png" src="https://cdn.comuniame.com/i/pzwc.png"></a></div>
+                                          </div>
+                                       </div>
+                                    </div>
+                                    <div class="clearfix" ng-show="::$index%2==1" ng-repeat-end=""></div>
+                                    <!-- end ngRepeat: match in ::team.matches -->
+                                    <div class="col-sm-6" ng-repeat-start="match in ::team.matches">
+                                       <div class="mini-match">
+                                          <div class="row">
+                                             <div class="col-xs-5 local"><a class="team" title="Espanyol" team-modal="match.local" href="/liga-bbva/teams/espanyol"><img ng-src="https://cdn.comuniame.com/i/md6s.png" src="https://cdn.comuniame.com/i/md6s.png"></a> <a class="team" title="Espanyol" team-modal="match.local" href="/liga-bbva/teams/espanyol">Espanyol</a></div>
+                                             <div class="col-xs-2 score" ng-show="::match.localScore!==null"><a href="/liga-bbva/match/espanyol-sporting-1209">1 · 2</a></div>
+                                             <div class="col-xs-2 date ng-hide" ng-hide="::match.localScore!==null"><a href="/liga-bbva/match/espanyol-sporting-1209">3/10/15</a></div>
+                                             <div class="col-xs-5 visitor"><a class="team" title="Sporting" team-modal="match.visitor" href="/liga-bbva/teams/sporting">Sporting</a> <a class="team" title="Sporting" team-modal="match.visitor" href="/liga-bbva/teams/sporting"><img ng-src="https://cdn.comuniame.com/i/zwcg.png" src="https://cdn.comuniame.com/i/zwcg.png"></a></div>
+                                          </div>
+                                       </div>
+                                    </div>
+                                    <div class="clearfix ng-hide" ng-show="::$index%2==1" ng-repeat-end=""></div>
+                                    <!-- end ngRepeat: match in ::team.matches -->
+                                    <div class="col-sm-6" ng-repeat-start="match in ::team.matches">
+                                       <div class="mini-match">
+                                          <div class="row">
+                                             <div class="col-xs-5 local"><a class="team" title="Sporting" team-modal="match.local" href="/liga-bbva/teams/sporting"><img ng-src="https://cdn.comuniame.com/i/zwcg.png" src="https://cdn.comuniame.com/i/zwcg.png"></a> <a class="team" title="Sporting" team-modal="match.local" href="/liga-bbva/teams/sporting">Sporting</a></div>
+                                             <div class="col-xs-2 score" ng-show="::match.localScore!==null"><a href="/liga-bbva/match/sporting-betis-1200">1 · 2</a></div>
+                                             <div class="col-xs-2 date ng-hide" ng-hide="::match.localScore!==null"><a href="/liga-bbva/match/sporting-betis-1200">27/9/15</a></div>
+                                             <div class="col-xs-5 visitor"><a class="team" title="Betis" team-modal="match.visitor" href="/liga-bbva/teams/betis">Betis</a> <a class="team" title="Betis" team-modal="match.visitor" href="/liga-bbva/teams/betis"><img ng-src="https://cdn.comuniame.com/i/4qlb.png" src="https://cdn.comuniame.com/i/4qlb.png"></a></div>
+                                          </div>
+                                       </div>
+                                    </div>
+                                    <div class="clearfix" ng-show="::$index%2==1" ng-repeat-end=""></div>
+                                    <!-- end ngRepeat: match in ::team.matches -->
+                                    <div class="col-sm-6" ng-repeat-start="match in ::team.matches">
+                                       <div class="mini-match">
+                                          <div class="row">
+                                             <div class="col-xs-5 local"><a class="team" title="Rayo Vallecano" team-modal="match.local" href="/liga-bbva/teams/rayo-vallecano"><img ng-src="https://cdn.comuniame.com/i/qksb.png" src="https://cdn.comuniame.com/i/qksb.png"></a> <a class="team" title="Rayo Vallecano" team-modal="match.local" href="/liga-bbva/teams/rayo-vallecano">Rayo Vallecano</a></div>
+                                             <div class="col-xs-2 score" ng-show="::match.localScore!==null"><a href="/liga-bbva/match/rayo-vallecano-sporting-1190">2 · 1</a></div>
+                                             <div class="col-xs-2 date ng-hide" ng-hide="::match.localScore!==null"><a href="/liga-bbva/match/rayo-vallecano-sporting-1190">23/9/15</a></div>
+                                             <div class="col-xs-5 visitor"><a class="team" title="Sporting" team-modal="match.visitor" href="/liga-bbva/teams/sporting">Sporting</a> <a class="team" title="Sporting" team-modal="match.visitor" href="/liga-bbva/teams/sporting"><img ng-src="https://cdn.comuniame.com/i/zwcg.png" src="https://cdn.comuniame.com/i/zwcg.png"></a></div>
+                                          </div>
+                                       </div>
+                                    </div>
+                                    <div class="clearfix ng-hide" ng-show="::$index%2==1" ng-repeat-end=""></div>
+                                    <!-- end ngRepeat: match in ::team.matches -->
+                                    <div class="col-sm-6" ng-repeat-start="match in ::team.matches">
+                                       <div class="mini-match">
+                                          <div class="row">
+                                             <div class="col-xs-5 local"><a class="team" title="Deportivo" team-modal="match.local" href="/liga-bbva/teams/deportivo"><img ng-src="https://cdn.comuniame.com/i/69rr.png" src="https://cdn.comuniame.com/i/69rr.png"></a> <a class="team" title="Deportivo" team-modal="match.local" href="/liga-bbva/teams/deportivo">Deportivo</a></div>
+                                             <div class="col-xs-2 score" ng-show="::match.localScore!==null"><a href="/liga-bbva/match/deportivo-sporting-27718">2 · 3</a></div>
+                                             <div class="col-xs-2 date ng-hide" ng-hide="::match.localScore!==null"><a href="/liga-bbva/match/deportivo-sporting-27718">20/9/15</a></div>
+                                             <div class="col-xs-5 visitor"><a class="team" title="Sporting" team-modal="match.visitor" href="/liga-bbva/teams/sporting">Sporting</a> <a class="team" title="Sporting" team-modal="match.visitor" href="/liga-bbva/teams/sporting"><img ng-src="https://cdn.comuniame.com/i/zwcg.png" src="https://cdn.comuniame.com/i/zwcg.png"></a></div>
+                                          </div>
+                                       </div>
+                                    </div>
+                                    <div class="clearfix" ng-show="::$index%2==1" ng-repeat-end=""></div>
+                                    <!-- end ngRepeat: match in ::team.matches -->
+                                    <div class="col-sm-6" ng-repeat-start="match in ::team.matches">
+                                       <div class="mini-match">
+                                          <div class="row">
+                                             <div class="col-xs-5 local"><a class="team" title="Sporting" team-modal="match.local" href="/liga-bbva/teams/sporting"><img ng-src="https://cdn.comuniame.com/i/zwcg.png" src="https://cdn.comuniame.com/i/zwcg.png"></a> <a class="team" title="Sporting" team-modal="match.local" href="/liga-bbva/teams/sporting">Sporting</a></div>
+                                             <div class="col-xs-2 score" ng-show="::match.localScore!==null"><a href="/liga-bbva/match/sporting-valencia-22211">0 · 1</a></div>
+                                             <div class="col-xs-2 date ng-hide" ng-hide="::match.localScore!==null"><a href="/liga-bbva/match/sporting-valencia-22211">12/9/15</a></div>
+                                             <div class="col-xs-5 visitor"><a class="team" title="Valencia" team-modal="match.visitor" href="/liga-bbva/teams/valencia">Valencia</a> <a class="team" title="Valencia" team-modal="match.visitor" href="/liga-bbva/teams/valencia"><img ng-src="https://cdn.comuniame.com/i/dxjt.png" src="https://cdn.comuniame.com/i/dxjt.png"></a></div>
+                                          </div>
+                                       </div>
+                                    </div>
+                                    <div class="clearfix ng-hide" ng-show="::$index%2==1" ng-repeat-end=""></div>
+                                    <!-- end ngRepeat: match in ::team.matches -->
+                                    <div class="col-sm-6" ng-repeat-start="match in ::team.matches">
+                                       <div class="mini-match">
+                                          <div class="row">
+                                             <div class="col-xs-5 local"><a class="team" title="Real Sociedad" team-modal="match.local" href="/liga-bbva/teams/real-sociedad"><img ng-src="https://cdn.comuniame.com/i/57jj.png" src="https://cdn.comuniame.com/i/57jj.png"></a> <a class="team" title="Real Sociedad" team-modal="match.local" href="/liga-bbva/teams/real-sociedad">Real Sociedad</a></div>
+                                             <div class="col-xs-2 score" ng-show="::match.localScore!==null"><a href="/liga-bbva/match/real-sociedad-sporting-11316">0 · 0</a></div>
+                                             <div class="col-xs-2 date ng-hide" ng-hide="::match.localScore!==null"><a href="/liga-bbva/match/real-sociedad-sporting-11316">29/8/15</a></div>
+                                             <div class="col-xs-5 visitor"><a class="team" title="Sporting" team-modal="match.visitor" href="/liga-bbva/teams/sporting">Sporting</a> <a class="team" title="Sporting" team-modal="match.visitor" href="/liga-bbva/teams/sporting"><img ng-src="https://cdn.comuniame.com/i/zwcg.png" src="https://cdn.comuniame.com/i/zwcg.png"></a></div>
+                                          </div>
+                                       </div>
+                                    </div>
+                                    <div class="clearfix" ng-show="::$index%2==1" ng-repeat-end=""></div>
+                                    <!-- end ngRepeat: match in ::team.matches -->
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+

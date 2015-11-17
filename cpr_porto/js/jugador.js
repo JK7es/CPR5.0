@@ -31,6 +31,9 @@ console.log("id_jugador: " + id);
 
 	var ratio2 	= 0; // Media
 
+	/////////////////////////
+	///// DATOS JUGADOR /////
+	/////////////////////////
 	$.ajax({
 		url: 		 'http://topera.esy.es/ws_resp_info_jugador.php',
 		type: 		 'GET',
@@ -49,7 +52,7 @@ console.log("id_jugador: " + id);
 			$("#lbCircuito").html(data[0].categoria2);
 			$("#lbPuntos").html(data[0].puntos);
 
-			$("#imgEq").attr("src", "http://topera.esy.es/img/teams/" + data[0].id_equipo + ".jpg");
+			$("#imgEq").attr("src", "http://topera.esy.es/img/teams/" + data[0].id_equipo + ".png");
 			$("#imgEq").attr("alt", data[0].equipo);
 			$("#imgEq").attr("onerror", "this.src='http://topera.esy.es/img/sin_foto_75x70.png'");
 

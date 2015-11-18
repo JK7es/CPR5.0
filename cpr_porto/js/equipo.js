@@ -47,8 +47,12 @@ console.log("temporada: " + temp);
 
 			$("#lnkTeam").attr("href", "http://topera.esy.es/img/teams/");
 			$("#lnkTeam").attr("title", data[0].equipo);
+
+			$("#lblcateq").html(data[0].categoria);
+			$("lblpistacristal").html(data[0].p_cristal);
+			$("lblpistamuro").html(data[0].p_muro);
 			
-			$("#imgTeam").attr("src", "http://topera.esy.es/img/teams/x_" + data[0].id_equipo + ".png");
+			$("#imgTeam").attr("src", "http://cantabriapadelrank.com/img/teams/eq_" + data[0].id_equipo + ".png");
 			$("#imgTeam").attr("onerror", "this.src='http://topera.esy.es/img/sin_foto_75x70.png'");
 			
 
@@ -67,6 +71,8 @@ console.log("temporada: " + temp);
 					temp	: temp
 				},
 				success: function(listado){
+
+					var i 			= 0;
 
 					while (i < listado.length){
 
@@ -91,6 +97,8 @@ console.log("temporada: " + temp);
 					temp	: temp
 				},
 				success: function(calendario){
+
+					var i 			= 0;
 
 console.log("calendario.length--> " + calendario.length); 
 					while (i < calendario.length){

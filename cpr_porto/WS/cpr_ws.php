@@ -1,9 +1,7 @@
 <?php
 /******************************************************************************/
 /******************************************************************************/
-/******************************************************************************/
 /********************** CONFIGURACION GENERAL *********************************/
-/******************************************************************************/
 /******************************************************************************/
 /******************************************************************************/
 
@@ -70,9 +68,161 @@
 		case 'infojgstat':
 			getEstadisticaJugador();
 			break;
+		// Información general de un equipo
+		case 'infoteam':
+			getInfoEquipo();
+			break;
+		// Información de los jugadores de un equipo
+		case 'infoteamjg':
+			getInfoEquipoJugadores();
+			break;
+		// Información del calendario de un equipo
+		case 'infoteamcal':
+			getInfoEquipoCalendario();
+			break;
 		default:
 			# code...
 			break;
+	}
+
+	// Obtiene el listado de los jugadores pertenecientes al equipo
+	function getInfoEquipoCalendario(){
+		// Se obtienen los parametros
+		$idjugador	= $_REQUEST['id'];		
+		$temporada  = $_REQUEST['temp'];
+
+		if ($temporada == null || $temporada == ""){
+			$temporada = "YEAR(CURDATE())";
+		}
+
+		//Se crea la consulta
+		$consulta 	=  "SELECT fecha, categoria, jornada, local, visitante, resultado,
+				   			   (SELECT equipo FROM equipos WHERE id_equipo=local AND temporada = c.temporada) AS nlocal,
+				   			   (SELECT equipo FROM equipos WHERE id_equipo=visitante  AND temporada = c.temporada) AS nvisitante
+				   		FROM calendario c
+				   		WHERE (local = " . $id . " OR visitante = " . $id .")
+				   		AND c.temporada = " . $temporada;
+
+		//echo $consulta . "\n";
+
+		$sql 		= mysql_query($consulta);
+
+		if (!$sql){
+			echo "La conexion no se logro-> " . mysql_error();
+			die;
+		}
+
+		//Se crea el array que va a tener los datos obtenidos por la DB
+		$datos 		= array();
+
+		while ($row = mysql_fetch_object($sql)){
+			$datos[] = array('fecha' 		=> $row->fecha, 
+							 'categoria' 	=> $row->categoria, 
+							 'jornada' 	  	=> $row->jornada,
+							 'local'  		=> $row->local,
+							 'visitante'  	=> $row->visitante,
+							 'resultado'  	=> $row->resultado,
+							 'nlocal'  		=> $row->nlocal,
+							 'nvisitante'  	=> $row->nvisitante
+							);
+		}
+
+		// Se muestra el ohjeto JSON
+		echo '' . json_encode($datos) . '';
+
+	}
+
+	// Obtiene el listado de los jugadores pertenecientes al equipo
+	function getInfoEquipoJugadores(){
+		// Se obtienen los parametros
+		$idjugador	= $_REQUEST['id'];		
+		$temporada  = $_REQUEST['temp'];
+
+		if ($temporada == null || $temporada == ""){
+			$temporada = "YEAR(CURDATE())";
+		}
+
+		//Se crea la consulta
+		$consulta 	= " SELECT jet.rank, jg.id_jugador, jg.jugador, jet.puntos
+						FROM jgeqtemp jet, jugadores jg
+						WHERE jet.id_jugador = jg.id_jugador
+						AND jet.temporada = " . $temporada;
+		$consulta = $consulta . " AND jet.id_equipo = " . $id;
+		$consulta = $consulta . " ORDER BY jet.puntos DESC";
+
+
+		//echo $consulta . "\n";
+
+		$sql 		= mysql_query($consulta);
+
+		if (!$sql){
+			echo "La conexion no se logro-> " . mysql_error();
+			die;
+		}
+
+
+		//Se crea el array que va a tener los datos obtenidos por la DB
+		$datos 		= array();
+
+		while ($row = mysql_fetch_object($sql)){
+			$datos[] = array('rank' 		=> $row->rank, 
+							 'id_jugador' 	=> $row->id_jugador, 
+							 'jugador' 	  	=> $row->jugador,
+							 'puntos'  		=> $row->puntos
+							);
+		}
+
+		// Se muestra el ohjeto JSON
+		echo '' . json_encode($datos) . '';
+
+	}
+
+	// Obtiene la información general de un equipo
+	function getInfoEquipo(){
+		// Se obtienen los parametros
+		$idjugador	= $_REQUEST['id'];		
+		$temporada  = $_REQUEST['temp'];
+
+		if ($temporada == null || $temporada == ""){
+			$temporada = "YEAR(CURDATE())";
+		}
+
+		//Se crea la consulta
+		$consulta 	= " SELECT DISTINCT eq.id_equipo, equipo, eq.temporada, cat.categoria, cl.id_club, cl.club, cl.p_cubiertas, cl.p_cristal, cl.p_muro
+						FROM categorias cat, equipos eq LEFT JOIN clubes cl ON eq.id_club = cl.id_club
+						WHERE eq.id_categoria = cat.id_categoria";
+		$consulta 	= $consulta . " AND id_equipo = " . $id ;
+		$consulta 	= $consulta . " AND eq.temporada = " . $temporada ;
+		$consulta 	= $consulta . " ORDER BY temporada DESC";
+
+		//echo $consulta . "\n";
+
+		$sql 		= mysql_query($consulta);
+
+		if (!$sql){
+			echo "La conexion no se logro-> " . mysql_error();
+			die;
+		}
+
+		//Se crea el array que va a tener los datos obtenidos por la DB
+		$datos 		= array();
+
+		// Se recorre los datos de la consulta y se insertan en el array
+		while ($row = mysql_fetch_object($sql)){
+			$datos[] = array('id_equipo'	=> $row->id_equipo, 
+	 						 'equipo'		=> $row->equipo,
+	 						 'temporada'	=> $row->temporada,							 
+							 'categoria'	=> $row->categoria,
+							 'id_club'		=> $row->id_club,
+							 'club'			=> $row->club,
+							 'p_cubiertas'	=> $row->p_cubiertas,
+							 'p_cristal'	=> $row->p_cristal,
+							 'p_muro'		=> $row->p_muro							 
+							);
+		}
+
+		// Se muestra el ohjeto JSON
+		echo '' . json_encode($datos) . '';
 	}
 
 	// Obtiene los partidos jugados en todos los torneos de un jugador.

@@ -26,21 +26,18 @@
                         <div class="col-md-4">
                            <div class="panel entity-info">
                               <div class="body">
-                                 <h1 class="ng-hide" id="lblTeam"></h1>
+                                 <h1 class="ng-hide" id="lblTeam">Equipo</h1>
                                  <a id="lnkTeam" class="team" title="" team-modal="team" href="">
-                                    <img id="imgTeam" src="">
+                                    <img id="imgTeam" src="http://topera.esy.es/img/sin_foto_75x70.png">
                                  </a>
                               </div>
                               <div class="social sticker">
-                                 <a class="fb" title="Compartir en Facebook" target="_blank" href="https://www.facebook.com/dialog/feed?app_id=919678774751592&amp;name=Comuniame&amp;description=Resultados%2C+jugadores+y+estad%C3%ADsticas+del+Sporting+en+%23Comuniame&amp;link=https://app.comunia.me/liga-bbva/teams/sporting&amp;redirect_uri=https://app.comunia.me/close_fb">
+                                 <a class="fb" title="Compartir en Facebook" target="_blank" href="https://www.facebook.com/">
                                     <i class="icon icon-facebook"></i>
                                  </a>
-                                 <a class="tw" title="Compartir en Twitter" target="_blank" href="https://twitter.com/intent/tweet?text=Resultados%2C+jugadores+y+estad%C3%ADsticas+del+Sporting+en+%23Comuniame%3A+https://app.comunia.me/liga-bbva/teams/sporting&amp;via=comuniame&amp;related=comuniame">
+                                 <a class="tw" title="Compartir en Twitter" target="_blank" href="https://twitter.com/">
                                     <i class="icon icon-twitter"></i>
-                                 </a>
-                                 <a class="whatsapp visible-xs" title="Compartir en Whatsapp" target="_blank" href="whatsapp://send?text=Resultados%2C+jugadores+y+estad%C3%ADsticas+del+Sporting+en+%23Comuniame%3A+https://app.comunia.me/liga-bbva/teams/sporting">
-                                    <i class="icon icon-whatsapp"></i>
-                                 </a>
+                                 </a>                                 
                               </div>
                            </div>
                            <div class="ad ad-rectangle" template="header-rectangle"></div>
@@ -50,23 +47,39 @@
                                  <h4>Información</h4>
                                  <div class="stats">
                                     <div class="row">
+                                       <div class="stat col-xs-12">
+                                          <span id="lblcateq"></span>
+                                          <h5>Categoría</h5>
+                                       </div>
+                                    </div>
+                                    <div class="row">   
                                        <div class="stat col-xs-6">
-                                          <span>700</span>
-                                          <h5>Puntos</h5>
+                                          <span id="lblnumjg">0</span>
+                                          <h5>Nº Jugadores</h5>
                                        </div>
                                        <div class="stat col-xs-6">
-                                          <span style="font-size:21px">56.370.000&nbsp;€</span>
-                                          <h5>Valor</h5>
+                                          <span style="font-size:21px" id="lblmedpts">0</span>
+                                          <h5>Media puntos</h5>
                                        </div>
                                     </div>
                                     <div class="row">
                                        <div class="stat col-xs-6">
-                                          <span>24</span>
-                                          <h5>Jugadores</h5>
+                                          <span id="lblmaxpts">0</span>
+                                          <h5>Max. Pts. Jugador</h5>
                                        </div>
                                        <div class="stat col-xs-6">
-                                          <span>4</span>
-                                          <h5>Lesionados y sancionados</h5>
+                                          <span id="lblminpts">0</span>
+                                          <h5>Mix. Pts. Jugador</h5>
+                                       </div>
+                                    </div>
+                                    <div class="row">
+                                       <div class="stat col-xs-6">
+                                          <span id="lblpistacristal">0</span>
+                                          <h5>Pistas Cristal</h5>
+                                       </div>
+                                       <div class="stat col-xs-6">
+                                          <span id="lblpistamuro">0</span>
+                                          <h5>Pistas Muro</h5>
                                        </div>
                                     </div>
                                  </div>

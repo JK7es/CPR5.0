@@ -243,12 +243,27 @@
 	width: auto;
 }
 
+.player-card .pic .player-icon {
+    width: 65px;
+    height: 100%;
+    margin: 0 10px 0 5px;
+    border-radius: 50%;
+    border: 3px solid #eceff1;
+    background-size: 60px;
+    background-repeat: no-repeat;
+    background-color: #eceff1;
+    background-position: center bottom;
+}
+.player-card .pic {
+    position: relative;
+    display: block;
+    float: left;
+    margin: 0 5px;
+}
 
-
-
-
-
-
+.pull-left {
+    float: left !important;
+}
 
 
 

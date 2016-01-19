@@ -1,0 +1,147 @@
+
+
+			<jg>	
+				<section class="page-header">
+					<div class="container">
+						<div class="row">
+							<div class="col-md-12">								
+								<ul class="breadcrumb">
+									<li><a href="#">Inicio</a></li>
+									<li class="active">Jugador</li>
+								</ul>
+							</div>								
+						</div>
+					</div>
+				</section>				
+
+				<div class="container">
+					<!-- ngView:  -->
+					<div id="view" ng-view="" autoscroll="">
+						<div class="player-detail" loader="loadingPromise" style="position: relative;">
+
+							<div class="row" ng-if="player">
+								
+								<div class="col-md-4">							
+									<div class="panel entity-info">		
+										<div id="donacion">
+			                              	<form id="frmpaypal" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+												<input type="hidden" name="cmd" value="_s-xclick">
+												<input type="hidden" name="hosted_button_id" value="NVY73DSYUW4C6">
+												<input type="image" src="https://www.paypalobjects.com/es_ES/ES/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="PayPal. La forma r�pida y segura de pagar en Internet.">
+												<img alt="" border="0" src="https://www.paypalobjects.com/es_ES/i/scr/pixel.gif" width="1" height="1">
+											</form>
+										</div>								
+										<div class="body">
+											<h2 id="lbName" class="ng-hide"></h2>
+											<table style="width:100%">
+												<tbody>
+													<tr>
+														<td>
+															<a id="lnkEq" class="team" title="Equipo" href="#">
+																<img id="imgEq" src="">
+															</a>
+														</td>
+														<td>
+															<img id="imgJg" class="player-icon ok" src="http://www.cpadelrank.com/img/players/x_0.png">
+														</td>														
+													</tr>
+												</tbody>
+											</table>											
+											<p></p>											
+										</div>										
+									</div>
+									
+									<div class="panel">
+										<div class="body">
+											<i class="fa fa-info-circle"></i>											
+											<h4>Información</h4>
+											<div class="stats">
+												<div class="row">
+													<div class="stat col-xs-6">
+														<span id="lbPuntos">0</span>
+														<h5>Puntos</h5>
+													</div>
+													<div class="stat col-xs-6">
+														<span id="lbCategoria">-ª Cat</span>
+														<h5>Categoría Liga</h5>
+													</div>
+												</div>
+												<div class="row">
+													<div class="stat col-xs-6">
+														<span id="lbCircuito">-ª Cat</span>
+														<h5>Categoría Circuito</h5>
+													</div>
+													<div class="stat col-xs-6">
+														<span id="lbVictorias">0 %</span>
+														<h5>Victorias</h5>
+													</div>
+												</div>
+												<div class="row">
+													<div class="stat col-xs-12">
+														<span id="lbEquipo"></span>
+														<h5>Equipo</h5>
+													</div>													
+												</div>
+												<div class="row">
+													<div class="stat col-xs-6">
+														<span id="lbLigaStats">0 %</span>
+														<h5>Victorias Liga</h5>
+													</div>
+													<div class="stat col-xs-6">
+														<span id="lbCircuitoStats">0 %</span>
+														<h5>Victorias Circuito</h5>
+													</div>
+												</div>
+												<div class="row">
+													<div class="stat col-xs-6">
+														<span id="lbCopaStats">0 %</span>
+														<h5>Victorias Copa</h5>
+													</div>
+													<div class="stat col-xs-6">
+														<span id="lbMasterStats">0 %</span>
+														<h5>Victorias Master</h5>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								
+								<div class="col-md-8">
+									
+									<div class="tabs">
+                                       <ul class="nav nav-tabs nav-justified">
+                                          <li class="active">
+                                             <a href="#evolucion" data-toggle="tab" class="text-center" aria-expanded="true">
+                                                 Evolución                                               
+                                             </a>
+                                          </li>
+                                          <li class="">
+                                             <a href="#partidos" data-toggle="tab" class="text-center" aria-expanded="false">
+                                                Partidos
+                                             </a>
+                                          </li>                                          
+                                       </ul>
+                                       <div class="tab-content">
+                                          <div id="evolucion" class="tab-pane active">
+                                             <i class="fa fa-line-chart"></i>
+											 <h4>Evolución en puntos</h4>
+                                             <div id="chart_div" ></div>  
+                                          </div>
+                                          <div id="partidos" class="tab-pane">
+                                          	 <i class="fa fa-calendar-o"></i>
+											 <h4>Partidos</h4>
+                                             <table id="matchlist" class="table points-list">
+												<tbody>
+													<td class='narrow day'>No hay datos</td>
+												</tbody>
+											 </table>
+                                          </div>                                          
+                                       	</div>                                       	
+									</div>
+								</div>								
+							</div>
+						</div>
+					</div>
+				</div>
+			</jg>	

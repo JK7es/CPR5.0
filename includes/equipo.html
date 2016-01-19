@@ -1,0 +1,151 @@
+         <eq>
+            <section class="page-header">
+               <div class="container">
+                  <div class="row">
+                     <div class="col-md-12">
+                        <ul class="breadcrumb">
+                           <li><a href="#">Inicio</a></li>
+                           <li class="active">Equipo</li>                           
+                        </ul>
+                     </div>
+                  </div>
+               </div>
+            </section>
+
+            <div class="container">
+
+               <div class="modal-body">
+                  <team-detail team="team" >
+                     <div class="team-detail">
+                        <div class="row">
+							
+                           <div class="col-md-4">
+                              <div class="panel entity-info">
+                              	<div id="donacion">
+	                              	<form id="frmpaypal" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+										<input type="hidden" name="cmd" value="_s-xclick">
+										<input type="hidden" name="hosted_button_id" value="NVY73DSYUW4C6">
+										<input type="image" src="https://www.paypalobjects.com/es_ES/ES/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="PayPal. La forma r�pida y segura de pagar en Internet.">
+										<img alt="" border="0" src="https://www.paypalobjects.com/es_ES/i/scr/pixel.gif" width="1" height="1">
+									</form>
+								</div>
+                                 <div class="body" id="teamHeader">                                    
+                                 </div>
+                              </div>
+                                                            
+                              <!-- info team -->
+                              <div class="panel">
+                                 <div class="body">
+                                 	<i class="fa fa-info-circle"></i>											
+									<h4>Información</h4>
+                                    <div class="stats">
+                                       <div class="row">
+                                          <div class="stat col-xs-6">
+                                             <span id="numjug">19</span>
+                                             <h5>N� Jugadores</h5>
+                                          </div>
+                                          <div class="stat col-xs-6">
+                                             <span style="font-size:21px" id="categ">3º GR-A</span>
+                                             <h5>Categoría</h5>
+                                          </div>
+                                       </div>
+                                       <div class="row">
+                                          <div class="stat col-xs-6">
+                                             <span id="maxpts">2150</span>
+                                             <h5>Máx. Puntos</h5>
+                                          </div>
+                                          <div class="stat col-xs-6">
+                                             <span id="minpts">250</span>
+                                             <h5>Min. Puntos</h5>
+                                          </div>
+                                       </div>
+                                       <div class="row">
+                                          <div class="stat col-xs-6">
+                                             <span id="medpts">1111</span>
+                                             <h5>Med. Puntos</h5>
+                                          </div>
+                                          <div class="stat col-xs-6">
+                                             <span></span>
+                                             <h5></h5>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+
+                           </div>
+                           <div class="col-md-8">
+                              <div class="panel">
+                                 <div class="body" loader="loadingPromise" style="position: relative;">
+                                    
+                                    <div class="tabs">
+                                       <ul class="nav nav-tabs nav-justified">
+                                          <li class="active">
+                                             <a href="#plantilla" data-toggle="tab" class="text-center" aria-expanded="true">
+                                                 Plantilla                                               
+                                             </a>
+                                          </li>
+                                          <li class="">
+                                             <a href="#partidos" data-toggle="tab" class="text-center" aria-expanded="false">
+                                                Partidos
+                                             </a>
+                                          </li>
+                                          <li class="">
+                                             <a href="#evolucion" data-toggle="tab" class="text-center" aria-expanded="false">
+                                                Evolución
+                                             </a>
+                                          </li>
+                                       </ul>
+                                       <div class="tab-content">
+                                          <div id="plantilla" class="tab-pane active">
+                                             <i class="fa fa-users"></i>
+											 <h4>Plantilla</h4>
+                                             
+                                             <players players="team.players">
+                                                <div class="players">
+                                                   <p class="text-center text-muted ng-hide"></p>
+                                                   <div class="row grid" id="rowjg">
+                                                   	<!-- AQUI SE INSERTA EL LISTADO -->                                                      
+                                                   </div>                                                   
+                                                </div>
+                                             </players>
+                                             
+                                          </div>
+                                          <div id="partidos" class="tab-pane">
+                                          	 <i class="fa fa-trophy"></i>
+											 <h4>Partidos</h4>
+                                             <p>Muy Pronto</p>
+<!--                                               
+                                             <div class="row clear" id="teamCal">
+                                                
+                                                <div class="col-sm-6">
+                                                   <div class="mini-match">
+                                                      <div class="row">
+                                                         <div class="col-xs-5 local"><a class="team" title="Barcelona" team-modal="match.local" href="/liga-bbva/teams/barcelona"><img ng-src="https://cdn.comuniame.com/i/m7jr.png" src="https://cdn.comuniame.com/i/m7jr.png"></a> <a class="team" title="Barcelona" team-modal="match.local" href="/liga-bbva/teams/barcelona">Barcelona</a></div>
+                                                         <div class="col-xs-2 score" ng-show="::match.localScore!==null"><a href="/liga-bbva/match/barcelona-villarreal-1242">3 · 0</a></div>
+                                                         <div class="col-xs-2 date ng-hide" ng-hide="::match.localScore!==null"><a href="/liga-bbva/match/barcelona-villarreal-1242">8/11/15</a></div>
+                                                         <div class="col-xs-5 visitor"><a class="team" title="Villarreal" team-modal="match.visitor" href="/liga-bbva/teams/villarreal">Villarreal</a> <a class="team" title="Villarreal" team-modal="match.visitor" href="/liga-bbva/teams/villarreal"><img ng-src="https://cdn.comuniame.com/i/z0ld.png" src="https://cdn.comuniame.com/i/z0ld.png"></a></div>
+                                                      </div>
+                                                   </div>
+                                                </div>
+                                                <div class="clearfix ng-hide"></div>
+											 </div>
+-->
+                                          </div>
+                                          <div id="evolucion" class="tab-pane">
+                                             <i class="fa fa-line-chart"></i>
+											 <h4>Evolución</h4>
+                                             <p>Muy Pronto</p>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>                              
+                           </div>
+                        </div>
+                        <!-- end ngIf: team -->
+                     </div>
+                  </team-detail>
+               </div>
+            </div>
+         </eq>

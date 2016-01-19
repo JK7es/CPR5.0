@@ -1,0 +1,7 @@
+User-agent: *
+Disallow: /js
+Disallow: /includes
+Disallow: /img
+Disallow: /img/players
+Disallow: /img/teams
+Disallow: /WS

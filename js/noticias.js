@@ -2,7 +2,7 @@ carga_noticias ();
 
 function carga_noticias (){
 
-console.log("carga_noticias");
+//console.log("carga_noticias");
 
 	$.ajax({
 		//url: "http://cantabriapadelrank.com/ws/ws_resp_agenda.php",
@@ -46,10 +46,13 @@ console.log("carga_noticias");
 			noticias += pie_noticia();								
 
 			$("#include").html(noticias);
-console.log("FIN carga_noticias");
+//console.log("FIN carga_noticias");
 		}, 
 		error: function(){
 			alert ("No se puede conectar con el servidor");
+		}, 
+		complete: function (){
+			$(".gifloading").css("display", "none");
 		}
 	});
 }
@@ -63,11 +66,6 @@ function cabecera_noticia(){
 		noticias += '								<ul class="breadcrumb">';
 		noticias += '									<li><a href="#">Home</a></li>';
 		noticias += '								</ul>';
-		noticias += '							</div>';
-		noticias += '						</div>';
-		noticias += '						<div class="row">';
-		noticias += '							<div class="col-md-12">';
-		noticias += '								<h2>Noticias</h2>';
 		noticias += '							</div>';
 		noticias += '						</div>';
 		noticias += '					</div>';

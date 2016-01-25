@@ -1,3 +1,4 @@
+
 $(function() {
 	
 	$( "#buscador" ).autocomplete({
@@ -63,8 +64,5 @@ $(function() {
 			$( this ).removeClass( "ui-corner-top" ).addClass( "ui-corner-all" );
 		}
 	});
-	
-	
-	//$("#atras").click(window.history.back());
-	
+		
 });

@@ -281,7 +281,23 @@
     font-size: 1.5rem;
 }
 
+.gifloading{
+    position: absolute;
+    left: 45%;
+    top: 10%;
+    z-index: 999;
+}
 
+
+.ulBuscadorResul{
+    display: none;
+    top: 57px;
+    left: 521px;
+    border: 1px solid rgb(0, 136, 204);
+    color: rgb(0, 136, 204);
+    font-size: 0.8em;
+    width: 150px;
+}
 /***********************/
 /******** 768px ********/
 /***********************/

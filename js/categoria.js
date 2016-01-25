@@ -116,7 +116,7 @@ $(function() {
 				html = html +   '<div class="no-xs-margin col-sm-12 col-md-6 col-lg-6 first">\n';
 				html = html +   '	<div class="col-md-6">\n';
 				html = html +   '		<a href="equipo.html?op=infoteam&id=' + id_equipo + '">\n';
-				html = html +   '			<img class="teampic" src="http://www.cpadelrank.com/img/teams/t_' + id_equipo + '.jpg" onerror="imgError(this);">\n';
+				html = html +   '			<img class="teampic" src="http://www.cpadelrank.com/img/teams/t_' + id_equipo + '.jpg" onerror="imgErrorTeam(this);">\n';
 				html = html +   '		</a>\n';
 				html = html +   '	</div>\n';
 				html = html +   '	<div class="col-md-6">\n';
@@ -171,6 +171,9 @@ $(function() {
 		error: function (jqXHR, textStatus, errorThrown){			
             console.log('errorThrown:');
             console.log(errorThrown);
+		}, 
+		complete: function (){
+			$(".gifloading").css("display", "none");
 		}	
 	});	
 });

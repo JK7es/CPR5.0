@@ -205,6 +205,9 @@ console.log(htmlCal);
 			});
 			
 console.log("fin lista calendario");
+		}, 
+		complete: function (){
+			$(".gifloading").css("display", "none");
 		}
 	});
 	

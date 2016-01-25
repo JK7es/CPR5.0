@@ -241,6 +241,9 @@ $(function() {
 		
 			$("#matchlist").html(html);
 //console.log("fin lista partidos");
+		}, 
+		complete: function (){
+			$(".gifloading").css("display", "none");
 		}
 	});
 	

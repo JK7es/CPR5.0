@@ -53,8 +53,7 @@
 		<link rel="stylesheet" href="css/custom.css">
         
         <!-- Head Libs -->
-        <script type="text/javascript" src="cordova.js"></script>
-		<script src="vendor/modernizr/modernizr.js"></script>
+        <script src="vendor/modernizr/modernizr.js"></script>
 
 		<!-- Google Charts -->
 		<script type="text/javascript" src="https://www.google.com/jsapi"></script>
@@ -108,6 +107,9 @@
 							<!--<li class="social-icons-linkedin"><a href="http://www.linkedin.com/" target="_blank" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>-->							
 						</ul>						
 						<div id="menu" class="header-nav-main header-nav-main-effect-1 header-nav-main-sub-effect-1 collapse"></div>
+						<div id="gifloading" class="gifloading">
+							<i class="fa fa-spinner fa-pulse fa-3x fa-fw margin-bottom"></i>
+						</div>
 					</div>
 				</div>
 			</header>
@@ -124,12 +126,28 @@
 					<div class="row">
 						<div class="footer-ribbon">
 							<span>Mantente en contacto</span>
-						</div>						
-						<div class="col-md-6">
+						</div>
+						<!-- <div class="col-md-3">
+							<h4>Latest Tweets</h4>
+							<div id="tweet" class="twitter" data-plugin-tweets="" data-plugin-options="{&quot;username&quot;: &quot;cpadelrank&quot;, &quot;count&quot;: 2}"></div>
+						</div> -->
+						<div class="col-md-4">
+							<div class="contact-details">
+								<h4>Contact Us</h4>
+								<ul class="contact">
+									<!--
+									<li><p><i class="fa fa-map-marker"></i> <strong>Address:</strong> 1234 Street Name, City Name, United States</p></li>
+									<li><p><i class="fa fa-phone"></i> <strong>Phone:</strong> (123) 456-789</p></li>
+									-->
+									<li><p><i class="fa fa-envelope"></i> <strong>Email:</strong> <a href="mailto:cpadelrank@gmail.com">cpadelrank@gmail.com</a></p></li>
+								</ul>
+							</div>
+						</div>
+						<div class="col-md-2">
 							<h4>Síguenos</h4>
 							<ul class="social-icons">
 								<!--<li class="social-icons-facebook"><a href="http://www.facebook.com/" target="_blank" title="Facebook"><i class="fa fa-facebook"></i></a></li>-->
-								<li class="social-icons-twitter"><a href="http://www.twitter.com/CPadelRank" target="_blank" title="Twitter"><i class="fa fa-twitter"></i></a></li>								
+								<li class="social-icons-twitter"><a href="http://www.twitter.com/CPadelRank" target="_blank" title="Twitter"><i class="fa fa-twitter"></i></a></li>	
 							</ul>
 						</div>
 					</div>
@@ -162,9 +180,9 @@
 		
 		
 		
-		<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-  		<script src="//code.jquery.com/jquery-1.10.2.js"></script>
-  		<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+		<link rel="stylesheet" href="vendor/jquery/jquery-ui.css">
+  		<script src="vendor/jquery/jquery-1.10.2.js"></script>
+  		<script src="vendor/jquery/jquery-ui.js"></script>
 
 
 		<!-- Theme Base, Components and Settings -->

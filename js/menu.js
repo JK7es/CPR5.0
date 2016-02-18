@@ -53,6 +53,7 @@ mnu_p1 += '                                    <li class="dropdown">\n';
 mnu_p1 += '										<a class="dropdown-toggle" href="#">Utilidades</a>\n';
 mnu_p1 += '										<ul class="dropdown-menu">\n';
 mnu_p1 += '											<li><a href="calculadora.html">Calculador</a></li>\n';
+mnu_p1 += '											<li><a href="calendario.html">Calendario</a></li>\n';
 mnu_p1 += '											<li><a href="mapa.html">Mapa de Pistas</a></li>\n';
 mnu_p1 += '<!--\n';
 mnu_p1 += '											<li><a href="page-team.html">Alineador</a></li>\n';
@@ -491,4 +492,13 @@ function imgError(image) {
     image.onerror = "";
     image.src = "http://www.cpadelrank.com/img/players/x_0.png";
     return true;
+}
+
+function formatFecha(fecha){
+
+	if (fecha != null) {
+		var valFecha = fecha.split("-");
+
+		return valFecha[2] + "/" +  valFecha[1] ;
+	}
 }

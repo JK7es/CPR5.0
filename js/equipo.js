@@ -151,54 +151,66 @@ $(function() {
 					var id_eq_vis	= "";
 					var nom_eq_vis	= "";
 					var fec_previs 	= "";
-					
+					var resultado	= "";
 					
 
-console.log("calendario.length--> " + calendario.length); 
-					while (i < calendario.length){
-						
+					htmlCal +=  '						<table class="calendario">\n';
+					htmlCal +=  '							<tbody>\n';
+					
+					while (i < calendario.length){						
 						jornada 	= calendario[i].jornada;
 						fecha		= calendario[i].fecha;
-						if (fecha == null) fecha = "";
+						fec_previs 	= calendario[i].fecha_prevista;
+						
+						if (fecha != null){ 
+							fecha = formatFecha(fecha);						
+						}
+						else{							
+							fecha = fec_previs;							
+						}
+
 						lugar		= calendario[i].lugar;
 						tanda		= calendario[i].tanda;
 						id_eq_loc	= calendario[i].id_eq_local;
 						nom_eq_loc	= calendario[i].nom_eq_local;
 						id_eq_vis	= calendario[i].id_eq_visitante;
-						nom_eq_vis	= calendario[i].nom_eq_visitante;
-						fec_previs 	= calendario[i].fecha_prevista;
-						
+						nom_eq_vis	= calendario[i].nom_eq_visitante;						
+						resultado	= calendario[i].resultado;
 
-						htmlCal +=	'<div class="col-sm-6">\n';
-						htmlCal +=  '	<div class="mini-match">\n';
-						htmlCal +=  '	   <div class="row">\n';
-						htmlCal +=  '			<div class="col-xs-5 local">\n';
-						htmlCal +=  '				<a class="team" title="' + nom_eq_loc + '" team-modal="match.local" href="equipo.html?op=infoteam&id=' + id_eq_loc + '">\n';
-						htmlCal +=  '               	<img src="http://www.cpadelrank.com/img/teams/t_' + id_eq_loc + '.jpg">\n';
-						htmlCal +=  '				</a>\n';
-						htmlCal +=  '				<a class="team" title="' + nom_eq_loc + '" href="equipo.html?op=infoteam&id=' + id_eq_loc + '">' + nom_eq_loc + '</a>\n';
-						htmlCal +=  '			</div>\n';
-						htmlCal +=  '			<div class="col-xs-2 score">\n';
-						htmlCal +=  lugar;
-						htmlCal +=  '			</div>\n';
-						htmlCal +=  '			<div class="col-xs-2 date ng-hide">\n';
-						htmlCal +=  fecha;
-						htmlCal +=  '			</div>\n';
-						htmlCal +=  '			<div class="col-xs-5 visitor">\n';
-						htmlCal +=  '				<a class="team" title="' + nom_eq_vis + '" href="equipo.html?op=infoteam&id=' + id_eq_vis + '">' + nom_eq_vis + '</a>\n';
-						htmlCal +=  '				<a class="team" title="' + nom_eq_vis + '" href="equipo.html?op=infoteam&id=' + id_eq_vis + '">\n';
-						htmlCal +=  '					<img src="http://www.cpadelrank.com/img/teams/t_' + id_eq_vis + '.jpg">\n';
-						htmlCal +=  '				</a>\n';
-						htmlCal +=  '			</div>\n';
-						htmlCal +=  '		</div>\n';
-						htmlCal +=  '	</div>\n';
-						htmlCal +=  '</div>\n';
-						htmlCal +=  '<div class="clearfix ng-hide"></div>\n';
-						
+						if (resultado == null) resultado = "";
+
+
+						htmlCal +=  '								<tr class="mini-match won">\n';
+						htmlCal +=  '									<td class="narrow day">J' + (i + 1) + '</td>\n';
+						htmlCal +=  '									<td class="narrow">\n';
+						htmlCal +=  '										<a class="team" title="' + nom_eq_loc + '" team-modal="match.local" href="equipo.html?op=infoteam&id=' + id_eq_loc + '">\n';
+						htmlCal +=  '											<img src="http://www.cpadelrank.com/img/teams/t_' + id_eq_loc + '.jpg">\n';
+						htmlCal +=  '										</a>\n';
+						htmlCal +=  '									</td>\n';
+						htmlCal +=  '									<td class="local">\n';
+						htmlCal +=  '										<a class="team" title="' + nom_eq_loc + '" team-modal="match.local" href="equipo.html?op=infoteam&id=' + id_eq_loc + '">' + nom_eq_loc + '</a>\n';
+						htmlCal +=  '									</td>\n';
+						htmlCal +=  '									<td class="score">' + resultado +'</td>\n';
+						htmlCal +=  '									<td class="date ng-hide" >\n';
+						htmlCal +=  '										<div>' + fecha + '</div>\n';
+						htmlCal +=  '									</td>\n';
+						htmlCal +=  '									<td class="visitor">\n';
+						htmlCal +=  '										<a class="team" title="' + nom_eq_vis + '" team-modal="match.visitor" href="equipo.html?op=infoteam&id=' + id_eq_vis + '">' + nom_eq_vis + '</a>\n';
+						htmlCal +=  '									</td>\n';
+						htmlCal +=  '									<td class="narrow">\n';
+						htmlCal +=  '										<a class="team" title="' + nom_eq_vis + '" team-modal="match.visitor" href="equipo.html?op=infoteam&id=' + id_eq_vis + '">\n';
+						htmlCal +=  '											<img src="http://www.cpadelrank.com/img/teams/t_' + id_eq_vis + '.jpg">\n';
+						htmlCal +=  '										</a>\n';
+						htmlCal +=  '									</td>\n';
+						htmlCal +=  '								</tr>\n';
+		
 						i++;
 					}
+
+					htmlCal +=  '							</tbody>\n';
+					htmlCal +=  '						</table>\n';
 					
-console.log(htmlCal);
+//console.log(htmlCal);
 					
 					$("#teamCal").html(htmlCal);
 				}

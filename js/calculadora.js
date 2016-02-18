@@ -1,8 +1,8 @@
 console.log("Carga calculadora.js");
 
-
 $(function() {
-	console.log("empieza");
+	
+	$(".gifloading").css("display", "none");
 	
 	$.ajax({
 	    url : "includes/calculadora.html",

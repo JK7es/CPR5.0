@@ -1,12 +1,12 @@
 <!doctype html>
-<html><!-- InstanceBegin template="/Templates/CPR5.dwt" codeOutsideHTMLIsLocked="false" -->
+<html>
     <head>
         <!-- Basic -->
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta charset="utf-8">
-        <!-- InstanceBeginEditable name="doctitle" -->
+        
         <title>C.P.R. - Cantabria Padel Rank</title>
-        <!-- InstanceEndEditable -->
+        	
         <meta name="keywords" content="Padel Rank Liga Cabtabra Circuito" />
 		<meta name="description" content="C.P.R. - Cantabria Padel Rank">
 		<meta name="author" content="Topera">
@@ -15,11 +15,9 @@
 		<link rel="shortcut icon" href="img/favicon2.ico" type="image/x-icon" />
 		<link rel="apple-touch-icon" href="img/favicon_apple.png">
         
-<!-- InstanceBeginEditable name="INCLUDES" -->
+		<!-- TemplateBeginEditable name="head" -->
 		<!-- MENU FILE -->
-				
-<!-- InstanceEndEditable -->
-
+		<!-- TemplateEndEditable -->
 		<!-- Mobile Metas -->
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -49,6 +47,8 @@
         <!-- Skin CSS -->
 		<link rel="stylesheet" href="css/skins/default.css">
 
+		<!-- Tablesorter CSS -->
+		<link rel="stylesheet" href="vendor/jquery.tablesorter/themes/blue/style.css" type="text/css" id="" media="print, projection, screen" />
 		<!-- Theme Custom CSS -->
 		<link rel="stylesheet" href="css/custom.css">
         
@@ -57,16 +57,22 @@
 
 		<!-- Google Charts -->
 		<script type="text/javascript" src="https://www.google.com/jsapi"></script>
-   
+		
+		<!-- TemplateBeginEditable name="GoogleCharts" -->
+		
+		<!-- TemplateEndEditable -->
+		
     </head>
 
 	<body>
+
 		<div class="body">
 			<header id="header" data-plugin-options='{"stickyEnabled": true, "stickyEnableOnBoxed": true, "stickyEnableOnMobile": true, "stickyStartAt": 57, "stickySetTop": "-57px", "stickyChangeLogo": true}'>
 				<div class="header-body">
 					<div class="header-container container">
 						<div class="header-row">
 							<div class="header-column">
+                            
 								<div class="header-logo">
 									<a href="index.html">
 										<img alt="CPadelRank" width="111" height="54" data-sticky-width="82" data-sticky-height="40" data-sticky-top="33" src="img/logo.png">
@@ -76,8 +82,11 @@
 							
 							<div class="header-column header-column-valign-top">
 								<div class="header-search">
-									<input type="search" id="buscador" class="form-control" placeholder="Buscar..." data-role="tagsinput">
+								  <input type="search" id="buscador" class="form-control" placeholder="Buscar..." data-role="tagsinput">
 								</div>
+                                <ul class="header-social-icons social-icons hidden-xs">
+                                    <li class="social-icons-twitter"><a href="http://www.twitter.com/CPadelRank" target="_blank" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+                                </ul>
 <!-- 								
 								<nav class="header-nav-top">
 									<ul class="nav nav-pills">
@@ -103,22 +112,24 @@
 						</button>
 						<ul class="header-social-icons social-icons hidden-xs">
 							<!--<li class="social-icons-facebook"><a href="http://www.facebook.com/" target="_blank" title="Facebook"><i class="fa fa-facebook"></i></a></li>-->
-							<li class="social-icons-twitter"><a href="http://www.twitter.com/CPadelRank" target="_blank" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+                            <li class="social-icons-twitter"><a href="javascript:history.back()"><i class="fa fa-history"></i></a></li>
+							<!--<li class="social-icons-twitter"><a href="http://www.twitter.com/CPadelRank" target="_blank" title="Twitter"><i class="fa fa-twitter"></i></a></li>-->
+							
 							<!--<li class="social-icons-linkedin"><a href="http://www.linkedin.com/" target="_blank" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>-->							
 						</ul>						
 						<div id="menu" class="header-nav-main header-nav-main-effect-1 header-nav-main-sub-effect-1 collapse"></div>
 						<div id="gifloading" class="gifloading">
 							<i class="fa fa-spinner fa-pulse fa-3x fa-fw margin-bottom"></i>
-						</div>
+						</div>                        
 					</div>
 				</div>
 			</header>
 
 			<div role="main" class="main">
-							 
-				<div id="include"></div>
-                    
-			</div>
+			<!-- TemplateBeginEditable name="body" -->
+			  <div id="include"></div>
+			<!-- TemplateEndEditable -->
+            </div>
 			<footer id="footer">
 				<div class="container">
 					<div class="row">
@@ -149,13 +160,6 @@
 							</ul>
 						</div>
 					</div>
-
-
-
-
-
-
-
 				</div>				
 			</footer>
 		</div>
@@ -169,23 +173,23 @@
 		<!--<![endif]-->
 		
 		<script src="vendor/bootstrap/bootstrap.js"></script>
-		<script src="vendor/common/common.js"></script>
-		<script src="vendor/jquery.validation/jquery.validation.js"></script>
-		<script src="vendor/jquery.stellar/jquery.stellar.js"></script>
-		<script src="vendor/jquery.easy-pie-chart/jquery.easy-pie-chart.js"></script>
-		<script src="vendor/jquery.gmap/jquery.gmap.js"></script>
-		<script src="vendor/jquery.lazyload/jquery.lazyload.js"></script>
-		<script src="vendor/isotope/jquery.isotope.js"></script>
-		<script src="vendor/owlcarousel/owl.carousel.js"></script>
-		<script src="vendor/jflickrfeed/jflickrfeed.js"></script>
-		<script src="vendor/magnific-popup/jquery.magnific-popup.js"></script>
-		<script src="vendor/vide/vide.js"></script> 
+        <script src="vendor/common/common.js"></script>
+        <script src="vendor/jquery.validation/jquery.validation.js"></script>
+        <script src="vendor/jquery.stellar/jquery.stellar.js"></script>
+        <script src="vendor/jquery.easy-pie-chart/jquery.easy-pie-chart.js"></script>
+        <script src="vendor/jquery.gmap/jquery.gmap.js"></script>
+        <script src="vendor/jquery.lazyload/jquery.lazyload.js"></script>
+        <script src="vendor/isotope/jquery.isotope.js"></script>
+        <script src="vendor/owlcarousel/owl.carousel.js"></script>
+        <script src="vendor/jflickrfeed/jflickrfeed.js"></script>
+        <script src="vendor/magnific-popup/jquery.magnific-popup.js"></script>
+        <script src="vendor/vide/vide.js"></script> 
 		
 		
 		
 		<link rel="stylesheet" href="vendor/jquery/jquery-ui.css">
-  		<script src="vendor/jquery/jquery-1.10.2.js"></script>
-  		<script src="vendor/jquery/jquery-ui.js"></script>
+		<script src="vendor/jquery/jquery-1.10.2.js"></script>
+        <script src="vendor/jquery/jquery-ui.js"></script>
 
 
 		<!-- Theme Base, Components and Settings -->
@@ -193,20 +197,16 @@
 		
 		<!-- Specific Page Vendor and Views -->
 		<script src="vendor/rs-plugin/js/jquery.themepunch.tools.min.js"></script>
-		<script src="vendor/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
-		<script src="vendor/circle-flip-slideshow/js/jquery.flipshow.js"></script>
-		<script src="js/views/view.home.js"></script>
+        <script src="vendor/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
+        <script src="vendor/circle-flip-slideshow/js/jquery.flipshow.js"></script>
+        <script src="js/views/view.home.js"></script>
 		
 		<!-- Theme Custom -->
-		<!-- <script src="js/custom.js"></script> -->
+		<script src="vendor/jquery.tablesorter/jquery.tablesorter.min.js"></script>
         
-<!-- InstanceBeginEditable name="JS Insercion Includes" -->
-		<script src="js/custom.js"></script>
-        <script src="js/menu.js"></script>
-   		<script src="js/noticias.js"></script>
-   		
-<!-- InstanceEndEditable --> 
-		
+		<!-- TemplateBeginEditable name="JavaScript" -->
+        
+        <!-- TemplateEndEditable -->
 		<!-- Theme Initialization Files -->
 		<script src="js/theme.init.js"></script>
 				
@@ -223,4 +223,4 @@
 		</script>
 
 	</body>
-<!-- InstanceEnd --></html>
+</html>

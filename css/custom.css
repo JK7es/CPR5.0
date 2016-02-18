@@ -216,6 +216,7 @@
     height: 20px;
     text-align: left;
     border-right: 1px solid #ddd;
+    border-left: 1px solid #ddd;
 }
 .points-list .match .team img {
     max-height: 18px;
@@ -288,7 +289,6 @@
     z-index: 999;
 }
 
-
 .ulBuscadorResul{
     display: none;
     top: 57px;
@@ -298,6 +298,55 @@
     font-size: 0.8em;
     width: 150px;
 }
+
+/** INI Calendario Equipo **/
+table {
+    width: 100%;
+    max-width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+.calendario{
+    margin: -15px;
+    font-size: 0.5em;
+}
+.calendario tbody tr {
+    transition: all .25s linear;
+}
+.mini-match {
+    margin-bottom: 5px;
+    padding: 0 7px;
+}
+.calendario td, .calendario th {
+    border-top: 1px solid #ddd;
+    padding: 4px;
+    line-height: 1.42857143;
+    text-align: center;
+}
+td.narrow {
+    width: 38px;
+    padding: 4px!important;
+}
+
+td.narrow {
+    width: 38px;
+    padding: 4px!important;
+}
+.mini-match .local {
+    text-align: left;
+}
+.mini-match .score {
+    padding: 0;
+}
+.mini-match .visitor {
+    text-align: right;
+}
+
+.calendario td img{
+    width: 40px;
+}
+/** FIN Calendario Equipo **/
+
 /***********************/
 /******** 768px ********/
 /***********************/

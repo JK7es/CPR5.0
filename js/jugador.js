@@ -188,12 +188,24 @@ $(function() {
 //console.log("pts--> " + pts);
 
 
-//console.log("data2.length--> " + data2.length); 
+//console.log("data2.length--> " + data2.length);
+					
+					html = html +   "<thead>";
+					html = html +   "<tr>";
+					html = html +   "	<th>Fecha</th>"; 
+					html = html +   "	<th>Torneo</th>"; 
+					html = html +   "	<th>Pareja</th>";
+					html = html +   "	<th>Rivales</th>";
+					html = html +   "	<th>Puntos</th>"; 
+					html = html +   "</tr>";
+					html = html +   "</thead>"; 
+					html = html +   "<tbody>";					
+					
 					while (i < data2.length){
 
 						// Creamos las filas de los encuentros
 						html = html +   "<tr>";
-						html = html +   "	<td class='narrow day'>" + eval(i + 1) + "</td>";
+						//html = html +   "	<td class='narrow day'>" + eval(i + 1) + "</td>";
 
 						html = html +   "	<td class='narrow day'>" + data2[i].fecha + "</td>";
 						html = html +   "	<td class='narrow day'><img src='" + getTipoTorneo(data2[i].torneo) + "' ></td>";
@@ -205,7 +217,7 @@ $(function() {
 						html = html +   "		<a href='jugador.html?op=infojg&id=" + data2[i].id_rival2 +"' data-ajax='false'>" + data2[i].rival2 + "</a>";
 						html = html +   "	</td>";
 						html = html +   "	<td class='narrow day'>" + data2[i].puntos + "</td>";
-						html = html +   "	<td class='narrow day'>" + data2[i].puntos + "</td>";
+						//html = html +   "	<td class='narrow day'>" + data2[i].puntos + "</td>";
 						html = html +   "</tr>";
 
 						// Inicio Calculo estadistico
@@ -232,7 +244,7 @@ $(function() {
 
 						i++;
 					}
-
+					html = html +   "</tbody>";
 					var str = JSON.stringify(voltearArray(chartDat));
 					//google.setOnLoadCallback(drawChart);
 					drawChart(str, pts_max, pts_min);
@@ -244,6 +256,8 @@ $(function() {
 		}, 
 		complete: function (){
 			$(".gifloading").css("display", "none");
+			
+			$("#matchlist").tablesorter();
 		}
 	});
 	
